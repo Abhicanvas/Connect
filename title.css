@@ -1,0 +1,29 @@
+body
+{
+    background: #3E61DC;
+}
+.logo
+{
+    display: block;
+    position: fixed;
+    top: 45%;
+    left: 47%;
+    transform: translate(-50%);
+}
+.logo img
+{
+    width: 350px;
+}
+.next
+{
+    position: fixed;
+    right: 15%;
+    bottom: 10%;
+    text-decoration: none;
+    background-color: white;
+    padding: 10px 20px;
+    width: fit-content;
+    font-size: 2rem;
+    border-radius: 2rem;
+    text-align: center;
+}
