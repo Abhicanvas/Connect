@@ -7,8 +7,6 @@ window.onload = () => {
         busList.style.display = "none"; 
     });
     addAnn();
-    addAnn1();
-    addStmary();
     addMookanoor();
     hideTime();
 };
@@ -273,10 +271,14 @@ window.onload = () => {
               busContainer.appendChild(busList);
           });
     }
+    const addFisat=()=>
+    {
+        addAnn1();
+        addStmary();
+        hideTime();
+    }
     const hideTime = () => { 
        
-          
-        
         let time = getTime(); // Make sure getTime() returns a valid time string
 
         const date = new Date('1970-01-01T' + time + ':00'); // Create date object
@@ -330,7 +332,8 @@ window.onload = () => {
                     busLists[index].style.display = "grid";  // Show the specific bus-list div
                 } else {
                     // Hide the bus if it doesn't match
-                    busLists[index].style.display = "none";  // Hide non-matching bus-list divs
+                    busLists[index].style.display = "none"; 
+                     // Hide non-matching bus-list divs
                 }
             });
         });
