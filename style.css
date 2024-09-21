@@ -32,9 +32,11 @@ section
 .search .buss
 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 10px;
 }
+
+
 .buss input
 {
     width: 200px;
@@ -46,7 +48,6 @@ section
     color: white;
     width: 200px;
     height: 40px;
-    margin-top: 50px;
     border: none;
     border-radius: 3px;
 }
@@ -138,5 +139,12 @@ section
 .time p
 {
     margin: 0;
+    text-align: center;
+}
+#default
+{
+    background-color: #F8F8F8;
+    color: grey;
+    width: 80%;
     text-align: center;
 }
