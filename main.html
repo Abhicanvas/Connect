@@ -19,7 +19,12 @@
                         <p>Time</p>
                         <input type="time" id="input-time" class="input-time" placeholder ="9:00 am">
                     </div>
-                    <button type="button" onclick="hideTime()">Search</button>
+                    <p>Choose your destination</p>
+                    <div class="buttons">
+                        <button type="button" onclick="hideTime()">Angamaly</button>
+                        <button type="button" onclick="addAnn1(),hideTime()">FISAT</button>
+                    </div>
+                    
                 </form>
         </div>
         <!-- <div class="search">
@@ -242,6 +247,9 @@
        <div id="St" class="Buses"></div>
        <div id="Ann1" class="Buses"></div>
        <div id="Ann" class="Buses"></div>
+       <div id="default">
+        <h1>There are no Busses in current time</h1>
+       </div>
     </section> 
 </body>
 </html>
