@@ -2,14 +2,15 @@ var currentHour
 window.onload = () => {
     var currentTime = new Date();  // Get the current date and time
      currentHour = currentTime.getHours();
-    const busLists = document.querySelectorAll('.bus-list');
+    const busLists = document.querySelectorAll('.Buses');
     busLists.forEach((busList) => {
         busList.style.display = "none"; 
     });
-    addAnn();
-    addMookanoor();
-    hideTime();
 };
+ const directM=()=>
+ {
+
+ }
     const getTime=() =>
     { 
         const inputValue = document.getElementById("input-time").value;
@@ -73,12 +74,8 @@ window.onload = () => {
                 "4:08 pm", 
             ];
             const totime=[
-                "6:58 am",
-                "8:02 am",
-                "10:02 am",
-                "12:10 pm",
-                "2:35 pm",
-                "5:50 pm"
+              '7:47 am', '8:50 am',
+              '10:45 am', '4:43 pm'
             ];
             
               const busContainer = document.getElementById('Ann1');
@@ -259,7 +256,7 @@ window.onload = () => {
                       <h5>Angamally</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
-                  <button>Show Direction >></button>
+                  <button onclick='window.location.href="https://maps.app.goo.gl/PAgZ3tvfZpH6Xb7G6"'>Show Direction >></button>
                   <div class="bus-name">
                       <h5>Bus :</h5>
                   </div>
@@ -271,11 +268,126 @@ window.onload = () => {
               busContainer.appendChild(busList);
           });
     }
+    let addfisat=false;
+    let addangamaly=false;
     const addFisat=()=>
     {
-        addAnn1();
-        addStmary();
+        if(addfisat==false)
+        {
+            addAnn1();
+            addStmary();
+            addfisat=true;
+        }
         hideTime();
+        hideAngamaly();
+    }
+    const hideFisat=()=>
+    {
+        let hide=document.querySelectorAll('.fit')
+        hide.forEach((divs)=>
+        {
+            divs.style.display='none';
+        });
+    }
+    const hideAngamaly=()=>
+    {
+        let hide=document.querySelectorAll('.ang')
+        hide.forEach((divs)=>
+        {
+            divs.style.display='none';
+        });
+    }
+    const addAngamaly=()=>
+    {
+        
+        if(addangamaly==false)
+        {
+            addAve();
+            addAnn();
+            addMookanoor();
+            addPandipally();
+            addangamaly=true;
+        }
+        hideTime();
+        hideFisat();
+    }
+    const addAve=()=>
+    {
+        const time = [
+            "7:00 am",
+            "8:20 am",
+            "9:55 am",
+            "10:25 am",
+            "1:50 pm",
+            "4:45 pm",
+            "5:35 pm",
+            "5:50 pm"
+          ];
+          const totime=  [
+            '7:35 am', '8:55 am',
+            '10:30 am', '11:00 am',
+            '2:25 pm', '5:20 pm',
+            '6:10 pm', '6:25 pm'
+          ];
+          const busContainer = document.getElementById('Ann');
+    
+          time.forEach((ti, index) => {
+              const toTime = totime[index]; 
+              const busList = document.createElement('div');
+              busList.classList.add('bus-list');
+              
+              busList.innerHTML = `
+                  <img src="img/Frame 35058.png" alt="">
+                  <div class="from">
+                      <h5>FISAT AVE</h5>
+                      <h6>${ti}</h6>
+                  </div>
+                  <div class="to">
+                      <h5>Angamally</h5>
+                      <h6>${toTime}</h6> <!-- Display the corresponding time -->
+                  </div>
+                  <button>Show Direction >></button>
+              `;
+              
+              busContainer.appendChild(busList);
+          }); 
+    }
+    const addPandipally=()=>
+    {
+       const time= [
+            '7:15 am', '8:30 am',
+            '9:10 am', '10:00 am',
+            '2:20 pm', '3:35 pm',
+            '6:45 pm'
+          ];
+         const totime=  [
+            '7:50 am', '9:05 am',
+            '9:45 am', '10:35 am',
+            '2:55 pm', '4:10 pm',
+            '7:20 pm'
+          ];
+          const busContainer = document.getElementById('Ann');
+    
+          time.forEach((ti, index) => {
+              const toTime = totime[index]; 
+              const busList = document.createElement('div');
+              busList.classList.add('bus-list');
+              
+              busList.innerHTML = `
+                  <img src="img/Frame 35058.png" alt="">
+                  <div class="from">
+                      <h5>Pandipally</h5>
+                      <h6>${ti}</h6>
+                  </div>
+                  <div class="to">
+                      <h5>Angamally</h5>
+                      <h6>${toTime}</h6> <!-- Display the corresponding time -->
+                  </div>
+                  <button>Show Direction >></button>
+              `;
+              
+              busContainer.appendChild(busList);
+          }); 
     }
     const hideTime = () => { 
        
@@ -298,7 +410,8 @@ window.onload = () => {
         }
         
         console.log(suf);
-
+        const def=document.getElementById('default');
+        def.style.display='block';
         console.log("Hour: ", hour); // Debugging the hour
         const buses=document.querySelectorAll('.Buses');
         // Select corresponding bus-list divs
@@ -333,6 +446,7 @@ window.onload = () => {
                 } else {
                     // Hide the bus if it doesn't match
                     busLists[index].style.display = "none"; 
+                    def.style.display='block';
                      // Hide non-matching bus-list divs
                 }
             });
