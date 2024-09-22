@@ -52,12 +52,8 @@ section
 {
     border: solid black 2px;
 }
-.search button:hover
-{
-  transition: 0.5s;
-  color: #3E61DC;
-  background-color: white;
-}
+
+
 .buss input
 {
     width: 200px;
@@ -65,12 +61,18 @@ section
 }
 .buss button
 {
-    background-color: #3E61DC;
-    color: white;
+    background-color: white;
+    color: #3E61DC;
+    border: #3E61DC solid 1px;
     width: 200px;
     height: 40px;
-    border: none;
     border-radius: 3px;
+}
+.search button:hover
+{
+  transition: 0.5s;
+  color: white;
+  background-color: #3E61DC;
 }
 .Buses
 {
@@ -163,6 +165,17 @@ section
     margin: 0;
     text-align: center;
 }
+#Mookkannur
+{
+    align-items: flex-start;
+}
+.default
+{
+    background-color: #F8F8F8;
+    color: grey;
+    width: 100%;
+    padding: 20px;
+}
 #default
 {
     background-color: #F8F8F8;
@@ -176,6 +189,10 @@ section
     .bus-list {
         grid-template-columns: repeat( 8,50px);
         grid-template-rows: repeat(5,60px);
+    }
+    .default
+    {
+        width: 70%;
     }
     .bus-list .time
     {
@@ -209,6 +226,11 @@ section
 }
 @media (max-width:656px)
 {
+    .default
+    {
+        text-align: center;
+        width: fit-content;
+    }
     .search
     {
         padding: 20px;
