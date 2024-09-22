@@ -308,9 +308,9 @@ window.onload = () => {
         if(addangamaly==false)
         {
             addAve();
-            addAnn();
-            addMookanoor();
             addPandipally();
+            addAnn();
+            addMookanoor(); 
             addangamaly=true;
         }
         hideTime();
