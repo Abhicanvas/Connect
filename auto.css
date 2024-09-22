@@ -17,8 +17,8 @@ section
     background-color: #3E61DC;
     color: white;
     padding: 10px 20px;
-    width: fit-content;
-    font-size: 2rem;
+    width: 200px;
+    font-size: 1.5rem;
     border-radius: 2rem;
     text-align: center;
 }
@@ -79,4 +79,11 @@ section
     height: 40px;
     border: none;
     border-radius: 3px;
+}
+@media(max-width:336px)
+{
+    .next
+    {
+        font-size: 1.1rem;
+    }
 }
