@@ -14,9 +14,11 @@ body
 {
     width: 350px;
 }
+
 .next
 {
     position: fixed;
+    font-family: "Inter", sans-serif;
     right: 15%;
     bottom: 10%;
     text-decoration: none;
@@ -30,6 +32,7 @@ body
 .auto
 {
     position: fixed;
+    font-family: "Inter", sans-serif;
     right: 15%;
     bottom: 20%;
     text-decoration: none;
@@ -39,4 +42,36 @@ body
     font-size: 2rem;
     border-radius: 2rem;
     text-align: center;
+}
+@media(max-width:440px)
+{
+    .logo img
+    {
+        width: 250px;
+    }
+    .auto
+    {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+    }
+    .next{
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.8rem;
+        width: 70%;
+    }
+}
+@media(max-width:350px)
+{
+    .auto
+    {
+        font-size: 1.2rem;
+    }
+    .next
+    {
+        font-size: 1.2rem;
+    }
 }
