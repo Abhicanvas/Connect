@@ -8,6 +8,8 @@ window.onload = () => {
     });
     const def=document.getElementById('default');
     def.style.display='none';
+    const mookkannurSection = document.querySelector('.default');
+    mookkannurSection.style.display = 'none';
 };
  const directM=()=>
  {
@@ -105,8 +107,6 @@ window.onload = () => {
                             <p>ANNA MOL</p>
                           </div>
                   `;
-                  
-                  busContainer.appendChild(busList);
               });
         }
     const addAnn=()=>
@@ -268,6 +268,9 @@ window.onload = () => {
               `;
               
               busContainer.appendChild(busList);
+              busContainer.appendChild(busList);
+              const mookkannurSection = document.querySelector('.default');
+              mookkannurSection.style.display = 'block';
           });
     }
     let addfisat=false;
