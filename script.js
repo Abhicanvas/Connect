@@ -34,10 +34,10 @@ window.onload = () => {
     const addStmary=()=>
     {
         const times = [
-            "9:10 am", "12:45 pm", "3:50 pm","7:00 pm"
+            "9:10 am", "12:45 pm", "3:50 pm","6:55 pm"
         ];
         const totime=[
-            "9:40 am", "1:15 pm", "4:20 pm", "7:30 pm"
+            "9:40 am", "1:15 pm", "4:20 pm", "7:25 pm"
         ];
         
           const busContainer = document.getElementById('St');
