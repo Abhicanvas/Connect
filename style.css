@@ -24,6 +24,19 @@ section
     padding: 20px 0 20px 100px;
     justify-content:space-evenly ;
 }
+.auto
+{
+    position: relative;
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+    background-color: #3E61DC;
+    color: white;
+    padding: 10px 20px;
+    width: fit-content;
+    font-size: 2rem;
+    border-radius: 2rem;
+    text-align: center;
+}
 .search h4
 {
     font-size: 20px;
