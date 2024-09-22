@@ -55,7 +55,7 @@ window.onload = () => {
                       <h5>Fisat Ave</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
-                  <button>Show Direction >></button>
+                  <button onclick= 'window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Show Direction >></button>
                   <div class="bus-name">
                       <h5>Bus :</h5>
                   </div>
@@ -97,7 +97,7 @@ window.onload = () => {
                           <h5>FISAT</h5>
                           <h6>${toTime}</h6> <!-- Display the corresponding time -->
                       </div>
-                      <button>Show Direction >></button>
+                      <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Show Direction >></button>
                       <div class="bus-name">
                           <h5>Bus :</h5>
                       </div>
@@ -145,7 +145,7 @@ window.onload = () => {
                           <h5>Angamally</h5>
                           <h6>${toTime}</h6> <!-- Display the corresponding time -->
                       </div>
-                      <button>Show Direction >></button>
+                      <button onclick='window.location.href="https://maps.app.goo.gl/FeXjDmxGGYVxCbri6"'>Show Direction >></button>
                       <div class="bus-name">
                           <h5>Bus :</h5>
                       </div>
@@ -251,14 +251,14 @@ window.onload = () => {
               busList.innerHTML = `
                   <img src="img/Frame 35058.png" alt="">
                   <div class="from">
-                      <h5>Mookkannur</h5>
+                      <h5>Mookkannoor</h5>
                       <h6>${ti}</h6>
                   </div>
                   <div class="to">
                       <h5>Angamally</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
-                  <button onclick='window.location.href="https://maps.app.goo.gl/PAgZ3tvfZpH6Xb7G6"'>Show Direction >></button>
+                  <button onclick='window.location.href="https://maps.app.goo.gl/27DhF2VcKtfUa6cF6"'>Show Direction >></button>
                   <div class="bus-name">
                       <h5>Bus :</h5>
                   </div>
@@ -348,7 +348,7 @@ window.onload = () => {
                       <h5>Angamally</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
-                  <button>Show Direction >></button>
+                  <button onclick='window.open("https://maps.app.goo.gl/aHfCB312w5FR7GzU9", "_blank")'>Show Direction >></button>
               `;
               
               busContainer.appendChild(busList);
@@ -385,7 +385,7 @@ window.onload = () => {
                       <h5>Angamally</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
-                  <button>Show Direction >></button>
+                  <button onclick= 'window.open("https://maps.app.goo.gl/p52B8maKgvCrw4ZF7","blank")'>Show Direction >></button>
               `;
               
               busContainer.appendChild(busList);
