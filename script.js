@@ -6,6 +6,8 @@ window.onload = () => {
     busLists.forEach((busList) => {
         busList.style.display = "none"; 
     });
+    const def=document.getElementById('default');
+    def.style.display='none';
 };
  const directM=()=>
  {
