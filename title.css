@@ -45,6 +45,10 @@ body
 }
 @media(max-width:440px)
 {
+    .logo
+    {
+        top: 30%;
+    }
     .logo img
     {
         width: 250px;
