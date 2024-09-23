@@ -6,15 +6,26 @@ body
 {
     display: block;
     position: fixed;
-    top: 45%;
+    top: 35%;
     left: 47%;
     transform: translate(-50%);
 }
-.logo img
+.logo .connect
 {
     width: 350px;
 }
-
+.logo .ieee
+{
+    width: 300px;
+    margin-bottom: 20px;
+}
+.logo
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 40px;
+}
 .next
 {
     position: fixed;
@@ -43,13 +54,25 @@ body
     border-radius: 2rem;
     text-align: center;
 }
+@media(max-width:766px)
+{
+    .logo
+    {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 @media(max-width:440px)
 {
     .logo
     {
         top: 30%;
     }
-    .logo img
+    .logo .connect
+    {
+        width: 250px;
+    }
+    .logo .ieee
     {
         width: 250px;
     }
