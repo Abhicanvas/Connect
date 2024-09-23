@@ -16,8 +16,7 @@ body
 }
 .logo .ieee
 {
-    width: 300px;
-    margin-bottom: 20px;
+    width: 350px;
 }
 .logo
 {
@@ -59,7 +58,7 @@ body
     .logo
     {
         flex-direction: column;
-        gap: 20px;
+        gap: 40px;
     }
 }
 @media(max-width:440px)
