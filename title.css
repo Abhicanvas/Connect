@@ -59,7 +59,7 @@ body
     .logo
     {
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
     }
 }
 @media(max-width:440px)
