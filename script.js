@@ -22,7 +22,7 @@ window.onload = () => {
     }
     const getapm=(hour) =>
     {
-        if(hour>12)
+        if(hour>=12)
             {
                 return 'pm';
             }
@@ -107,6 +107,7 @@ window.onload = () => {
                             <p>ANNA MOL</p>
                           </div>
                   `;
+                  busContainer.appendChild(busList);
               });
         }
     const addAnn=()=>
@@ -436,7 +437,16 @@ window.onload = () => {
             }
             fromTimeElements.forEach((element, index) => {
                 const timeText = element.textContent.trim();  // Get time text from h6
-                const firstLetter = timeText.charAt(0);  // Get the first letter of time (hour)
+                let firstLetter;
+                if(hour>9)
+                {
+                     firstLetter = timeText.substring(0,2);
+                    console.log(firstLetter);
+                }
+                else
+                {
+                     firstLetter = timeText.charAt(0);  // Get the first letter of time (hour)
+                }
                 const ampm = timeText.slice(-2);  // Get the AM/PM suffix from the end of the string
         
                 // Debugging to check what is being compared
