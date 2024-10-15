@@ -276,6 +276,7 @@ window.onload = () => {
     }
     let addfisat=false;
     let addangamaly=false;
+    let addmookanoor=false;
     const addFisat=()=>
     {
         if(addfisat==false)
@@ -286,6 +287,7 @@ window.onload = () => {
         }
         hideTime();
         hideAngamaly();
+        hideMookannor();
     }
     const hideFisat=()=>
     {
@@ -303,6 +305,25 @@ window.onload = () => {
             divs.style.display='none';
         });
     }
+    const hideMookannor=()=>
+    {
+        let hide=document.querySelectorAll('.mok')
+        hide.forEach((divs)=>
+        {
+            divs.style.display='none';
+        });
+    }
+    const Mookannoor=()=>
+    {
+        if(addmookanoor==false)
+        {
+            toMookannor();
+            addmookanoor=true;
+        }
+        hideTime();
+        hideFisat();
+        hideAngamaly();
+    }
     const addAngamaly=()=>
     {
         
@@ -316,6 +337,7 @@ window.onload = () => {
         }
         hideTime();
         hideFisat();
+        hideMookannor();
     }
     const addAve=()=>
     {
@@ -353,6 +375,33 @@ window.onload = () => {
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
                   <button onclick='window.open("https://maps.app.goo.gl/aHfCB312w5FR7GzU9", "_blank")'>Show Direction >></button>
+              `;
+              
+              busContainer.appendChild(busList);
+          }); 
+    }
+    const toMookannor=()=>
+    {
+        const time=[ "6:35 am", "7:12 am", "7:18 am", "7:29 am", "7:48 am", "8:07 am", "8:11 am",   "8:27 am", "8:47 am", "8:55 am", "9:00 am", "9:22 am", "9:38 am", "9:52 am",   "10:07 am", "10:23 am", "10:42 am", "10:53 am", "11:12 am", "11:32 am",   "11:57 am", "12:13 pm", "12:29 pm", "12:57 pm", "1:19 pm", "1:32 pm",   "1:47 pm", "2:00 pm", "2:20 pm", "2:30 pm", "2:50 pm", "3:10 pm", "3:20 pm",   "3:30 pm", "4:00 pm", "16:20", "4:30 pm", "4:47 pm", "4:54 pm", "5:15 pm",   "5:20 pm", "5:34 pm", "5:40 pm", "6:00 pm", "6:05 pm", "6:20 pm", "6:32 pm",   "6:43 pm", "7:13 pm", "7:32 pm", "8:00 pm", "8:25 pm"];
+        const totime=[ '07:05 am', '07:42 am', '07:48 am', '07:59 am', '08:18 am', '08:37 am', '08:41 am', '08:57 am',  '09:17 am', '09:25 am', '09:30 am', '09:52 am', '10:08 am', '10:22 am', '10:37 am', '10:53 am',  '11:12 am', '11:23 am', '11:42 am', '12:02 pm', '12:27 pm', '12:43 pm', '12:59 pm', '01:27 pm',  '01:49 pm', '02:02 pm', '02:17 pm', '02:30 pm', '02:50 pm', '03:00 pm', '03:20 pm', '03:40 pm',  '03:50 pm', '04:00 pm', '04:30 pm', '16:50', '05:00 pm', '05:17 pm', '05:24 pm', '05:45 pm',  '05:50 pm', '06:04 pm', '06:10 pm', '06:30 pm', '06:35 pm', '06:50 pm', '07:02 pm', '07:13 pm',  '07:43 pm', '08:02 pm', '08:30 pm', '08:55 pm'];
+        const busContainer = document.getElementById('Mok');
+    
+          time.forEach((ti, index) => {
+              const toTime = totime[index]; 
+              const busList = document.createElement('div');
+              busList.classList.add('bus-list');
+              
+              busList.innerHTML = `
+                  <img src="img/Frame 35058.png" alt="">
+                  <div class="from">
+                      <h5>Angamally</h5>
+                      <h6>${ti}</h6>
+                  </div>
+                  <div class="to">
+                      <h5>Mookanoor</h5>
+                      <h6>${toTime}</h6> <!-- Display the corresponding time -->
+                  </div>
+                  <button onclick= 'window.open("https://maps.app.goo.gl/p52B8maKgvCrw4ZF7","blank")'>Show Direction >></button>
               `;
               
               busContainer.appendChild(busList);
