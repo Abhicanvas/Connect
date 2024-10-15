@@ -54,10 +54,10 @@ window.onload = () => {
                       <h6>${ti}</h6>
                   </div>
                   <div class="to">
-                      <h5>Fisat Ave</h5>
+                      <h5>Fisat</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
-                  <button onclick= 'window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Show Direction >></button>
+                  <button onclick= 'window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Stop Direction >></button>
                   <div class="bus-name">
                       <h5>Bus :</h5>
                   </div>
@@ -99,7 +99,7 @@ window.onload = () => {
                           <h5>FISAT</h5>
                           <h6>${toTime}</h6> <!-- Display the corresponding time -->
                       </div>
-                      <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Show Direction >></button>
+                      <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Stop Direction >></button>
                       <div class="bus-name">
                           <h5>Bus :</h5>
                       </div>
@@ -146,7 +146,7 @@ window.onload = () => {
                           <h5>Angamally</h5>
                           <h6>${toTime}</h6> <!-- Display the corresponding time -->
                       </div>
-                      <button onclick='window.location.href="https://maps.app.goo.gl/FeXjDmxGGYVxCbri6"'>Show Direction >></button>
+                      <button onclick='window.location.href="https://maps.app.goo.gl/FeXjDmxGGYVxCbri6"'>Stop Direction >></button>
                       <div class="bus-name">
                           <h5>Bus :</h5>
                       </div>
@@ -185,67 +185,11 @@ window.onload = () => {
             "6:30 pm", "6:45 pm", "7:00 pm", "7:10 pm", "7:20 pm",
             "7:30 pm", "7:45 pm", "8:00 pm"
         ];
-        const busNames = [
-            "ST.SAVIERS",
-            "MATHA SUPER",
-            "CHERUPUSHPAM",
-            "MATHA EXPRESS",
-            "MATHA DELUXE",
-            "ST.MARYS",
-            "BROTHERS",
-            "KSRTC",
-            "SLEEHA",
-            "WHEEL KING",
-            "MATHA EXPRESS",
-            "DIVINE DELUXE",
-            "HERO DELUXE",
-            "MARY MATHA",
-            "CHERUPUSHPAM",
-            "ST.MARYS",
-            "SLEEHA",
-            "HILL KING",
-            "MATHA EXPRESS",
-            "MATHA DELUXE",
-            "MATHA SUPER",
-            "JESUS",
-            "BROTHERS",
-            "FRIENDS",
-            "HERO DELUXE",
-            "MATHA EXPRESS",
-            "MARY MATHA",
-            "SLEEHA",
-            "ST.MARYS",
-            "HILL KING",
-            "ST.MARYS",
-            "CHERUPUSHPAM",
-            "MATHA DELUXE",
-            "ST.SAVIERS",
-            "FRIENDS",
-            "MARY MATHA",
-            "JESUS",
-            "BROTHERS",
-            "HERO DELUXE",
-            "MATHA EXPRESS",
-            "HILL KING",
-            "SLEEHA",
-            "ST.MARYS",
-            "HILL KING",
-            "MATHA EXPRESS",
-            "HILL KING",
-            "SLEEHA",
-            "FRIENDS",
-            "CHERUPUSHPAM",
-            "BROTHERS",
-            "DIVINE DELUXE",
-            "JESUS",
-            "MATHA SUPER"
-        ];
         
           const busContainer = document.getElementById('Mookkannur');
 
           times.forEach((ti, index) => {
               const toTime = totime[index]; 
-              const busname=busNames[index];
               const busList = document.createElement('div');
               busList.classList.add('bus-list');
               
@@ -259,19 +203,10 @@ window.onload = () => {
                       <h5>Angamally</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
-                  <button onclick='window.location.href="https://maps.app.goo.gl/27DhF2VcKtfUa6cF6"'>Show Direction >></button>
-                  <div class="bus-name">
-                      <h5>Bus :</h5>
-                  </div>
-                      <div class="time">
-                        <p>${busname}</p>
-                      </div>
+                  <button onclick='window.location.href="https://maps.app.goo.gl/27DhF2VcKtfUa6cF6"'>Stop Direction >></button>
               `;
               
               busContainer.appendChild(busList);
-              busContainer.appendChild(busList);
-              const mookkannurSection = document.querySelector('.default');
-              mookkannurSection.style.display = 'block';
           });
     }
     let addfisat=false;
@@ -326,7 +261,6 @@ window.onload = () => {
     }
     const addAngamaly=()=>
     {
-        
         if(addangamaly==false)
         {
             addAve();
@@ -374,7 +308,7 @@ window.onload = () => {
                       <h5>Angamally</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
-                  <button onclick='window.open("https://maps.app.goo.gl/aHfCB312w5FR7GzU9", "_blank")'>Show Direction >></button>
+                  <button onclick='window.open("https://maps.app.goo.gl/aHfCB312w5FR7GzU9", "_blank")'>Stop Direction >></button>
               `;
               
               busContainer.appendChild(busList);
@@ -401,7 +335,7 @@ window.onload = () => {
                       <h5>Mookanoor</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
-                  <button onclick= 'window.open("https://maps.app.goo.gl/p52B8maKgvCrw4ZF7","blank")'>Show Direction >></button>
+                  <button onclick= 'window.open("https://maps.app.goo.gl/qn7uvrG3CNs6uC6L9","blank")'>Stop Direction >></button>
               `;
               
               busContainer.appendChild(busList);
@@ -438,7 +372,7 @@ window.onload = () => {
                       <h5>Angamally</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
-                  <button onclick= 'window.open("https://maps.app.goo.gl/p52B8maKgvCrw4ZF7","blank")'>Show Direction >></button>
+                  <button onclick= 'window.open("https://maps.app.goo.gl/p52B8maKgvCrw4ZF7","blank")'>Stop Direction >></button>
               `;
               
               busContainer.appendChild(busList);
