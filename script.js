@@ -1,7 +1,5 @@
 var currentHour
 window.onload = () => {
-    var currentTime = new Date();  // Get the current date and time
-     currentHour = currentTime.getHours();
     const busLists = document.querySelectorAll('.Buses');
     busLists.forEach((busList) => {
         busList.style.display = "none"; 
@@ -220,7 +218,7 @@ window.onload = () => {
             addStmary();
             addfisat=true;
         }
-        hideTime();
+        addFit();
         hideAngamaly();
         hideMookannor();
     }
@@ -396,8 +394,7 @@ window.onload = () => {
         if(hour>12)
         {
             hour=hour-12;
-        }
-        
+        } 
         console.log(suf);
         const def=document.getElementById('default');
         def.style.display='block';
@@ -449,10 +446,78 @@ window.onload = () => {
                 }
             });
         });
-        // Loop through each .from h6 and find the one that matches the current hour
-        
+        // Loop through each .from h6 and find the one that matches the current hour       
     };
 
+    const addFit = () => { 
+       
+        let time = getTime(); // Make sure getTime() returns a valid time string
+
+        const date = new Date('1970-01-01T' + time + ':00'); // Create date object
+        let hour = date.getHours(); // Get the hour from the time
+        if(hour)
+        {
+            console.log("not working")
+        }
+        else
+        {
+            hour=currentHour;
+        }
+        const suf=getapm(hour);
+        if(hour>12)
+        {
+            hour=hour-12;
+        }
+        
+        console.log(suf);
+        const def=document.getElementById('default');
+        def.style.display='block';
+        console.log("Hour: ", hour); // Debugging the hour
+        const buses=document.querySelectorAll('.Buses');
+        // Select corresponding bus-list divs
+        buses.forEach((bus) => {
+            bus.style.display = "none"; 
+        });
+        // Check if the number of fromTimeElements and busLists are equal
+        // Hide all bus lists initially
+        buses.forEach((bus, ind) => {
+            // Select all from time h6 elements inside the current bus
+            const fromTimeElements = bus.querySelectorAll('.from h6'); 
+            // Select all bus-list elements inside the current bus
+            const busLists = bus.querySelectorAll('.bus-list');
+            if (fromTimeElements.length !== busLists.length) {
+                console.error("Mismatch between fromTime elements and bus-list elements");
+                return;
+            }
+            fromTimeElements.forEach((element, index) => {
+                const timeText = element.textContent.trim();  // Get time text from h6
+                let firstLetter;
+                if(hour>9)
+                {
+                     firstLetter = timeText.substring(0,2);
+                    console.log(firstLetter);
+                }
+                else
+                {
+                     firstLetter = timeText.charAt(0);  // Get the first letter of time (hour)
+                }
+                const ampm = timeText.slice(-2);  // Get the AM/PM suffix from the end of the string
+        
+                // Debugging to check what is being compared
+                console.log(`Comparing firstLetter: ${firstLetter} with hour: ${hour} and AM/PM: ${ampm} with suffix: ${suf}`);
+        
+                // Show the matching bus-list and hide others
+                    console.log(`Showing bus list at index ${index}`); // Debugging
+                    console.log(ind); // Debugging index of bus
+                    buses[ind].style.display = "flex";  // Show the matching bus container
+                    busLists[index].style.display = "grid";  // Show the specific bus-list div
+                    // Hide the bus if it doesn't match
+                     // Hide non-matching bus-list divs
+                
+            });
+        });
+        // Loop through each .from h6 and find the one that matches the current hour       
+    };
         function hideDiv() {
             // Get all elements with the class "myDiv"
             const divs = document.getElementsByClassName("bus-list");
