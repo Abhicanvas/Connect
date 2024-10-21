@@ -396,7 +396,9 @@ window.onload = () => {
             hour=hour-12;
         } 
         console.log(suf);
+        let flag=0;
         const def=document.getElementById('default');
+        let defaultText="<h1>The  bus timings provided may vary according to the traffic conditions</h1>";
         def.style.display='block';
         console.log("Hour: ", hour); // Debugging the hour
         const buses=document.querySelectorAll('.Buses');
@@ -438,6 +440,7 @@ window.onload = () => {
                     console.log(ind); // Debugging index of bus
                     buses[ind].style.display = "flex";  // Show the matching bus container
                     busLists[index].style.display = "grid";  // Show the specific bus-list div
+                    flag=1
                 } else {
                     // Hide the bus if it doesn't match
                     busLists[index].style.display = "none"; 
@@ -446,6 +449,14 @@ window.onload = () => {
                 }
             });
         });
+        if(flag==0)
+            {
+                def.innerHTML="<h1>There are no other busses in given time</h1>"
+            }
+            else
+            {
+                def.innerHTML=defaultText;
+            }
         // Loop through each .from h6 and find the one that matches the current hour       
     };
 
