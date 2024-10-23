@@ -141,7 +141,7 @@ window.onload = () => {
                           <h6>${ti}</h6>
                       </div>
                       <div class="to">
-                          <h5>Angamally</h5>
+                          <h5>Angamaly</h5>
                           <h6>${toTime}</h6> <!-- Display the corresponding time -->
                       </div>
                       <button onclick='window.location.href="https://maps.app.goo.gl/FeXjDmxGGYVxCbri6"'>Stop Direction >></button>
@@ -198,7 +198,7 @@ window.onload = () => {
                       <h6>${ti}</h6>
                   </div>
                   <div class="to">
-                      <h5>Angamally</h5>
+                      <h5>Angamaly</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
                   <button onclick='window.location.href="https://maps.app.goo.gl/27DhF2VcKtfUa6cF6"'>Stop Direction >></button>
@@ -303,7 +303,7 @@ window.onload = () => {
                       <h6>${ti}</h6>
                   </div>
                   <div class="to">
-                      <h5>Angamally</h5>
+                      <h5>Angamaly</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
                   <button onclick='window.open("https://maps.app.goo.gl/aHfCB312w5FR7GzU9", "_blank")'>Stop Direction >></button>
@@ -326,7 +326,7 @@ window.onload = () => {
               busList.innerHTML = `
                   <img src="img/Frame 35058.png" alt="">
                   <div class="from">
-                      <h5>Angamally</h5>
+                      <h5>Angamaly</h5>
                       <h6>${ti}</h6>
                   </div>
                   <div class="to">
@@ -367,7 +367,7 @@ window.onload = () => {
                       <h6>${ti}</h6>
                   </div>
                   <div class="to">
-                      <h5>Angamally</h5>
+                      <h5>Angamaly</h5>
                       <h6>${toTime}</h6> <!-- Display the corresponding time -->
                   </div>
                   <button onclick= 'window.open("https://maps.app.goo.gl/p52B8maKgvCrw4ZF7","blank")'>Stop Direction >></button>
