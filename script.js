@@ -9,6 +9,10 @@ window.onload = () => {
     const mookkannurSection = document.querySelector('.default');
     mookkannurSection.style.display = 'none';
 };
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+}
  const directM=()=>
  {
 
