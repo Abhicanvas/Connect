@@ -10,6 +10,43 @@ section
     gap: 50px;
     margin: 30px;
 }
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #F8F8F8;
+    background-color: #3E61DC;
+    color: white;
+}
+
+.navbar .logo {
+    background-color: white;
+    height: 100%;
+    padding: 0px 10px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 15px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
 .heading img
 {
     width: 200px;
