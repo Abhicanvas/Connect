@@ -47,6 +47,27 @@ section
     background-color: #575757;
     border-radius: 5px;
 }
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar .menu-icon {
+        display: block;
+    }
+}
+
 .heading img
 {
     width: 200px;
