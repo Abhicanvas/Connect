@@ -8,42 +8,108 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo"> <img src="img/Frame 3.svg" alt=""></div>
-        <ul>
-            <li><a href="#about" onclick="navigateTo('about')">About</a></li>
-            <li><a href="#contact" onclick="navigateTo('contact')">Contact</a></li>
-            <li><a href="#feedback" onclick="navigateTo('feedback')">Feedback</a></li>
-        </ul>
+        <nav class="navbar">
+            <div class="logo"> <a href="index.html"><img src="img/Frame 3.svg" alt=""></a></div>
+            <div class="menu-icon" id="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about" onclick="navigateTo('about')">About</a></li>
+                <li><a href="#contact" onclick="navigateTo('contact')">Contact</a></li>
+                <li><a href="#feedback" onclick="navigateTo('feedback')">Feedback</a></li>
+            </ul>
+        </nav>
     </nav>
     <section>
         <div class="about">
             <div class="Head">
-                 <h1>Welcome to Connect – Your Ultimate Travel Companion!</h1>
-                <h2>Powered by IEEE FISAT SB</h2>
+                <div class="content">
+                    <h1>Welcome to Connect – Your Ultimate Travel Companion!</h1>
+                    <h2>Powered by IEEE FISAT SB</h2>
+                </div>
+                <div>
+                    <img src="img/connect_mobile.png" alt="">
+                </div>
             </div>
             <div class="Body">
-                <p>
-                At Connect, we understand the importance of reliable transportation for students and visitors. That’s why we’ve created a platform that makes commuting to FISAT easier than ever. Whether you’re a student, faculty, or a visitor approaching the college for the first time, Connect is here to guide you every step of the way.
-                
-                What Connect Offers
-                🚍 Nearby Bus Timings Made Simple
-                Stay informed about the latest bus timings from Mookkannur and two other nearby stops. With our user-friendly platform, you can easily plan your journey and avoid unnecessary waiting.
-                
-                🚗 Auto Assistance When You Need It
-                Can’t find an auto on time? No problem! Connect helps you reach out to available drivers nearby, ensuring you never miss your schedule.
-                
-     
-                Who Is It For?
-                College Students: Simplify your daily commute with accurate bus timings and auto assistance.
-                Visitors to FISAT: Get directions and transportation details to ensure a smooth visit.
-                Anyone Traveling to FISAT: Whether you’re a local or new to the area, Connect has got you covered.
-                Why Choose Connect?
-                Tailored for FISAT Commuters: Focused on the routes and stops most relevant to students and visitors.
-                Reliable and Updated: Regular updates to ensure you always have accurate information.
-                Convenient and Easy to Use: Accessible anytime, anywhere – because your time matters.</p>
+                <div class="section">
+                    <h3>About Connect</h3>
+                    <p>At Connect, we understand the importance of reliable transportation for students and visitors. That’s why we’ve created a platform that makes commuting to FISAT easier than ever. Whether you’re a student, faculty, or a visitor approaching the college for the first time, Connect is here to guide you every step of the way.</p>
+                </div>
+                <div class="section">
+                    <h3>What Connect Offers</h3>
+                    <div class="feature">
+                        <img src="img/icons8-bus-96.png" alt="Bus Icon">
+                        <div>
+                            <h4>Nearby Bus Timings Made Simple</h4>
+                            <p>Stay informed about the latest bus timings from Mookkannur and two other nearby stops. With our user-friendly platform, you can easily plan your journey and avoid unnecessary waiting.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <img src="img/auto.svg" alt="Auto Icon">
+                        <div>
+                            <h4>Auto Assistance When You Need It</h4>
+                            <p>Can’t find an auto on time? No problem! Connect helps you reach out to available drivers nearby, ensuring you never miss your schedule.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3>Who Is It For?</h3>
+                    <ul>
+                        <li><strong>College Students:</strong> Simplify your daily commute with accurate bus timings and auto assistance.</li>
+                        <li><strong>Visitors to FISAT:</strong> Get directions and transportation details to ensure a smooth visit.</li>
+                        <li><strong>Anyone Traveling to FISAT:</strong> Whether you’re a local or new to the area, Connect has got you covered.</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h3>Why Choose Connect?</h3>
+                    <ul>
+                        <li><strong>Tailored for FISAT Commuters:</strong> Focused on the routes and stops most relevant to students and visitors.</li>
+                        <li><strong>Reliable and Updated:</strong> Regular updates to ensure you always have accurate information.</li>
+                        <li><strong>Convenient and Easy to Use:</strong> Accessible anytime, anywhere – because your time matters.</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h3>Meet the Creators</h3>
+                    <div class="creators">
+                        <p><strong>Sabdesh:</strong> <a href="https://www.linkedin.com/in/sabdesh" target="_blank">LinkedIn</a></p>
+                        <p><strong>Godwin:</strong> <a href="https://www.linkedin.com/in/godwin" target="_blank">LinkedIn</a></p>
+                        <p><strong>Abhinav:</strong> <a href="https://www.linkedin.com/in/abhinav" target="_blank">LinkedIn</a></p>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3>Feedback</h3>
+                    <p>We value your feedback! Please let us know how we can improve Connect.</p>
+                    <form class="feedback-form">
+                        <textarea placeholder="Your feedback..." rows="5" required></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
             </div>
-            
         </div>
     </section>
+    <script>
+        // JavaScript to toggle the dropdown menu
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+    
+        menuIcon.addEventListener('click', () => {
+            // Toggle the 'active' class on the nav-links
+            navLinks.classList.toggle('active');
+    
+            // Optional: Toggle a class on the menu icon for animation
+            menuIcon.classList.toggle('open');
+        });
+    
+        // Close the dropdown menu when clicking outside of it
+        document.addEventListener('click', (event) => {
+            if (!menuIcon.contains(event.target) && !navLinks.contains(event.target)) {
+                navLinks.classList.remove('active');
+                menuIcon.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 </html>

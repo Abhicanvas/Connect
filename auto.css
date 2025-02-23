@@ -7,6 +7,61 @@ section
     gap: 50px;
     margin: 30px;
 }
+.navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#3E61DC ;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo img {
+    height: 40px;
+}
+.navbar .logo {
+    background-color: white;
+    height: 100%;
+    padding: 5px 10px 0 10px;
+    border-radius: 3rem;
+}
+.navbar .menu-icon {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.navbar .menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ecf0f1;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+    display: flex;
+}
+
+.navbar .nav-links li {
+    margin-left: 20px;
+    margin-right: 40px;
+}
+
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+    color: #3498db;
+}
 .next
 {
     position: relative;
@@ -79,6 +134,59 @@ section
     height: 40px;
     border: none;
     border-radius: 3px;
+}
+@media(max-width:768px)
+{
+    .navbar .menu-icon {
+        display: flex; /* Show hamburger menu */
+    }
+
+    .navbar .nav-links {
+        display: none; /* Hide nav links by default */
+        flex-direction: column;
+        width: 100%;
+        background-color: #2c3e50;
+        position: absolute;
+        top: 60px; /* Adjust based on navbar height */
+        left: 0;
+        padding: 10px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .navbar .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    .Head {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .Head img {
+        margin-top: 20px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .Body .feature {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .Body .feature img {
+        margin-bottom: 10px;
+    }
 }
 @media(max-width:336px)
 {
