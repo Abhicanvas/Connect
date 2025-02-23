@@ -75,5 +75,26 @@
         <a href="auto.html" class="auto">Call an Auto <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     </section> 
+    <script>
+        // JavaScript to toggle the dropdown menu
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+    
+        menuIcon.addEventListener('click', () => {
+            // Toggle the 'active' class on the nav-links
+            navLinks.classList.toggle('active');
+    
+            // Optional: Toggle a class on the menu icon for animation
+            menuIcon.classList.toggle('open');
+        });
+    
+        // Close the dropdown menu when clicking outside of it
+        document.addEventListener('click', (event) => {
+            if (!menuIcon.contains(event.target) && !navLinks.contains(event.target)) {
+                navLinks.classList.remove('active');
+                menuIcon.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 </html>
