@@ -35,6 +35,20 @@
     background-color: #575757;
     border-radius: 5px;
 }
+.about
+{
+    display: flex;
+    flex-direction: row;
+}
+.about .Head
+{
+    width: 50%;
+    background-color: #3E61DC;
+}
+.about .Body
+{
+    width: 50%;
+}
 @media (max-width: 768px) {
     .navbar ul {
         display: none;
