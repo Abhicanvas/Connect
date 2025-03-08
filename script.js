@@ -33,184 +33,132 @@ function toggleMenu() {
             return 'am';
         }
     }
-    const addStmary=()=>
-    {
-        const times = [
-            "9:10 am", "12:45 pm", "3:50 pm","6:55 pm"
-        ];
-        const totime=[
-            "9:40 am", "1:15 pm", "4:20 pm", "7:25 pm"
-        ];
-        
-          const busContainer = document.getElementById('St');
 
-          times.forEach((ti, index) => {
-              const toTime = totime[index]; 
-              const busList = document.createElement('div');
-              busList.classList.add('bus-list');
-              
-              busList.innerHTML = `
-                  <img src="img/Frame 35058.png" alt="">
-                  <div class="from">
-                      <h5>Angamaly</h5>
-                      <h6>${ti}</h6>
-                  </div>
-                  <div class="to">
-                      <h5>Fisat</h5>
-                      <h6>${toTime}</h6> <!-- Display the corresponding time -->
-                  </div>
-                  <button onclick= 'window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Stop Direction >></button>
-                  <div class="bus-name">
-                      <h5>Bus :</h5>
-                  </div>
-                      <div class="time">
-                        <p>ST MARYS</p>
-                      </div>
-              `;
-              
-              busContainer.appendChild(busList);
-          });
-    }
-    const addAnn1=()=>
-        {
-            const times = [
-                "7:12 am", 
-                "8:15 am", 
-                "10:10 am", 
-                "4:08 pm", 
+        const addBuses = () => {
+            const buses = [
+                {
+                    name: "ST MARYS",
+                    times: ["9:10 am", "12:45 pm", "3:50 pm", "6:55 pm"],
+                    totime: ["9:40 am", "1:15 pm", "4:20 pm", "7:25 pm"],
+                    containerId: "St"
+                },
+                {
+                    name: "ANNA MOL",
+                    times: ["7:12 am", "8:15 am", "10:10 am", "4:08 pm"],
+                    totime: ["7:47 am", "8:50 am", "10:45 am", "4:43 pm"],
+                    containerId: "Ann1"
+                }
             ];
-            const totime=[
-              '7:47 am', '8:50 am',
-              '10:45 am', '4:43 pm'
-            ];
-            
-              const busContainer = document.getElementById('Ann1');
-    
-              times.forEach((ti, index) => {
-                  const toTime = totime[index]; 
-                  const busList = document.createElement('div');
-                  busList.classList.add('bus-list');
-                  
-                  busList.innerHTML = `
-                      <img src="img/Frame 35058.png" alt="">
-                      <div class="from">
-                          <h5>Angamaly</h5>
-                          <h6>${ti}</h6>
-                      </div>
-                      <div class="to">
-                          <h5>FISAT</h5>
-                          <h6>${toTime}</h6> <!-- Display the corresponding time -->
-                      </div>
-                      <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Stop Direction >></button>
-                      <div class="bus-name">
-                          <h5>Bus :</h5>
-                      </div>
-                          <div class="time">
-                            <p>ANNA MOL</p>
-                          </div>
-                  `;
-                  busContainer.appendChild(busList);
-              });
-        }
-    const addAnn=()=>
-        {
-            const times = [
-                "6:28 am", 
-                "7:32 am", 
-                "9:32 am", 
-                "11:40 am", 
-                "2:05 pm", 
-                "5:20 pm"
-            ];
-            const totime=[
-                "6:58 am",
-                "8:02 am",
-                "10:02 am",
-                "12:10 pm",
-                "2:35 pm",
-                "5:50 pm"
-            ];
-            
-              const busContainer = document.getElementById('Ann');
-    
-              times.forEach((ti, index) => {
-                  const toTime = totime[index]; 
-                  const busList = document.createElement('div');
-                  busList.classList.add('bus-list');
-                  
-                  busList.innerHTML = `
-                      <img src="img/Frame 35058.png" alt="">
-                      <div class="from">
-                          <h5>FISAT</h5>
-                          <h6>${ti}</h6>
-                      </div>
-                      <div class="to">
-                          <h5>Angamaly</h5>
-                          <h6>${toTime}</h6> <!-- Display the corresponding time -->
-                      </div>
-                      <button onclick='window.location.href="https://maps.app.goo.gl/FeXjDmxGGYVxCbri6"'>Stop Direction >></button>
-                      <div class="bus-name">
-                          <h5>Bus :</h5>
-                      </div>
-                          <div class="time">
-                            <p>ANNA MOL</p>
-                          </div>
-                  `;
-                  
-                  busContainer.appendChild(busList);
-              });
-        }
-    const addMookanoor=() =>{
-        const times = [
-            "5:45 am", "6:25 am", "6:45 am", "7:02 am", "7:18 am",
-            "7:37 am", "7:50 am", "8:00 am", "8:08 am", "8:22 am",
-            "8:35 am", "8:41 am", "8:52 am", "9:10 am", "9:27 am",
-            "9:48 am", "10:00 am", "10:17 am", "10:21 am", "10:40 am",
-            "10:55 am", "11:10 am", "11:35 am", "12:00 PM", "12:15 PM",
-            "12:30 pm", "12:40 pm", "1:00 pm", "1:10 pm", "1:30 pm",
-            "1:44 pm", "2:02 pm", "2:25 pm", "2:30 pm", "2:45 pm",
-            "3:05 pm", "3:20 pm", "3:45 pm", "4:00 pm", "4:15 pm",
-            "4:35 pm", "4:53 pm", "5:10 pm", "5:20 pm", "5:40 pm",
-            "6:00 pm", "6:15 pm", "6:30 pm", "6:40 pm", "6:50 pm",
-            "7:00: pm", "7:15: pm", "7:30: pm"
-        ];
-        const totime=[
-            "6:15 am", "6:55 am", "7:15 am", "7:32 am", "7:48 am",
-            "8:07 am", "8:20 am", "8:30 am", "8:38 am", "8:52 am",
-            "9:05 am", "9:11 am", "9:22 am", "9:40 am", "9:57 am",
-            "10:18 am", "10:30 am", "10:47 am", "10:51 am", "11:10 am",
-            "11:25 am", "11:40 am", "12:05 pm", "12:30 pm", "12:45 pm",
-            "1:00 pm", "1:10 pm", "1:30 pm", "1:40 pm", "2:00 pm",
-            "2:14 pm", "2:32 pm", "2:55 pm", "3:00 pm", "3:15 pm",
-            "3:35 pm", "3:50 pm", "4:15 pm", "4:30 pm", "4:45 pm",
-            "5:05 pm", "5:23 pm", "5:40 pm", "5:50 pm", "6:10 pm",
-            "6:30 pm", "6:45 pm", "7:00 pm", "7:10 pm", "7:20 pm",
-            "7:30 pm", "7:45 pm", "8:00 pm"
-        ];
         
-          const busContainer = document.getElementById('Mookkannur');
+            let allSchedules = [];
+        
+            buses.forEach(bus => {
+                bus.times.forEach((ti, index) => {
+                    allSchedules.push({
+                        time: ti,
+                        toTime: bus.totime[index],
+                        name: bus.name,
+                        containerId: bus.containerId
+                    });
+                });
+            });
+        
+            allSchedules.sort((a, b) => new Date(`01/01/2000 ${a.time}`) - new Date(`01/01/2000 ${b.time}`));
+        
+            allSchedules.forEach(schedule => {
+                const busContainer = document.getElementById("Ann1");
+                const busList = document.createElement('div');
+                busList.classList.add('bus-list');
+                
+                busList.innerHTML = `
+                    <img src="img/Frame 35058.png" alt="">
+                    <div class="from">
+                        <h5>Angamaly</h5>
+                        <h6>${schedule.time}</h6>
+                    </div>
+                    <div class="to">
+                        <h5>FISAT</h5>
+                        <h6>${schedule.toTime}</h6>
+                    </div>
+                    <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Stop Direction >></button>
+                    <div class="bus-name">
+                        <h5>Bus :</h5>
+                    </div>
+                    <div class="time">
+                        <p>${schedule.name}</p>
+                    </div>
+                `;
+                
+                busContainer.appendChild(busList);
+            });
+        }
+          
 
-          times.forEach((ti, index) => {
-              const toTime = totime[index]; 
-              const busList = document.createElement('div');
-              busList.classList.add('bus-list');
-              
-              busList.innerHTML = `
-                  <img src="img/Frame 35058.png" alt="">
-                  <div class="from">
-                      <h5>Mookkannoor</h5>
-                      <h6>${ti}</h6>
-                  </div>
-                  <div class="to">
-                      <h5>Angamaly</h5>
-                      <h6>${toTime}</h6> <!-- Display the corresponding time -->
-                  </div>
-                  <button onclick='window.location.href="https://maps.app.goo.gl/27DhF2VcKtfUa6cF6"'>Stop Direction >></button>
-              `;
-              
-              busContainer.appendChild(busList);
-          });
+    const addBuses1 = () => {
+        const buses = [
+            {
+                name: "FISAT AVE",
+                times: ["7:00 am", "8:20 am", "9:55 am", "10:25 am", "1:50 pm", "4:45 pm", "5:35 pm", "5:50 pm"],
+                totime: ["7:35 am", "8:55 am", "10:30 am", "11:00 am", "2:25 pm", "5:20 pm", "6:10 pm", "6:25 pm"],
+                containerId: "Ann"
+            },
+            {
+                name: "FISAT",
+                times: ["6:28 am", "7:32 am", "9:32 am", "11:40 am", "2:05 pm", "5:20 pm"],
+                totime: ["6:58 am", "8:02 am", "10:02 am", "12:10 pm", "2:35 pm", "5:50 pm"],
+                containerId: "Ann"
+            },
+            {
+                name: "Pandipally",
+                times: ["7:15 am", "8:30 am", "9:10 am", "10:00 am", "2:20 pm", "3:35 pm", "6:45 pm"],
+                totime: ["7:50 am", "9:05 am", "9:45 am", "10:35 am", "2:55 pm", "4:10 pm", "7:20 pm"],
+                containerId: "Ann"
+            },
+            {
+                name: "Mookkannoor",
+                times: ["5:45 am", "6:25 am", "6:45 am", "7:02 am", "7:18 am", "7:37 am", "7:50 am", "8:00 am", "8:08 am", "8:22 am", "8:35 am", "8:41 am", "8:52 am", "9:10 am", "9:27 am", "9:48 am", "10:00 am", "10:17 am", "10:21 am", "10:40 am", "10:55 am", "11:10 am", "11:35 am", "12:00 PM", "12:15 PM", "12:30 pm", "12:40 pm", "1:00 pm", "1:10 pm", "1:30 pm", "1:44 pm", "2:02 pm", "2:25 pm", "2:30 pm", "2:45 pm", "3:05 pm", "3:20 pm", "3:45 pm", "4:00 pm", "4:15 pm", "4:35 pm", "4:53 pm", "5:10 pm", "5:20 pm", "5:40 pm", "6:00 pm", "6:15 pm", "6:30 pm", "6:40 pm", "6:50 pm", "7:00 pm", "7:15 pm", "7:30 pm"],
+                totime: ["6:15 am", "6:55 am", "7:15 am", "7:32 am", "7:48 am", "8:07 am", "8:20 am", "8:30 am", "8:38 am", "8:52 am", "9:05 am", "9:11 am", "9:22 am", "9:40 am", "9:57 am", "10:18 am", "10:30 am", "10:47 am", "10:51 am", "11:10 am", "11:25 am", "11:40 am", "12:05 pm", "12:30 pm", "12:45 pm", "1:00 pm", "1:10 pm", "1:30 pm", "1:40 pm", "2:00 pm", "2:14 pm", "2:32 pm", "2:55 pm", "3:00 pm", "3:15 pm", "3:35 pm", "3:50 pm", "4:15 pm", "4:30 pm", "4:45 pm", "5:05 pm", "5:23 pm", "5:40 pm", "5:50 pm", "6:10 pm", "6:30 pm", "6:45 pm", "7:00 pm", "7:10 pm", "7:20 pm", "7:30 pm", "7:45 pm", "8:00 pm"],
+                containerId: "Mookkannur"
+            }
+        ];
+    
+        let allSchedules = [];
+    
+        buses.forEach(bus => {
+            bus.times.forEach((ti, index) => {
+                allSchedules.push({
+                    time: ti,
+                    toTime: bus.totime[index],
+                    name: bus.name,
+                    containerId: bus.containerId
+                });
+            });
+        });
+    
+        allSchedules.sort((a, b) => new Date(`01/01/2000 ${a.time}`) - new Date(`01/01/2000 ${b.time}`));
+    
+        allSchedules.forEach(schedule => {
+            const busContainer = document.getElementById("Ann");
+            const busList = document.createElement('div');
+            busList.classList.add('bus-list');
+            
+            busList.innerHTML = `
+                <img src="img/Frame 35058.png" alt="">
+                <div class="from">
+                    <h5>${schedule.name}</h5>
+                    <h6>${schedule.time}</h6>
+                </div>
+                <div class="to">
+                    <h5>FISAT</h5>
+                    <h6>${schedule.toTime}</h6>
+                </div>
+                <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Stop Direction >></button>
+            `;
+            
+            busContainer.appendChild(busList);
+        });
     }
+    
     let addfisat=false;
     let addangamaly=false;
     let addmookanoor=false;
@@ -218,8 +166,7 @@ function toggleMenu() {
     {
         if(addfisat==false)
         {
-            addAnn1();
-            addStmary();
+            addBuses();
             addfisat=true;
         }
         addFit();
@@ -265,57 +212,13 @@ function toggleMenu() {
     {
         if(addangamaly==false)
         {
-            addAve();
-            addPandipally();
-            addAnn();
-            addMookanoor(); 
+            addBuses1();
             addangamaly=true;
         }
         hideTime();
         hideFisat();
         hideMookannor();
-    }
-    const addAve=()=>
-    {
-        const time = [
-            "7:00 am",
-            "8:20 am",
-            "9:55 am",
-            "10:25 am",
-            "1:50 pm",
-            "4:45 pm",
-            "5:35 pm",
-            "5:50 pm"
-          ];
-          const totime=  [
-            '7:35 am', '8:55 am',
-            '10:30 am', '11:00 am',
-            '2:25 pm', '5:20 pm',
-            '6:10 pm', '6:25 pm'
-          ];
-          const busContainer = document.getElementById('Ann');
-    
-          time.forEach((ti, index) => {
-              const toTime = totime[index]; 
-              const busList = document.createElement('div');
-              busList.classList.add('bus-list');
-              
-              busList.innerHTML = `
-                  <img src="img/Frame 35058.png" alt="">
-                  <div class="from">
-                      <h5>FISAT AVE</h5>
-                      <h6>${ti}</h6>
-                  </div>
-                  <div class="to">
-                      <h5>Angamaly</h5>
-                      <h6>${toTime}</h6> <!-- Display the corresponding time -->
-                  </div>
-                  <button onclick='window.open("https://maps.app.goo.gl/aHfCB312w5FR7GzU9", "_blank")'>Stop Direction >></button>
-              `;
-              
-              busContainer.appendChild(busList);
-          }); 
-    }
+    };
     const toMookannor=()=>
     {
         const time=[ "6:35 am", "7:12 am", "7:18 am", "7:29 am", "7:48 am", "8:07 am", "8:11 am",   "8:27 am", "8:47 am", "8:55 am", "9:00 am", "9:22 am", "9:38 am", "9:52 am",   "10:07 am", "10:23 am", "10:42 am", "10:53 am", "11:12 am", "11:32 am",   "11:57 am", "12:13 pm", "12:29 pm", "12:57 pm", "1:19 pm", "1:32 pm",   "1:47 pm", "2:00 pm", "2:20 pm", "2:30 pm", "2:50 pm", "3:10 pm", "3:20 pm",   "3:30 pm", "4:00 pm", "16:20", "4:30 pm", "4:47 pm", "4:54 pm", "5:15 pm",   "5:20 pm", "5:34 pm", "5:40 pm", "6:00 pm", "6:05 pm", "6:20 pm", "6:32 pm",   "6:43 pm", "7:13 pm", "7:32 pm", "8:00 pm", "8:25 pm"];
@@ -342,44 +245,7 @@ function toggleMenu() {
               
               busContainer.appendChild(busList);
           }); 
-    }
-    const addPandipally=()=>
-    {
-       const time= [
-            '7:15 am', '8:30 am',
-            '9:10 am', '10:00 am',
-            '2:20 pm', '3:35 pm',
-            '6:45 pm'
-          ];
-         const totime=  [
-            '7:50 am', '9:05 am',
-            '9:45 am', '10:35 am',
-            '2:55 pm', '4:10 pm',
-            '7:20 pm'
-          ];
-          const busContainer = document.getElementById('Ann');
-    
-          time.forEach((ti, index) => {
-              const toTime = totime[index]; 
-              const busList = document.createElement('div');
-              busList.classList.add('bus-list');
-              
-              busList.innerHTML = `
-                  <img src="img/Frame 35058.png" alt="">
-                  <div class="from">
-                      <h5>Pandipally</h5>
-                      <h6>${ti}</h6>
-                  </div>
-                  <div class="to">
-                      <h5>Angamaly</h5>
-                      <h6>${toTime}</h6> <!-- Display the corresponding time -->
-                  </div>
-                  <button onclick= 'window.open("https://maps.app.goo.gl/p52B8maKgvCrw4ZF7","blank")'>Stop Direction >></button>
-              `;
-              
-              busContainer.appendChild(busList);
-          }); 
-    }
+    };
     const hideTime = () => { 
        
         let time = getTime(); // Make sure getTime() returns a valid time string
@@ -541,7 +407,4 @@ function toggleMenu() {
                 div.style.display = "none";
             }
         }
-
-        
-        
         
