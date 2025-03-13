@@ -149,7 +149,7 @@ function toggleMenu() {
                     <h6>${schedule.time}</h6>
                 </div>
                 <div class="to">
-                    <h5>FISAT</h5>
+                    <h5>Angamaly</h5>
                     <h6>${schedule.toTime}</h6>
                 </div>
                 <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Stop Direction >></button>
