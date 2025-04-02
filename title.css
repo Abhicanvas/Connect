@@ -53,6 +53,20 @@ body
     border-radius: 2rem;
     text-align: center;
 }
+.feedback
+{
+    position: fixed;
+    font-family: "Inter", sans-serif;
+    right: 0;
+    margin: 10px;
+    text-decoration: none;
+    background-color: white;
+    padding: 10px 20px;
+    width: fit-content;
+    font-size: 2rem;
+    border-radius: 2rem;
+    text-align: center;
+}
 @media(max-width:766px)
 {
     .logo
