@@ -110,8 +110,8 @@ function toggleMenu() {
             },
             {
                 name: "Pandipally",
-                times: ["7:15 am", "8:30 am", "9:10 am", "10:00 am", "2:20 pm", "3:35 pm", "6:45 pm"],
-                totime: ["7:50 am", "9:05 am", "9:45 am", "10:35 am", "2:55 pm", "4:10 pm", "7:20 pm"],
+                times: ["7:15 am", "8:30 am", "9:10 am", "10:00 am", "2:20 pm", "3:45 pm", "6:45 pm"],
+                totime: ["7:50 am", "9:05 am", "9:45 am", "10:35 am", "2:55 pm", "4:20 pm", "7:20 pm"],
                 containerId: "Ann"
             },
             {
