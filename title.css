@@ -1,30 +1,69 @@
 body
 {
     background: #3E61DC;
+    margin: 0;
+    overflow: hidden;
 }
-.logo
-{
-    display: block;
-    position: fixed;
-    top: 35%;
-    left: 47%;
-    transform: translate(-50%);
-}
-.logo .connect
-{
-    width: 350px;
-}
-.logo .ieee
-{
-    width: 350px;
-}
+
+/* ================= LOGO ================= */
 .logo
 {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
     gap: 40px;
+    position: fixed;
+    top: 35%;
+    left: 47%;
+    transform: translate(-50%);
 }
+
+.logo .ieee
+{
+    width: 350px;
+    opacity: 0;
+    animation: slideInLeft 0.8s cubic-bezier(.22,.9,.3,1) 0.15s forwards;
+}
+
+.logo .connect
+{
+    width: 350px;
+    opacity: 0;
+    /* clip-path wipe reveal, then a little confidence bounce, then a gentle idle float forever */
+    animation:
+        wipeReveal 0.9s cubic-bezier(.22,.9,.3,1) 0.55s forwards,
+        settleBounce 0.5s ease-out 1.45s forwards,
+        float 4s ease-in-out 2s infinite;
+}
+
+@keyframes slideInLeft
+{
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes wipeReveal
+{
+    from { opacity: 1; clip-path: inset(0 100% 0 0); }
+    to   { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+@keyframes settleBounce
+{
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.06); }
+    70%  { transform: scale(0.98); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float
+{
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+
+/* ================= CTA BUTTON ================= */
 .next
 {
     position: fixed;
@@ -38,7 +77,41 @@ body
     font-size: 2rem;
     border-radius: 2rem;
     text-align: center;
+    color: #3E61DC;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.7s ease-out 1.9s forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 0 rgba(255,255,255,0);
 }
+
+.next i
+{
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.next:hover
+{
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 12px 30px -6px rgba(0,0,0,0.35), 0 0 0 6px rgba(255,255,255,0.15);
+}
+
+.next:hover i
+{
+    transform: translateX(6px);
+}
+
+.next:active
+{
+    transform: translateY(-1px) scale(1.01);
+}
+
+@keyframes fadeInUp
+{
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .auto
 {
     position: fixed;
@@ -53,10 +126,11 @@ body
     border-radius: 2rem;
     text-align: center;
 }
+
+/* ================= FEEDBACK BUTTON ================= */
 .feedback
 {
     position: fixed;
-    font-family: "Inter", sans-serif;
     right: 0;
     margin: 10px;
     text-decoration: none;
@@ -66,7 +140,25 @@ body
     font-size: 2rem;
     border-radius: 2rem;
     text-align: center;
+    color: #3E61DC;
+    opacity: 0;
+    transform: scale(0.7);
+    animation: popIn 0.5s cubic-bezier(.34,1.56,.64,1) 2.3s forwards;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
+
+.feedback:hover
+{
+    transform: scale(1.12) rotate(-8deg);
+    background-color: #EAF0FF;
+}
+
+@keyframes popIn
+{
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ================= RESPONSIVE ================= */
 @media(max-width:766px)
 {
     .logo
@@ -75,6 +167,7 @@ body
         gap: 40px;
     }
 }
+
 @media(max-width:440px)
 {
     .logo
@@ -99,11 +192,25 @@ body
     .next{
         position: fixed;
         left: 50%;
-        transform: translateX(-50%);
         font-size: 1.8rem;
         width: 70%;
     }
+    .next:hover
+    {
+        transform: translateX(-50%) translateY(-4px) scale(1.04);
+    }
+    /* re-declare base transform with translateX so animation + hover don't conflict on mobile */
+    .next
+    {
+        animation-name: fadeInUpMobile;
+    }
+    @keyframes fadeInUpMobile
+    {
+        from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+        to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
 }
+
 @media(max-width:350px)
 {
     .auto
@@ -113,5 +220,15 @@ body
     .next
     {
         font-size: 1.2rem;
+    }
+}
+    
+@media (prefers-reduced-motion: reduce)
+{
+    .logo .ieee, .logo .connect, .next, .feedback
+    {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
     }
 }

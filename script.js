@@ -82,7 +82,17 @@ const addBuses = () => {
             busList.classList.add('bus-list');
 
             busList.innerHTML = `
-                <img src="img/Frame 35058.png" alt="">
+                <div class="route-animation">
+    <div class="route-line"></div>
+
+    <div class="route-dot start-dot"></div>
+
+    <div class="route-bus">
+        <i class="fa-solid fa-bus"></i>
+    </div>
+
+    <div class="route-dot end-dot"></div>
+</div>
 
                 <div class="from">
                     <h5>FISAT</h5>
@@ -207,7 +217,17 @@ const addBuses1 = () => {
             busList.classList.add('bus-list');
 
             busList.innerHTML = `
-                <img src="img/Frame 35058.png" alt="">
+                <div class="route-animation">
+                    <div class="route-line"></div>
+
+                    <div class="route-dot start-dot"></div>
+
+                    <div class="route-bus">
+                        <i class="fa-solid fa-bus"></i>
+                    </div>
+
+                    <div class="route-dot end-dot"></div>
+                </div>
 
                 <div class="from">
                     <h5>Angamaly</h5>
@@ -367,7 +387,17 @@ const addMookkannoorToAngamaly = () => {
         busList.classList.add('bus-list');
 
         busList.innerHTML = `
-            <img src="img/Frame 35058.png" alt="">
+            <div class="route-animation">
+                <div class="route-line"></div>
+
+                <div class="route-dot start-dot"></div>
+
+                <div class="route-bus">
+                    <i class="fa-solid fa-bus"></i>
+                </div>
+
+                <div class="route-dot end-dot"></div>
+            </div>
 
             <div class="from">
                 <h5>Mookkannoor</h5>
@@ -515,8 +545,17 @@ const toMookannor = () => {
         busList.classList.add('bus-list');
 
         busList.innerHTML = `
-            <img src="img/Frame 35058.png" alt="">
+            <div class="route-animation">
+                <div class="route-line"></div>
 
+                <div class="route-dot start-dot"></div>
+
+                <div class="route-bus">
+                    <i class="fa-solid fa-bus"></i>
+                </div>
+
+                <div class="route-dot end-dot"></div>
+            </div>
             <div class="from">
                 <h5>Angamaly</h5>
                 <h6>${ti}</h6>
