@@ -1,73 +1,13 @@
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
-}
+/* =========================================================
+   ABOUT PAGE
+   CONNECT
+   Page-specific styles only
+   ========================================================= */
 
-/* Navbar Styles */
-.navbar {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    background-color:#3E61DC ;
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.navbar .logo img {
-    height: 40px;
-}
-.navbar .logo {
-    background-color: white;
-    height: 100%;
-    padding: 5px 10px 0 10px;
-    border-radius: 3rem;
-}
-.navbar .menu-icon {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.navbar .menu-icon .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #ecf0f1;
-    margin: 4px 0;
-    transition: 0.4s;
-}
-
-.navbar .nav-links {
-    list-style: none;
-    margin: 0px;
-    padding: 0;
-    display: flex;
-}
-
-.navbar .nav-links li {
-    margin-left: 20px;
-    margin-right: 40px;
-}
-
-.navbar .nav-links li a {
-    text-decoration: none;
-    color: #ecf0f1;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.navbar .nav-links li a:hover {
-    color: #3498db;
-}
-/* Section Styles */
-section {
-    padding: 20px;
-}
+/* =========================================================
+   SECTION
+   ========================================================= */
 
 .about {
     max-width: 1200px;
@@ -78,9 +18,15 @@ section {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 .Head {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
@@ -103,6 +49,40 @@ section {
     border-radius: 8px;
 }
 
+
+/* =========================================================
+   TOP BUTTONS
+   ========================================================= */
+
+.Head .top-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.Head .btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Head .btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* =========================================================
+   BODY CONTENT
+   ========================================================= */
+
 .Body {
     font-size: 1.1em;
     color: #555;
@@ -123,6 +103,11 @@ section {
 .Body .section p {
     margin: 0 0 15px;
 }
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
 
 .Body .feature {
     display: flex;
@@ -146,6 +131,11 @@ section {
     margin: 0;
 }
 
+
+/* =========================================================
+   LIST
+   ========================================================= */
+
 .Body ul {
     list-style: none;
     padding: 0;
@@ -166,6 +156,11 @@ section {
     top: -5px;
 }
 
+
+/* =========================================================
+   CREATORS
+   ========================================================= */
+
 .Body .creators p {
     margin: 10px 0;
 }
@@ -179,6 +174,11 @@ section {
 .Body .creators a:hover {
     text-decoration: underline;
 }
+
+
+/* =========================================================
+   FEEDBACK FORM
+   ========================================================= */
 
 .Body .feedback-form textarea {
     width: 100%;
@@ -203,61 +203,14 @@ section {
 .Body .feedback-form button:hover {
     background-color: #2980b9;
 }
-.Head
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.Head .top-buttons {
-    display: flex;
-    justify-content: center; /* Center the buttons horizontally */
-    align-items: center; /* Align buttons vertically */
-    margin-bottom: 20px; /* Add spacing below the buttons */
-    margin-top: 10px; /* Add spacing above the buttons */
-}
 
-.Head .btn {
-    background-color: #007BFF; /* Primary button color */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 10px; /* Add spacing between buttons */
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-.Head .btn:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
-/* Responsive Design */
 @media (max-width: 768px) {
-    .navbar .menu-icon {
-        display: flex; /* Show hamburger menu */
-    }
 
-    .navbar .nav-links {
-        display: none; /* Hide nav links by default */
-        flex-direction: column;
-        width: 100%;
-        background-color: #3E61DC;
-        position: absolute;
-        top: 90px; /* Adjust based on navbar height */
-        padding: 10px 0;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar .nav-links.active {
-        display: flex; /* Show nav links when active */
-    }
-
-    .navbar .nav-links li {
-        margin: 10px 0;
-        text-align: center;
-    }
     .Head {
         flex-direction: column;
         text-align: center;
@@ -267,13 +220,8 @@ section {
         margin-top: 20px;
     }
 
-    .navbar ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar ul li {
-        margin: 10px 0;
+    .Head .top-buttons {
+        flex-wrap: wrap;
     }
 
     .Body .feature {
@@ -282,10 +230,18 @@ section {
     }
 
     .Body .feature img {
+        margin-right: 0;
         margin-bottom: 10px;
     }
 }
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
 @media (max-width: 380px) {
+
     .Head .content h1 {
         font-size: 2em;
     }

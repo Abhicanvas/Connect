@@ -1,196 +1,430 @@
+/* =========================================================
+   AUTO PAGE
+   CONNECT - Auto / Rickshaw Listing
+   ========================================================= */
 
-section
-{
+
+/* =========================================================
+   MAIN SECTION
+   ========================================================= */
+
+section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 45px;
     margin: 30px;
 }
-.navbar {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    background-color:#3E61DC ;
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.navbar .logo img {
-    height: 40px;
-}
-.navbar .logo {
-    background-color: white;
-    height: 100%;
-    padding: 5px 10px 0 10px;
-    border-radius: 3rem;
-}
-.navbar .menu-icon {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    cursor: pointer;
-}
 
-.navbar .menu-icon .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #ecf0f1;
-    margin: 4px 0;
-    transition: 0.4s;
-}
+/* =========================================================
+   NEXT BUTTON
+   ========================================================= */
 
-.navbar .nav-links {
-    list-style: none;
-    margin: 0px;
-    padding: 0;
-    display: flex;
-}
-
-.navbar .nav-links li {
-    margin-left: 20px;
-    margin-right: 40px;
-}
-
-.navbar .nav-links li a {
-    text-decoration: none;
-    color: #ecf0f1;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.navbar .nav-links li a:hover {
-    color: #3498db;
-}
-.next
-{
+.next {
     position: relative;
-    font-family: "Inter", sans-serif;
     align-self: flex-end;
     bottom: 10%;
-    text-decoration: none;
-    background-color: #3E61DC;
-    color: white;
-    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
     width: 200px;
-    font-size: 1.5rem;
-    border-radius: 2rem;
+    padding: 10px 20px;
+
+    background: #3568ed;
+    color: white;
+
+    font-family: "Inter", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    text-decoration: none;
     text-align: center;
+
+    border-radius: 25px;
+
+    box-shadow: 0 6px 18px rgba(53, 104, 237, 0.18);
+
+    transition: 0.25s ease;
 }
-.fa-solid
-{
+
+.next:hover {
+    background: #2d5bd3;
+    transform: translateY(-2px);
+    box-shadow: 0 9px 22px rgba(53, 104, 237, 0.25);
+}
+
+
+/* =========================================================
+   FONT AWESOME ICON
+   ========================================================= */
+
+.fa-solid {
     margin-left: 5px;
 }
-.heading
-{
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.heading {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
-.heading img
-{
-    width: 200px;
+
+.heading img {
+    width: 180px;
+    height: auto;
+    margin-bottom: 5px;
 }
-.autoList
-{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+
+.heading h1 {
+    margin: 5px 0 0;
+
+    color: #172554;
+
+    font-family: "Inter", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   AUTO LIST
+   ========================================================= */
+
+.autoList {
+    width: 100%;
+    max-width: 1050px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
     box-sizing: border-box;
 }
-.autoList .auto
-{
+
+
+/* =========================================================
+   AUTO CARD
+   ========================================================= */
+
+.autoList .auto {
+    position: relative;
+
     display: flex;
-    width: 300px;
-    min-width: 300px;
     flex-direction: column;
     align-items: center;
-    background-color: #F8F8F8;
+
+    width: 100%;
+    min-height: 285px;
+
+    padding: 28px 20px 22px;
+
+    box-sizing: border-box;
+
+    background: #f8faff;
+
+    border: 1px solid #e2e8f5;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 8px 25px rgba(45, 75, 130, 0.08);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
-.auto p
-{
-    font-size: 1.7rem;
+
+
+/* Small decorative top line */
+
+.autoList .auto::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: #3568ed;
 }
-.auto .image
-{
-    margin: 10px;
+
+
+/* Hover */
+
+.autoList .auto:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 14px 32px rgba(45, 75, 130, 0.13);
+}
+
+
+/* =========================================================
+   AUTO IMAGE
+   ========================================================= */
+
+.autoList .auto .image {
+    width: 105px;
+    height: 105px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 5px 0 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce5f7;
+
     border-radius: 50%;
-    border: #3E61DC solid 2px;
+
+    box-shadow:
+        0 5px 15px rgba(53, 104, 237, 0.08);
+
+    transition: 0.25s ease;
 }
-.auto img{
-    width: 80px;
-    padding: 10px;
-    margin: 10px;
+
+.autoList .auto:hover .image {
+    transform: scale(1.04);
 }
-.auto button
-{
-    background-color: #3E61DC;
-    color: white;
-    width: 200px;
-    height: 40px;
+
+.autoList .auto img {
+    width: 72px;
+    height: 72px;
+
+    padding: 8px;
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   DRIVER NAME
+   ========================================================= */
+
+.autoList .auto p {
+    margin: 0 0 20px;
+
+    color: #172554;
+
+    font-family: "Inter", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    text-align: center;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   CALL BUTTON
+   ========================================================= */
+
+.autoList .auto a {
+    text-decoration: none;
+}
+
+.autoList .auto button {
+    width: 180px;
+    height: 42px;
+
+    background: #3568ed;
+    color: #ffffff;
+
     border: none;
-    border-radius: 3px;
+    border-radius: 21px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 14px rgba(53, 104, 237, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
-@media(max-width:768px)
-{
-    .navbar .menu-icon {
-        display: flex; /* Show hamburger menu */
+
+.autoList .auto button:hover {
+    background: #2d5bd3;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(53, 104, 237, 0.25);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .autoList {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
     }
 
-    .navbar .nav-links {
-        display: none; /* Hide nav links by default */
-        flex-direction: column;
-        width: 100%;
-        background-color: #3E61DC;
-        position: absolute;
-        top: 90px; /* Adjust based on navbar height */
-        padding: 10px 0;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar .nav-links.active {
-        display: flex; /* Show nav links when active */
-    }
-
-    .navbar .nav-links li {
-        margin: 10px 0;
-        text-align: center;
-    }
-    .Head {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .Head img {
-        margin-top: 20px;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar ul li {
-        margin: 10px 0;
-    }
-
-    .Body .feature {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .Body .feature img {
-        margin-bottom: 10px;
+    .autoList .auto {
+        min-height: 280px;
     }
 }
-@media(max-width:336px)
-{
-    .next
-    {
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    section {
+        gap: 35px;
+        margin: 25px 18px;
+    }
+
+    .next {
+        align-self: center;
+
+        width: 190px;
+
+        font-size: 1.15rem;
+    }
+
+    .heading img {
+        width: 145px;
+    }
+
+    .heading h1 {
+        font-size: 1.7rem;
+    }
+
+    .autoList {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+
+        gap: 18px;
+    }
+
+    .autoList .auto {
+        min-height: 260px;
+
+        padding: 25px 20px 20px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    section {
+        margin: 20px 15px;
+    }
+
+    .heading img {
+        width: 125px;
+    }
+
+    .heading h1 {
+        font-size: 1.5rem;
+    }
+
+    .autoList {
+        gap: 15px;
+    }
+
+    .autoList .auto {
+        min-height: 245px;
+
+        padding: 23px 15px 18px;
+
+        border-radius: 19px;
+    }
+
+    .autoList .auto .image {
+        width: 90px;
+        height: 90px;
+
+        margin-bottom: 15px;
+    }
+
+    .autoList .auto img {
+        width: 62px;
+        height: 62px;
+    }
+
+    .autoList .auto p {
         font-size: 1.1rem;
+
+        margin-bottom: 18px;
+    }
+
+    .autoList .auto button {
+        width: 170px;
+        height: 40px;
+
+        font-size: 0.9rem;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .next {
+        width: 175px;
+        font-size: 1rem;
+    }
+
+    .autoList .auto {
+        min-height: 230px;
+    }
+
+    .autoList .auto .image {
+        width: 82px;
+        height: 82px;
+    }
+
+    .autoList .auto img {
+        width: 58px;
+        height: 58px;
+    }
+
+    .autoList .auto p {
+        font-size: 1rem;
+    }
+
+    .autoList .auto button {
+        width: 155px;
+        height: 38px;
     }
 }

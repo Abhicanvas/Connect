@@ -1036,7 +1036,7 @@ section {
 }
 
 
-.auto {
+.auto-wrapper .auto {
 
     min-width: 250px;
 
@@ -1080,14 +1080,14 @@ section {
 }
 
 
-.auto i {
+.auto-wrapper .auto i {
 
     transition:
         0.3s ease;
 }
 
 
-.auto:hover {
+.auto-wrapper .auto:hover {
 
     transform:
         translateY(-5px);
@@ -1098,7 +1098,7 @@ section {
 }
 
 
-.auto:hover i {
+.auto-wrapper .auto:hover i {
 
     transform:
         translateX(6px);

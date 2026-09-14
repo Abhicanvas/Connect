@@ -1,6 +1,12 @@
 var currentHour;
 
+
+/* =========================================================
+   PAGE LOAD
+   ========================================================= */
+
 window.onload = () => {
+
     const busLists = document.querySelectorAll('.Buses');
 
     busLists.forEach((busList) => {
@@ -8,26 +14,57 @@ window.onload = () => {
     });
 
     const def = document.getElementById('default');
-    def.style.display = 'none';
+
+    if (def) {
+        def.style.display = 'none';
+    }
 };
 
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
 function toggleMenu() {
+
     const menu = document.getElementById('menu');
 
     if (menu) {
         menu.classList.toggle('active');
     }
+
 }
+
+
+/* =========================================================
+   DIRECT MENU
+   ========================================================= */
 
 const directM = () => {};
 
+
+/* =========================================================
+   GET TIME
+   ========================================================= */
+
 const getTime = () => {
-    const inputValue = document.getElementById("input-time").value;
+
+    const inputValue =
+        document.getElementById("input-time").value;
+
     return inputValue;
+
 };
 
+
+/* =========================================================
+   GET AM / PM
+   ========================================================= */
+
 const getapm = (hour) => {
+
     return hour >= 12 ? 'pm' : 'am';
+
 };
 
 
@@ -38,14 +75,17 @@ const getapm = (hour) => {
 const addBuses = () => {
 
     const buses = [
+
         {
             name: "ST MARYS",
+
             times: [
                 "9:10 am",
                 "12:45 pm",
                 "3:50 pm",
                 "6:55 pm"
             ],
+
             totime: [
                 "9:40 am",
                 "1:15 pm",
@@ -56,12 +96,14 @@ const addBuses = () => {
 
         {
             name: "ANNA MOL",
+
             times: [
                 "7:12 am",
                 "8:15 am",
                 "10:10 am",
                 "4:08 pm"
             ],
+
             totime: [
                 "7:47 am",
                 "8:50 am",
@@ -69,59 +111,82 @@ const addBuses = () => {
                 "4:43 pm"
             ]
         }
+
     ];
 
-    const busContainer = document.getElementById("Ann1");
+
+    const busContainer =
+        document.getElementById("Ann1");
+
+
+    if (!busContainer) {
+        return;
+    }
+
 
     buses.forEach(bus => {
 
         bus.times.forEach((ti, index) => {
 
-            const busList = document.createElement('div');
+            const busList =
+                document.createElement('div');
+
 
             busList.classList.add('bus-list');
 
+
             busList.innerHTML = `
+
                 <div class="route-animation">
-    <div class="route-line"></div>
 
-    <div class="route-dot start-dot"></div>
+                    <div class="route-line"></div>
 
-    <div class="route-bus">
-        <i class="fa-solid fa-bus"></i>
-    </div>
+                    <div class="route-dot start-dot"></div>
 
-    <div class="route-dot end-dot"></div>
-</div>
+                    <div class="route-bus">
+                        <i class="fa-solid fa-bus"></i>
+                    </div>
+
+                    <div class="route-dot end-dot"></div>
+
+                </div>
+
 
                 <div class="from">
                     <h5>FISAT</h5>
                     <h6>${ti}</h6>
                 </div>
 
+
                 <div class="to">
                     <h5>Angamaly</h5>
                     <h6>${bus.totime[index]}</h6>
                 </div>
 
+
                 <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>
                     Stop Direction >>
                 </button>
+
 
                 <div class="bus-name">
                     <h5>Bus :</h5>
                 </div>
 
+
                 <div class="time">
                     <p>${bus.name}</p>
                 </div>
+
             `;
+
 
             busContainer.appendChild(busList);
 
         });
 
     });
+
 };
 
 
@@ -159,6 +224,7 @@ const addBuses1 = () => {
             ]
         },
 
+
         {
             name: "FISAT",
 
@@ -180,6 +246,7 @@ const addBuses1 = () => {
                 "5:50 pm"
             ]
         },
+
 
         {
             name: "Pandipally",
@@ -204,20 +271,34 @@ const addBuses1 = () => {
                 "7:20 pm"
             ]
         }
+
     ];
 
-    const busContainer = document.getElementById("Ann");
+
+    const busContainer =
+        document.getElementById("Ann");
+
+
+    if (!busContainer) {
+        return;
+    }
+
 
     buses.forEach(bus => {
 
         bus.times.forEach((ti, index) => {
 
-            const busList = document.createElement('div');
+            const busList =
+                document.createElement('div');
+
 
             busList.classList.add('bus-list');
 
+
             busList.innerHTML = `
+
                 <div class="route-animation">
+
                     <div class="route-line"></div>
 
                     <div class="route-dot start-dot"></div>
@@ -227,36 +308,45 @@ const addBuses1 = () => {
                     </div>
 
                     <div class="route-dot end-dot"></div>
+
                 </div>
+
 
                 <div class="from">
                     <h5>Angamaly</h5>
                     <h6>${ti}</h6>
                 </div>
 
+
                 <div class="to">
                     <h5>FISAT</h5>
                     <h6>${bus.totime[index]}</h6>
                 </div>
 
+
                 <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>
                     Stop Direction >>
                 </button>
+
 
                 <div class="bus-name">
                     <h5>Bus :</h5>
                 </div>
 
+
                 <div class="time">
                     <p>${bus.name}</p>
                 </div>
+
             `;
+
 
             busContainer.appendChild(busList);
 
         });
 
     });
+
 };
 
 
@@ -267,6 +357,7 @@ const addBuses1 = () => {
 const addMookkannoorToAngamaly = () => {
 
     const times = [
+
         "5:45 am",
         "6:25 am",
         "6:45 am",
@@ -320,9 +411,12 @@ const addMookkannoorToAngamaly = () => {
         "7:00 pm",
         "7:15 pm",
         "7:30 pm"
+
     ];
 
+
     const totime = [
+
         "6:15 am",
         "6:55 am",
         "7:15 am",
@@ -376,18 +470,32 @@ const addMookkannoorToAngamaly = () => {
         "7:30 pm",
         "7:45 pm",
         "8:00 pm"
+
     ];
 
-    const busContainer = document.getElementById("MokAng");
+
+    const busContainer =
+        document.getElementById("MokAng");
+
+
+    if (!busContainer) {
+        return;
+    }
+
 
     times.forEach((ti, index) => {
 
-        const busList = document.createElement('div');
+        const busList =
+            document.createElement('div');
+
 
         busList.classList.add('bus-list');
 
+
         busList.innerHTML = `
+
             <div class="route-animation">
+
                 <div class="route-line"></div>
 
                 <div class="route-dot start-dot"></div>
@@ -397,26 +505,33 @@ const addMookkannoorToAngamaly = () => {
                 </div>
 
                 <div class="route-dot end-dot"></div>
+
             </div>
+
 
             <div class="from">
                 <h5>Mookkannoor</h5>
                 <h6>${ti}</h6>
             </div>
 
+
             <div class="to">
                 <h5>Angamaly</h5>
                 <h6>${totime[index]}</h6>
             </div>
 
+
             <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>
                 Stop Direction >>
             </button>
+
         `;
+
 
         busContainer.appendChild(busList);
 
     });
+
 };
 
 
@@ -427,6 +542,7 @@ const addMookkannoorToAngamaly = () => {
 const toMookannor = () => {
 
     const time = [
+
         "6:35 am",
         "7:12 am",
         "7:18 am",
@@ -479,9 +595,12 @@ const toMookannor = () => {
         "7:32 pm",
         "8:00 pm",
         "8:25 pm"
+
     ];
 
+
     const totime = [
+
         "7:05 am",
         "7:42 am",
         "7:48 am",
@@ -534,18 +653,32 @@ const toMookannor = () => {
         "8:02 pm",
         "8:30 pm",
         "8:55 pm"
+
     ];
 
-    const busContainer = document.getElementById('Mok');
+
+    const busContainer =
+        document.getElementById('Mok');
+
+
+    if (!busContainer) {
+        return;
+    }
+
 
     time.forEach((ti, index) => {
 
-        const busList = document.createElement('div');
+        const busList =
+            document.createElement('div');
+
 
         busList.classList.add('bus-list');
 
+
         busList.innerHTML = `
+
             <div class="route-animation">
+
                 <div class="route-line"></div>
 
                 <div class="route-dot start-dot"></div>
@@ -555,25 +688,33 @@ const toMookannor = () => {
                 </div>
 
                 <div class="route-dot end-dot"></div>
+
             </div>
+
+
             <div class="from">
                 <h5>Angamaly</h5>
                 <h6>${ti}</h6>
             </div>
+
 
             <div class="to">
                 <h5>Mookkannoor</h5>
                 <h6>${totime[index]}</h6>
             </div>
 
+
             <button onclick='window.open("https://maps.app.goo.gl/qn7uvrG3CNs6uC6L9","blank")'>
                 Stop Direction >>
             </button>
+
         `;
+
 
         busContainer.appendChild(busList);
 
     });
+
 };
 
 
@@ -594,7 +735,9 @@ let addmookangamaly = false;
 const hideAllRoutes = () => {
 
     document.querySelectorAll('.Buses').forEach(bus => {
+
         bus.style.display = "none";
+
     });
 
 };
@@ -608,99 +751,138 @@ const showRoute = (containerId) => {
 
     hideAllRoutes();
 
-    const container = document.getElementById(containerId);
+    const container =
+        document.getElementById(containerId);
+
 
     if (container) {
+
         container.style.display = "flex";
+
     }
 
 };
 
 
 /* =========================================================
-   BUTTON FUNCTIONS
+   FISAT -> ANGAMALY
    ========================================================= */
-
-/* FISAT -> ANGAMALY */
 
 const fisatToAngamaly = () => {
 
     if (!addfisat) {
+
         addBuses();
+
         addfisat = true;
+
     }
 
     showRoute("Ann1");
+
     filterRouteByTime("Ann1");
-};
 
-
-/* ANGAMALY -> FISAT */
-
-const angamalyToFisat = () => {
-
-    if (!addangamaly) {
-        addBuses1();
-        addangamaly = true;
-    }
-
-    showRoute("Ann");
-    filterRouteByTime("Ann");
-};
-
-
-/* ANGAMALY -> MOOKKANOOR */
-
-const angamalyToMookannoor = () => {
-
-    if (!addmookanoor) {
-        toMookannor();
-        addmookanoor = true;
-    }
-
-    showRoute("Mok");
-    filterRouteByTime("Mok");
-};
-
-
-/* MOOKKANOOR -> ANGAMALY */
-
-const mookannoorToAngamaly = () => {
-
-    if (!addmookangamaly) {
-        addMookkannoorToAngamaly();
-        addmookangamaly = true;
-    }
-
-    showRoute("MokAng");
-    filterRouteByTime("MokAng");
 };
 
 
 /* =========================================================
-   TIME FUNCTIONS
+   ANGAMALY -> FISAT
+   ========================================================= */
+
+const angamalyToFisat = () => {
+
+    if (!addangamaly) {
+
+        addBuses1();
+
+        addangamaly = true;
+
+    }
+
+    showRoute("Ann");
+
+    filterRouteByTime("Ann");
+
+};
+
+
+/* =========================================================
+   ANGAMALY -> MOOKKANOOR
+   ========================================================= */
+
+const angamalyToMookannoor = () => {
+
+    if (!addmookanoor) {
+
+        toMookannor();
+
+        addmookanoor = true;
+
+    }
+
+    showRoute("Mok");
+
+    filterRouteByTime("Mok");
+
+};
+
+
+/* =========================================================
+   MOOKKANOOR -> ANGAMALY
+   ========================================================= */
+
+const mookannoorToAngamaly = () => {
+
+    if (!addmookangamaly) {
+
+        addMookkannoorToAngamaly();
+
+        addmookangamaly = true;
+
+    }
+
+    showRoute("MokAng");
+
+    filterRouteByTime("MokAng");
+
+};
+
+
+/* =========================================================
+   GET HOUR FROM INPUT
    ========================================================= */
 
 const getHourFromInput = () => {
 
     const input = getTime();
 
+
     if (!input) {
         return null;
     }
 
-    const parts = input.split(':');
 
-    let hour = parseInt(parts[0], 10);
+    const parts =
+        input.split(':');
+
+
+    let hour =
+        parseInt(parts[0], 10);
+
 
     if (isNaN(hour)) {
         return null;
     }
 
+
     return hour;
 
 };
 
+
+/* =========================================================
+   CONVERT TO 12-HOUR FORMAT
+   ========================================================= */
 
 const get12Hour = (hour) => {
 
@@ -708,9 +890,11 @@ const get12Hour = (hour) => {
         return 12;
     }
 
+
     if (hour > 12) {
         return hour - 12;
     }
+
 
     return hour;
 
@@ -718,83 +902,200 @@ const get12Hour = (hour) => {
 
 
 /* =========================================================
+   CONVERT TIME STRING TO MINUTES
+   ========================================================= */
+
+const timeToMinutes = (timeString) => {
+
+    const match =
+        timeString.match(
+            /^(\d{1,2}):(\d{2})\s*(am|pm)$/i
+        );
+
+
+    if (!match) {
+        return null;
+    }
+
+
+    let hour =
+        parseInt(match[1], 10);
+
+    const minute =
+        parseInt(match[2], 10);
+
+    const ampm =
+        match[3].toLowerCase();
+
+
+    /* Convert to 24-hour format */
+
+    if (ampm === "am") {
+
+        if (hour === 12) {
+            hour = 0;
+        }
+
+    } else {
+
+        if (hour !== 12) {
+            hour += 12;
+        }
+
+    }
+
+
+    return (hour * 60) + minute;
+
+};
+
+
+/* =========================================================
    FILTER ROUTE BY TIME
+   =========================================================
+
+   Selected time:
+       7:20 AM
+
+   Shows buses between:
+       7:20 AM -> 8:20 AM
+
+   This means the selected time is the START
+   of the one-hour search window.
    ========================================================= */
 
 const filterRouteByTime = (containerId) => {
 
-    const inputHour = getHourFromInput();
+    const input =
+        getTime();
 
-    const def = document.getElementById('default');
 
-    const container = document.getElementById(containerId);
+    const def =
+        document.getElementById('default');
+
+
+    const container =
+        document.getElementById(containerId);
+
 
     if (!container) {
         return;
     }
 
-    const busLists = container.querySelectorAll('.bus-list');
+
+    const busLists =
+        container.querySelectorAll('.bus-list');
 
 
-    /* No time selected */
+    /* =====================================================
+       NO TIME SELECTED
+       ===================================================== */
 
-    if (inputHour === null) {
+    if (!input) {
 
         busLists.forEach(bus => {
+
             bus.style.display = "grid";
+
         });
+
 
         container.style.display = "flex";
 
-        def.style.display = "none";
+
+        if (def) {
+            def.style.display = "none";
+        }
+
 
         return;
     }
 
 
-    const inputDate = new Date(
-        `1970-01-01T${getTime()}:00`
-    );
+    /* =====================================================
+       CONVERT INPUT TIME TO MINUTES
+       ===================================================== */
 
-    const inputHour24 = inputDate.getHours();
+    const inputParts =
+        input.split(':');
 
-    const inputAMPM =
-        inputHour24 >= 12 ? 'pm' : 'am';
 
-    const displayHour =
-        get12Hour(inputHour24);
+    const inputHour =
+        parseInt(inputParts[0], 10);
+
+
+    const inputMinute =
+        parseInt(inputParts[1], 10);
+
+
+    if (
+        isNaN(inputHour) ||
+        isNaN(inputMinute)
+    ) {
+
+        return;
+
+    }
+
+
+    const inputTotalMinutes =
+        (inputHour * 60) + inputMinute;
+
+
+    /* =====================================================
+       ONE HOUR SEARCH WINDOW
+       ===================================================== */
+
+    const endTime =
+        inputTotalMinutes + 60;
 
 
     let found = false;
 
 
+    /* =====================================================
+       CHECK EVERY BUS
+       ===================================================== */
+
     busLists.forEach(bus => {
 
-        const timeText =
-            bus.querySelector('.from h6')?.textContent.trim() || "";
-
-        const match =
-            timeText.match(/^(\d{1,2}):\d{2}\s*(am|pm)$/i);
+        const timeElement =
+            bus.querySelector('.from h6');
 
 
-        if (!match) {
+        if (!timeElement) {
 
             bus.style.display = "none";
 
             return;
+
         }
 
 
-        const busHour =
-            parseInt(match[1], 10);
+        const timeText =
+            timeElement.textContent.trim();
 
-        const busAMPM =
-            match[2].toLowerCase();
 
+        const busTotalMinutes =
+            timeToMinutes(timeText);
+
+
+        if (busTotalMinutes === null) {
+
+            bus.style.display = "none";
+
+            return;
+
+        }
+
+
+        /* =================================================
+           BUS IS WITHIN THE NEXT ONE HOUR
+           ================================================= */
 
         if (
-            busHour === displayHour &&
-            busAMPM === inputAMPM
+            busTotalMinutes >= inputTotalMinutes &&
+            busTotalMinutes <= endTime
         ) {
 
             bus.style.display = "grid";
@@ -810,23 +1111,39 @@ const filterRouteByTime = (containerId) => {
     });
 
 
-    container.style.display =
-        found ? "flex" : "none";
-
+    /* =====================================================
+       DISPLAY RESULTS
+       ===================================================== */
 
     if (found) {
 
-        def.innerHTML =
-            "<h1>The bus timings provided may vary according to the traffic conditions</h1>";
+        container.style.display = "flex";
+
+
+        if (def) {
+
+            def.innerHTML =
+                "<h1>The bus timings provided may vary according to the traffic conditions</h1>";
+
+            def.style.display = "block";
+
+        }
 
     } else {
 
-        def.innerHTML =
-            "<h1>There are no buses at the given time</h1>";
+        container.style.display = "none";
+
+
+        if (def) {
+
+            def.innerHTML =
+                "<h1>There are no buses available within the next hour</h1>";
+
+            def.style.display = "block";
+
+        }
 
     }
-
-    def.style.display = "block";
 
 };
 
@@ -849,11 +1166,16 @@ const addFit = () => {
 const hideTime = () => {
 
     const activeRoute =
-        document.querySelector('.Buses[style*="flex"]');
+        document.querySelector(
+            '.Buses[style*="flex"]'
+        );
+
 
     if (activeRoute) {
 
-        filterRouteByTime(activeRoute.id);
+        filterRouteByTime(
+            activeRoute.id
+        );
 
     }
 
@@ -867,7 +1189,9 @@ const hideTime = () => {
 const hideFisat = () => {
 
     document.querySelectorAll('.fit').forEach(div => {
+
         div.style.display = 'none';
+
     });
 
 };
@@ -876,7 +1200,9 @@ const hideFisat = () => {
 const hideAngamaly = () => {
 
     document.querySelectorAll('.ang').forEach(div => {
+
         div.style.display = 'none';
+
     });
 
 };
@@ -885,7 +1211,9 @@ const hideAngamaly = () => {
 const hideMookannor = () => {
 
     document.querySelectorAll('.mok').forEach(div => {
+
         div.style.display = 'none';
+
     });
 
 };
@@ -894,7 +1222,9 @@ const hideMookannor = () => {
 const hideMookAngamaly = () => {
 
     document.querySelectorAll('.mokAng').forEach(div => {
+
         div.style.display = 'none';
+
     });
 
 };
