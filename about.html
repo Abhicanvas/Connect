@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Sofadi+One&display=swap" rel="stylesheet">
+
     <title>Connect</title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -27,7 +34,7 @@
             </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#about" onclick="navigateTo('about')">About</a></li>
-                <li><a href="#contact" onclick="navigateTo('contact')">Contact</a></li>
+                <!-- <li><a href="#contact" onclick="navigateTo('contact')">Contact</a></li> -->
                 <li><a href="#feedback" onclick="navigateTo('feedback')">Feedback</a></li>
             </ul>
         </nav>
@@ -40,7 +47,8 @@
                     <button class="btn" onclick="location.href='auto.html'">Call an Auto</button>
                 </div>
                 <div class="content">
-                    <h1>Welcome to Connect – Your Ultimate Travel Companion!</h1>
+                    <h1>Welcome to Connect </h1>
+                    <br>
                     <h2>Powered by IEEE FISAT SB</h2>
                 </div>
                 <div>
@@ -129,5 +137,37 @@
             }
         });
     </script>
+    <script>
+    /* =====================================================
+       TYPEWRITER EFFECT
+       ===================================================== */
+
+    const heading = document.querySelector('.Head .content h1');
+
+    if (heading) {
+
+        const originalText = heading.textContent;
+
+        heading.textContent = "";
+
+        let index = 0;
+
+        function typeWriter() {
+
+            if (index < originalText.length) {
+
+                heading.textContent += originalText.charAt(index);
+
+                index++;
+
+                setTimeout(typeWriter, 35);
+
+            }
+
+        }
+
+        setTimeout(typeWriter, 700);
+    }
+</script>
 </body>
 </html>

@@ -1443,10 +1443,13 @@ section {
     */
 
     .search {
-
-        animation: none;
-    }
-
+    animation:
+        searchCardIn
+        0.5s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        0.05s
+        forwards;
+}
 }
 
 
@@ -1831,5 +1834,724 @@ section {
     .route-line::after,
     .route-bus {
         animation: none;
+    }
+}
+/* =========================================================
+   CONNECT LIVE PAGE EFFECTS
+   MAIN BUS SEARCH PAGE
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE ENTRANCE
+   ========================================================= */
+
+@keyframes connectPageIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: connectPageIn 0.6s ease-out both;
+}
+
+
+/* =========================================================
+   SEARCH CARD ENTRANCE
+   ========================================================= */
+
+@keyframes searchCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.search {
+    opacity: 0;
+    animation:
+        searchCardIn
+        0.8s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        0.15s
+        forwards;
+}
+
+
+/* =========================================================
+   SEARCH BADGE
+   ========================================================= */
+
+@keyframes badgeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.search-badge {
+    opacity: 0;
+    animation:
+        badgeIn
+        0.5s
+        ease-out
+        0.65s
+        forwards;
+}
+
+
+/* =========================================================
+   SEARCH TITLE
+   ========================================================= */
+
+@keyframes searchTitleIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search h4 {
+    opacity: 0;
+    animation:
+        searchTitleIn
+        0.6s
+        ease-out
+        0.8s
+        forwards;
+}
+
+.search-description {
+    opacity: 0;
+    animation:
+        searchTitleIn
+        0.6s
+        ease-out
+        0.95s
+        forwards;
+}
+
+
+/* =========================================================
+   TIME INPUT
+   ========================================================= */
+
+@keyframes inputIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.in-time {
+    opacity: 0;
+    animation:
+        inputIn
+        0.6s
+        ease-out
+        1.1s
+        forwards;
+}
+
+
+/* =========================================================
+   DESTINATION LABEL
+   ========================================================= */
+
+.destination-label {
+    opacity: 0;
+    animation:
+        inputIn
+        0.6s
+        ease-out
+        1.25s
+        forwards;
+}
+
+
+/* =========================================================
+   DESTINATION BUTTONS
+   ========================================================= */
+
+@keyframes destinationIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.buss .buttons button {
+    opacity: 0;
+    animation:
+        destinationIn
+        0.55s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+.buss .buttons button:nth-child(1) {
+    animation-delay: 1.35s;
+}
+
+.buss .buttons button:nth-child(2) {
+    animation-delay: 1.47s;
+}
+
+.buss .buttons button:nth-child(3) {
+    animation-delay: 1.59s;
+}
+
+.buss .buttons button:nth-child(4) {
+    animation-delay: 1.71s;
+}
+
+
+/* =========================================================
+   DESTINATION BUTTON HOVER
+   ========================================================= */
+
+.buss button {
+    position: relative;
+    overflow: hidden;
+}
+
+.buss button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.28),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.55s ease;
+
+    pointer-events: none;
+}
+
+.buss button:hover::before {
+    left: 130%;
+}
+
+
+/* =========================================================
+   TIME INPUT FOCUS
+   ========================================================= */
+
+.buss input {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.buss input:hover {
+    transform: translateY(-1px);
+}
+
+.buss input:focus {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BUS RESULTS
+   ========================================================= */
+
+@keyframes busResultsIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*
+   JS creates the bus result dynamically.
+   This animation automatically applies when
+   a result card is created.
+*/
+
+.Buses .bus-list {
+    animation:
+        busResultsIn
+        0.65s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+
+/* =========================================================
+   BUS RESULT HOVER
+   ========================================================= */
+
+.Buses .bus-list {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.Buses .bus-list:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 35px
+        rgba(45, 85, 160, 0.12);
+}
+
+
+/* =========================================================
+   BUS NAME
+   ========================================================= */
+
+.bus-list .bus-name {
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.bus-list:hover .bus-name {
+    color: #3568ed;
+    transform: translateX(2px);
+}
+
+
+/* =========================================================
+   FROM / TO LOCATIONS
+   ========================================================= */
+
+.bus-list .from h5,
+.bus-list .to h5 {
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.bus-list:hover .from h5,
+.bus-list:hover .to h5 {
+    color: #3568ed;
+}
+
+
+/* =========================================================
+   BUS TIME BADGE
+   ========================================================= */
+
+.bus-list .time {
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.bus-list:hover .time {
+    transform: translateY(-2px);
+
+    background:
+        rgba(68, 113, 220, 0.15);
+}
+
+
+/* =========================================================
+   BUS BUTTON
+   ========================================================= */
+
+.bus-list button {
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.bus-list button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.25),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.55s ease;
+
+    pointer-events: none;
+}
+
+.bus-list button:hover::before {
+    left: 130%;
+}
+
+.bus-list button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(58, 105, 225, 0.32);
+}
+
+.bus-list button:active {
+    transform: translateY(0) scale(0.97);
+}
+
+
+/* =========================================================
+   DEFAULT MESSAGE
+   ========================================================= */
+
+@keyframes defaultMessageIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#default {
+    animation:
+        defaultMessageIn
+        0.7s
+        ease-out
+        2s
+        both;
+}
+
+
+/* =========================================================
+   CALL AN AUTO BUTTON
+   ========================================================= */
+
+@keyframes autoButtonIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.auto-wrapper {
+    opacity: 0;
+
+    animation:
+        autoButtonIn
+        0.7s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        2.25s
+        forwards;
+}
+
+
+/* =========================================================
+   AUTO BUTTON SHINE
+   ========================================================= */
+
+.auto-wrapper .auto {
+    position: relative;
+    overflow: hidden;
+}
+
+.auto-wrapper .auto::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.25),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.6s ease;
+
+    pointer-events: none;
+}
+
+.auto-wrapper .auto:hover::before {
+    left: 130%;
+}
+
+.auto-wrapper .auto:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.auto-wrapper .auto:active {
+    transform: translateY(0) scale(0.98);
+}
+
+
+/* =========================================================
+   AUTO BUTTON ARROW
+   ========================================================= */
+
+.auto-wrapper .auto i {
+    transition:
+        transform 0.3s ease;
+}
+
+.auto-wrapper .auto:hover i {
+    transform:
+        translateX(7px);
+}
+
+
+/* =========================================================
+   SEARCH CARD TOP SHINE
+   ========================================================= */
+
+@keyframes searchShine {
+    0% {
+        transform: translateX(-120%);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(300%);
+        opacity: 0;
+    }
+}
+
+.search::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -20%;
+
+    width: 18%;
+    height: 2px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.9),
+            transparent
+        );
+
+    animation:
+        searchShine
+        5s
+        ease-in-out
+        2s
+        infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   NAVBAR LIVE EFFECT
+   ========================================================= */
+
+.navbar {
+    animation:
+        navbarIn
+        0.65s
+        ease-out
+        both;
+}
+
+@keyframes navbarIn {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.navbar .logo {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.navbar .logo:hover {
+    transform:
+        translateY(-2px)
+        scale(1.02);
+
+    box-shadow:
+        0 8px 25px
+        rgba(44, 89, 180, 0.18);
+}
+
+
+/* =========================================================
+   NAV LINK UNDERLINE EFFECT
+   ========================================================= */
+
+.navbar .nav-links li a {
+    position: relative;
+}
+
+.navbar .nav-links li a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 5px;
+
+    width: 0;
+    height: 2px;
+
+    border-radius: 5px;
+
+    background: #3568ed;
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        width 0.25s ease;
+}
+
+.navbar .nav-links li a:hover::after {
+    width: 45%;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /*
+       Keep mobile stable.
+       Animations remain, but movement is smaller.
+    */
+
+    .search {
+        animation-duration: 0.65s;
+    }
+
+    .buss .buttons button {
+        animation-duration: 0.45s;
+    }
+
+    .Buses .bus-list:hover {
+        transform: none;
+    }
+
+    .bus-list button:hover {
+        transform: translateY(-2px);
+    }
+
+    .auto-wrapper .auto:hover {
+        transform: translateY(-3px);
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }

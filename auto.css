@@ -428,3 +428,348 @@ section {
         height: 38px;
     }
 }
+/* =========================================================
+   LIVE PAGE ANIMATIONS
+   CONNECT - AUTO PAGE
+   ========================================================= */
+
+/* ---------- PAGE ENTRANCE ---------- */
+
+@keyframes autoPageFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: autoPageFade 0.6s ease-out both;
+}
+
+
+/* ---------- HEADING ENTRANCE ---------- */
+
+@keyframes autoHeading {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.heading {
+    opacity: 0;
+    animation: autoHeading 0.7s ease-out 0.15s forwards;
+}
+
+.heading img {
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+.heading:hover img {
+    transform: scale(1.03);
+}
+
+
+/* ---------- CALL AN AUTO TITLE ---------- */
+
+@keyframes autoTitle {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section > h1 {
+    opacity: 0;
+    animation: autoTitle 0.7s ease-out 0.4s forwards;
+}
+
+
+/* ---------- AUTO CARDS ---------- */
+
+@keyframes autoCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.autoList .auto {
+    opacity: 0;
+    animation: autoCardIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+
+/* ---------- STAGGERED CARD DELAY ---------- */
+
+.autoList .auto:nth-child(1) {
+    animation-delay: 0.65s;
+}
+
+.autoList .auto:nth-child(2) {
+    animation-delay: 0.78s;
+}
+
+.autoList .auto:nth-child(3) {
+    animation-delay: 0.91s;
+}
+
+.autoList .auto:nth-child(4) {
+    animation-delay: 1.04s;
+}
+
+.autoList .auto:nth-child(5) {
+    animation-delay: 1.17s;
+}
+
+.autoList .auto:nth-child(6) {
+    animation-delay: 1.30s;
+}
+
+.autoList .auto:nth-child(7) {
+    animation-delay: 1.43s;
+}
+
+.autoList .auto:nth-child(8) {
+    animation-delay: 1.56s;
+}
+
+.autoList .auto:nth-child(9) {
+    animation-delay: 1.69s;
+}
+
+.autoList .auto:nth-child(10) {
+    animation-delay: 1.82s;
+}
+
+.autoList .auto:nth-child(11) {
+    animation-delay: 1.95s;
+}
+
+.autoList .auto:nth-child(12) {
+    animation-delay: 2.08s;
+}
+
+.autoList .auto:nth-child(13) {
+    animation-delay: 2.21s;
+}
+
+.autoList .auto:nth-child(14) {
+    animation-delay: 2.34s;
+}
+
+.autoList .auto:nth-child(15) {
+    animation-delay: 2.47s;
+}
+
+
+/* =========================================================
+   CARD HOVER EFFECT
+   ========================================================= */
+
+.autoList .auto {
+    transition:
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.autoList .auto:hover {
+    transform: translateY(-7px);
+    border-color: #cbd9f5;
+    box-shadow:
+        0 18px 38px rgba(45, 75, 130, 0.15);
+}
+
+
+/* ---------- TOP BLUE LINE ---------- */
+
+.autoList .auto::before {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.autoList .auto:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* ---------- AUTO ICON ---------- */
+
+.autoList .auto .image {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.autoList .auto:hover .image {
+    transform: scale(1.06);
+    border-color: #c7d7f7;
+    box-shadow:
+        0 8px 22px rgba(53, 104, 237, 0.13);
+}
+
+
+/* =========================================================
+   CALL BUTTON
+   ========================================================= */
+
+.autoList .auto button {
+    position: relative;
+    overflow: hidden;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Shine effect */
+
+.autoList .auto button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.22),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+}
+
+.autoList .auto button:hover::before {
+    left: 130%;
+}
+
+.autoList .auto button:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 9px 20px rgba(53, 104, 237, 0.25);
+}
+
+.autoList .auto button:active {
+    transform: translateY(0) scale(0.97);
+}
+
+
+/* =========================================================
+   PHONE ICON
+   ========================================================= */
+
+.autoList .auto button i {
+    transition:
+        transform 0.25s ease;
+}
+
+.autoList .auto button:hover i {
+    transform: scale(1.12);
+}
+
+
+/* =========================================================
+   SEARCH FOR BUSES BUTTON
+   ========================================================= */
+
+@keyframes nextButtonIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auto-wrapper {
+    opacity: 0;
+    animation: nextButtonIn 0.7s ease-out 2.7s forwards;
+}
+
+.auto-wrapper .auto {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.auto-wrapper .auto:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   SUBTLE CARD CONTENT MOVEMENT
+   ========================================================= */
+
+.autoList .auto p {
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.autoList .auto:hover p {
+    color: #3568ed;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .autoList .auto:hover {
+        transform: translateY(-4px);
+    }
+
+    .autoList .auto:hover .image {
+        transform: scale(1.03);
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   Accessibility
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
