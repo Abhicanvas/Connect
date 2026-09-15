@@ -950,41 +950,52 @@ const timeToMinutes = (timeString) => {
 };
 
 
-/* =========================================================
-   FILTER ROUTE BY TIME
-   =========================================================
-
-   Selected time:
-       7:20 AM
-
-   Shows buses between:
-       7:20 AM -> 8:20 AM
-
-   This means the selected time is the START
-   of the one-hour search window.
-   ========================================================= */
-
 const filterRouteByTime = (containerId) => {
 
-    const input =
-        getTime();
+    const input = getTime();
 
+    const def = document.getElementById('default');
 
-    const def =
-        document.getElementById('default');
-
-
-    const container =
-        document.getElementById(containerId);
-
+    const container = document.getElementById(containerId);
 
     if (!container) {
         return;
     }
 
+    const busLists = Array.from(
+        container.querySelectorAll('.bus-list')
+    );
 
-    const busLists =
-        container.querySelectorAll('.bus-list');
+
+    /* =====================================================
+       SORT ALL BUSES BY DEPARTURE TIME
+       ===================================================== */
+
+    busLists.sort((a, b) => {
+
+        const timeA = a.querySelector('.from h6');
+        const timeB = b.querySelector('.from h6');
+
+        if (!timeA || !timeB) {
+            return 0;
+        }
+
+        const minutesA =
+            timeToMinutes(timeA.textContent.trim());
+
+        const minutesB =
+            timeToMinutes(timeB.textContent.trim());
+
+        return minutesA - minutesB;
+
+    });
+
+
+    /* Put sorted buses back into container */
+
+    busLists.forEach(bus => {
+        container.appendChild(bus);
+    });
 
 
     /* =====================================================
@@ -994,19 +1005,14 @@ const filterRouteByTime = (containerId) => {
     if (!input) {
 
         busLists.forEach(bus => {
-
             bus.style.display = "grid";
-
         });
 
-
         container.style.display = "flex";
-
 
         if (def) {
             def.style.display = "none";
         }
-
 
         return;
     }
@@ -1016,17 +1022,13 @@ const filterRouteByTime = (containerId) => {
        CONVERT INPUT TIME TO MINUTES
        ===================================================== */
 
-    const inputParts =
-        input.split(':');
-
+    const inputParts = input.split(':');
 
     const inputHour =
         parseInt(inputParts[0], 10);
 
-
     const inputMinute =
         parseInt(inputParts[1], 10);
-
 
     if (
         isNaN(inputHour) ||
@@ -1043,8 +1045,17 @@ const filterRouteByTime = (containerId) => {
 
 
     /* =====================================================
-       ONE HOUR SEARCH WINDOW
+       MIXED SEARCH WINDOW
+
+       Start:
+       Beginning of selected hour
+
+       End:
+       One hour after selected time
        ===================================================== */
+
+    const hourStart =
+        inputHour * 60;
 
     const endTime =
         inputTotalMinutes + 60;
@@ -1054,14 +1065,13 @@ const filterRouteByTime = (containerId) => {
 
 
     /* =====================================================
-       CHECK EVERY BUS
+       FILTER BUSES
        ===================================================== */
 
     busLists.forEach(bus => {
 
         const timeElement =
             bus.querySelector('.from h6');
-
 
         if (!timeElement) {
 
@@ -1074,7 +1084,6 @@ const filterRouteByTime = (containerId) => {
 
         const timeText =
             timeElement.textContent.trim();
-
 
         const busTotalMinutes =
             timeToMinutes(timeText);
@@ -1089,12 +1098,8 @@ const filterRouteByTime = (containerId) => {
         }
 
 
-        /* =================================================
-           BUS IS WITHIN THE NEXT ONE HOUR
-           ================================================= */
-
         if (
-            busTotalMinutes >= inputTotalMinutes &&
+            busTotalMinutes >= hourStart &&
             busTotalMinutes <= endTime
         ) {
 
@@ -1119,7 +1124,6 @@ const filterRouteByTime = (containerId) => {
 
         container.style.display = "flex";
 
-
         if (def) {
 
             def.innerHTML =
@@ -1133,11 +1137,10 @@ const filterRouteByTime = (containerId) => {
 
         container.style.display = "none";
 
-
         if (def) {
 
             def.innerHTML =
-                "<h1>There are no buses available within the next hour</h1>";
+                "<h1>There are no buses available within the selected time range</h1>";
 
             def.style.display = "block";
 
