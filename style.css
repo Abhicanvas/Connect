@@ -2555,3 +2555,30 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+/* =========================================================
+   BUS CARD - CLEAN LOCATION/TIME POSITIONING
+   ========================================================= */
+
+.bus-list .from,
+.bus-list .to {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+/* Time first */
+.bus-list .bus-time {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* Place name below the time */
+.bus-list .bus-place {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+}

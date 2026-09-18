@@ -69,6 +69,19 @@ const getapm = (hour) => {
 
 
 /* =========================================================
+   COMMON CARD STYLE
+   ========================================================= */
+
+const setCardPosition = (busList) => {
+
+    busList.classList.add('bus-list');
+
+    busList.style.position = "relative";
+
+};
+
+
+/* =========================================================
    FISAT -> ANGAMALY
    ========================================================= */
 
@@ -77,39 +90,59 @@ const addBuses = () => {
     const buses = [
 
         {
-            name: "ST MARYS",
-
-            times: [
-                "9:10 am",
-                "12:45 pm",
-                "3:50 pm",
-                "6:55 pm"
-            ],
-
-            totime: [
-                "9:40 am",
-                "1:15 pm",
-                "4:20 pm",
-                "7:25 pm"
-            ]
-        },
-
-        {
             name: "ANNA MOL",
 
             times: [
-                "7:12 am",
-                "8:15 am",
-                "10:10 am",
-                "4:08 pm"
+                "6:28 am",
+                "7:30 am",
+                "9:28 am",
+                "11:40 am",
+                "2:03 pm",
+                "3:20 pm",
+                "5:22 pm"
             ],
 
             totime: [
-                "7:47 am",
-                "8:50 am",
-                "10:45 am",
-                "4:43 pm"
-            ]
+                "6:58 am",
+                "8:00 am",
+                "9:58 am",
+                "12:10 pm",
+                "2:33 pm",
+                "3:50 pm",
+                "5:52 pm"
+            ],
+
+            special: false
+        },
+
+
+        {
+            name: "Pandikappilly-Moonnamparambu-Karukutty",
+
+            times: [
+                "3:58 pm"
+            ],
+
+            totime: [
+                "4:28 pm"
+            ],
+
+            special: true
+        },
+
+
+        {
+            name: "Waiting shead-Azhakam-Karukutty",
+
+            times: [
+                "4:44 pm"
+            ],
+
+            totime: [
+                "5:14 pm"
+            ],
+
+            special: true
         }
 
     ];
@@ -132,7 +165,7 @@ const addBuses = () => {
                 document.createElement('div');
 
 
-            busList.classList.add('bus-list');
+            setCardPosition(busList);
 
 
             busList.innerHTML = `
@@ -152,15 +185,51 @@ const addBuses = () => {
                 </div>
 
 
-                <div class="from">
-                    <h5>FISAT</h5>
-                    <h6>${ti}</h6>
+                <div class="from"
+                     style="
+                        position:absolute;
+                        left:24px;
+                        bottom:24px;
+                        z-index:5;
+                        display:flex;
+                        flex-direction:column;
+                        gap:3px;
+                    ">
+
+                    <h6 class="bus-time"
+                        style="margin:0;">
+                        ${ti}
+                    </h6>
+
+                    <h5 class="bus-place"
+                        style="margin:0;">
+                        FISAT
+                    </h5>
+
                 </div>
 
 
-                <div class="to">
-                    <h5>Angamaly</h5>
-                    <h6>${bus.totime[index]}</h6>
+                <div class="to"
+                     style="
+                        position:absolute;
+                        left:38%;
+                        bottom:24px;
+                        z-index:5;
+                        display:flex;
+                        flex-direction:column;
+                        gap:3px;
+                    ">
+
+                    <h6 class="bus-time"
+                        style="margin:0;">
+                        ${bus.totime[index]}
+                    </h6>
+
+                    <h5 class="bus-place"
+                        style="margin:0;">
+                        Angamaly
+                    </h5>
+
                 </div>
 
 
@@ -169,13 +238,22 @@ const addBuses = () => {
                 </button>
 
 
-                <div class="bus-name">
-                    <h5>Bus :</h5>
-                </div>
-
-
                 <div class="time">
+
                     <p>${bus.name}</p>
+
+                    ${
+                        bus.special
+                        ? `
+                            <small class="special-route">
+                                📍 Arrives at FISAT College Gate
+                                <br>
+                                <strong>Different route</strong>
+                            </small>
+                        `
+                        : ''
+                    }
+
                 </div>
 
             `;
@@ -292,7 +370,7 @@ const addBuses1 = () => {
                 document.createElement('div');
 
 
-            busList.classList.add('bus-list');
+            setCardPosition(busList);
 
 
             busList.innerHTML = `
@@ -312,15 +390,51 @@ const addBuses1 = () => {
                 </div>
 
 
-                <div class="from">
-                    <h5>Angamaly</h5>
-                    <h6>${ti}</h6>
+                <div class="from"
+                     style="
+                        position:absolute;
+                        left:24px;
+                        bottom:24px;
+                        z-index:5;
+                        display:flex;
+                        flex-direction:column;
+                        gap:3px;
+                    ">
+
+                    <h6 class="bus-time"
+                        style="margin:0;">
+                        ${ti}
+                    </h6>
+
+                    <h5 class="bus-place"
+                        style="margin:0;">
+                        Angamaly
+                    </h5>
+
                 </div>
 
 
-                <div class="to">
-                    <h5>FISAT</h5>
-                    <h6>${bus.totime[index]}</h6>
+                <div class="to"
+                     style="
+                        position:absolute;
+                        left:38%;
+                        bottom:24px;
+                        z-index:5;
+                        display:flex;
+                        flex-direction:column;
+                        gap:3px;
+                    ">
+
+                    <h6 class="bus-time"
+                        style="margin:0;">
+                        ${bus.totime[index]}
+                    </h6>
+
+                    <h5 class="bus-place"
+                        style="margin:0;">
+                        FISAT
+                    </h5>
+
                 </div>
 
 
@@ -329,13 +443,10 @@ const addBuses1 = () => {
                 </button>
 
 
-                <div class="bus-name">
-                    <h5>Bus :</h5>
-                </div>
-
-
                 <div class="time">
+
                     <p>${bus.name}</p>
+
                 </div>
 
             `;
@@ -358,118 +469,126 @@ const addMookkannoorToAngamaly = () => {
 
     const times = [
 
-        "5:45 am",
-        "6:25 am",
+        "5:40 am",
+        "6:00 am",
+        "6:35 am",
         "6:45 am",
         "7:02 am",
-        "7:18 am",
+        "7:21 am",
         "7:37 am",
         "7:50 am",
         "8:00 am",
         "8:08 am",
-        "8:22 am",
+        "8:13 am",
+        "8:25 am",
         "8:35 am",
-        "8:41 am",
-        "8:52 am",
-        "9:10 am",
-        "9:27 am",
-        "9:48 am",
+        "8:50 am",
+        "9:08 am",
+        "9:28 am",
+        "9:47 am",
         "10:00 am",
-        "10:17 am",
-        "10:21 am",
+        "10:05 am",
+        "10:20 am",
+        "10:25 am",
         "10:40 am",
         "10:55 am",
         "11:10 am",
-        "11:35 am",
+        "11:18 am",
+        "11:45 am",
         "12:00 pm",
         "12:15 pm",
-        "12:30 pm",
-        "12:40 pm",
-        "1:00 pm",
-        "1:10 pm",
-        "1:30 pm",
-        "1:44 pm",
-        "2:02 pm",
-        "2:25 pm",
-        "2:30 pm",
-        "2:45 pm",
-        "3:05 pm",
-        "3:20 pm",
-        "3:45 pm",
-        "4:00 pm",
-        "4:15 pm",
-        "4:35 pm",
-        "4:53 pm",
-        "5:10 pm",
-        "5:20 pm",
-        "5:40 pm",
-        "6:00 pm",
-        "6:15 pm",
-        "6:30 pm",
-        "6:40 pm",
-        "6:50 pm",
-        "7:00 pm",
-        "7:15 pm",
-        "7:30 pm"
-
-    ];
-
-
-    const totime = [
-
-        "6:15 am",
-        "6:55 am",
-        "7:15 am",
-        "7:32 am",
-        "7:48 am",
-        "8:07 am",
-        "8:20 am",
-        "8:30 am",
-        "8:38 am",
-        "8:52 am",
-        "9:05 am",
-        "9:11 am",
-        "9:22 am",
-        "9:40 am",
-        "9:57 am",
-        "10:18 am",
-        "10:30 am",
-        "10:47 am",
-        "10:51 am",
-        "11:10 am",
-        "11:25 am",
-        "11:40 am",
-        "12:05 pm",
         "12:30 pm",
         "12:45 pm",
         "1:00 pm",
         "1:10 pm",
-        "1:30 pm",
-        "1:40 pm",
+        "1:28 pm",
+        "1:45 pm",
+        "2:07 pm",
+        "2:25 pm",
+        "2:30 pm",
+        "2:50 pm",
+        "3:05 pm",
+        "3:25 pm",
+        "3:45 pm",
+        "4:05 pm",
+        "4:20 pm",
+        "4:35 pm",
+        "4:52 pm",
+        "5:10 pm",
+        "5:20 pm",
+        "5:42 pm",
+        "6:00 pm",
+        "6:13 pm",
+        "6:20 pm",
+        "6:30 pm"
+
+    ];
+
+
+    /*
+       ARRIVAL TIMES ARE APPROXIMATE.
+
+       Average travel time used:
+       +32 minutes
+
+       This is based on the usual
+       30–35 minute journey.
+    */
+
+    const totime = [
+
+        "6:12 am",
+        "6:32 am",
+        "7:07 am",
+        "7:17 am",
+        "7:34 am",
+        "7:53 am",
+        "8:09 am",
+        "8:22 am",
+        "8:32 am",
+        "8:40 am",
+        "8:45 am",
+        "8:57 am",
+        "9:07 am",
+        "9:22 am",
+        "9:40 am",
+        "10:00 am",
+        "10:19 am",
+        "10:32 am",
+        "10:37 am",
+        "10:52 am",
+        "10:57 am",
+        "11:12 am",
+        "11:27 am",
+        "11:42 am",
+        "11:50 am",
+        "12:17 pm",
+        "12:32 pm",
+        "12:47 pm",
+        "1:02 pm",
+        "1:17 pm",
+        "1:32 pm",
+        "1:42 pm",
         "2:00 pm",
-        "2:14 pm",
-        "2:32 pm",
-        "2:55 pm",
-        "3:00 pm",
-        "3:15 pm",
-        "3:35 pm",
-        "3:50 pm",
-        "4:15 pm",
-        "4:30 pm",
-        "4:45 pm",
-        "5:05 pm",
-        "5:23 pm",
-        "5:40 pm",
-        "5:50 pm",
-        "6:10 pm",
-        "6:30 pm",
+        "2:17 pm",
+        "2:39 pm",
+        "2:57 pm",
+        "3:02 pm",
+        "3:22 pm",
+        "3:37 pm",
+        "3:57 pm",
+        "4:17 pm",
+        "4:37 pm",
+        "4:52 pm",
+        "5:07 pm",
+        "5:24 pm",
+        "5:42 pm",
+        "5:52 pm",
+        "6:14 pm",
+        "6:32 pm",
         "6:45 pm",
-        "7:00 pm",
-        "7:10 pm",
-        "7:20 pm",
-        "7:30 pm",
-        "7:45 pm",
-        "8:00 pm"
+        "6:52 pm",
+        "7:02 pm"
 
     ];
 
@@ -489,7 +608,7 @@ const addMookkannoorToAngamaly = () => {
             document.createElement('div');
 
 
-        busList.classList.add('bus-list');
+        setCardPosition(busList);
 
 
         busList.innerHTML = `
@@ -509,15 +628,51 @@ const addMookkannoorToAngamaly = () => {
             </div>
 
 
-            <div class="from">
-                <h5>Mookkannoor</h5>
-                <h6>${ti}</h6>
+            <div class="from"
+                 style="
+                    position:absolute;
+                    left:24px;
+                    bottom:24px;
+                    z-index:5;
+                    display:flex;
+                    flex-direction:column;
+                    gap:3px;
+                ">
+
+                <h6 class="bus-time"
+                    style="margin:0;">
+                    ${ti}
+                </h6>
+
+                <h5 class="bus-place"
+                    style="margin:0;">
+                    Mookkannoor
+                </h5>
+
             </div>
 
 
-            <div class="to">
-                <h5>Angamaly</h5>
-                <h6>${totime[index]}</h6>
+            <div class="to"
+                 style="
+                    position:absolute;
+                    left:38%;
+                    bottom:24px;
+                    z-index:5;
+                    display:flex;
+                    flex-direction:column;
+                    gap:3px;
+                ">
+
+                <h6 class="bus-time"
+                    style="margin:0;">
+                    ${totime[index]}
+                </h6>
+
+                <h5 class="bus-place"
+                    style="margin:0;">
+                    Angamaly
+                </h5>
+
             </div>
 
 
@@ -541,118 +696,105 @@ const addMookkannoorToAngamaly = () => {
 
 const toMookannor = () => {
 
+    /*
+       THE PREVIOUS ARRIVAL TIMES ARE NOW USED
+       AS DEPARTURE TIMES.
+
+       APPROXIMATE ARRIVAL = DEPARTURE + 30 MINUTES.
+    */
+
     const time = [
 
-        "6:35 am",
-        "7:12 am",
-        "7:18 am",
-        "7:29 am",
-        "7:48 am",
-        "8:07 am",
-        "8:11 am",
-        "8:27 am",
-        "8:47 am",
-        "8:55 am",
-        "9:00 am",
-        "9:22 am",
-        "9:38 am",
-        "9:52 am",
-        "10:07 am",
-        "10:23 am",
+        "10:25 am",
         "10:42 am",
         "10:53 am",
         "11:12 am",
         "11:32 am",
         "11:57 am",
-        "12:13 pm",
+        "12:12 pm",
         "12:29 pm",
+        "12:47 pm",
         "12:57 pm",
-        "1:19 pm",
+        "1:18 pm",
         "1:32 pm",
         "1:47 pm",
-        "2:00 pm",
+        "2:02 pm",
         "2:20 pm",
-        "2:30 pm",
-        "2:50 pm",
-        "3:10 pm",
+        "2:32 pm",
+        "2:52 pm",
+        "3:12 pm",
         "3:20 pm",
-        "3:30 pm",
+        "3:35 pm",
+        "3:49 pm",
         "4:00 pm",
         "4:20 pm",
-        "4:30 pm",
+        "4:32 pm",
         "4:47 pm",
-        "4:54 pm",
+        "4:55 pm",
         "5:15 pm",
         "5:20 pm",
         "5:34 pm",
-        "5:40 pm",
+        "5:44 pm",
         "6:00 pm",
-        "6:05 pm",
+        "6:08 pm",
         "6:20 pm",
         "6:32 pm",
-        "6:43 pm",
-        "7:13 pm",
-        "7:32 pm",
-        "8:00 pm",
-        "8:25 pm"
+        "6:47 pm",
+        "6:51 pm",
+        "7:02 pm",
+        "7:15 pm",
+        "7:35 pm",
+        "8:05 pm",
+        "8:35 pm"
 
     ];
 
 
+    // Estimated arrival = departure + approximately 30 minutes
+
     const totime = [
 
-        "7:05 am",
-        "7:42 am",
-        "7:48 am",
-        "7:59 am",
-        "8:18 am",
-        "8:37 am",
-        "8:41 am",
-        "8:57 am",
-        "9:17 am",
-        "9:25 am",
-        "9:30 am",
-        "9:52 am",
-        "10:08 am",
-        "10:22 am",
-        "10:37 am",
-        "10:53 am",
+        "10:55 am",
         "11:12 am",
         "11:23 am",
         "11:42 am",
         "12:02 pm",
         "12:27 pm",
-        "12:43 pm",
+        "12:42 pm",
         "12:59 pm",
+        "1:17 pm",
         "1:27 pm",
-        "1:49 pm",
+        "1:48 pm",
         "2:02 pm",
         "2:17 pm",
-        "2:30 pm",
+        "2:32 pm",
         "2:50 pm",
-        "3:00 pm",
-        "3:20 pm",
-        "3:40 pm",
+        "3:02 pm",
+        "3:22 pm",
+        "3:42 pm",
         "3:50 pm",
-        "4:00 pm",
+        "4:05 pm",
+        "4:19 pm",
         "4:30 pm",
         "4:50 pm",
-        "5:00 pm",
+        "5:02 pm",
         "5:17 pm",
-        "5:24 pm",
+        "5:25 pm",
         "5:45 pm",
         "5:50 pm",
         "6:04 pm",
-        "6:10 pm",
+        "6:14 pm",
         "6:30 pm",
-        "6:35 pm",
+        "6:38 pm",
         "6:50 pm",
         "7:02 pm",
-        "7:13 pm",
-        "7:43 pm",
-        "8:02 pm",
-        "8:30 pm",
-        "8:55 pm"
+        "7:17 pm",
+        "7:21 pm",
+        "7:32 pm",
+        "7:45 pm",
+        "8:05 pm",
+        "8:35 pm",
+        "9:05 pm"
 
     ];
 
@@ -672,7 +814,7 @@ const toMookannor = () => {
             document.createElement('div');
 
 
-        busList.classList.add('bus-list');
+        setCardPosition(busList);
 
 
         busList.innerHTML = `
@@ -692,15 +834,51 @@ const toMookannor = () => {
             </div>
 
 
-            <div class="from">
-                <h5>Angamaly</h5>
-                <h6>${ti}</h6>
+            <div class="from"
+                 style="
+                    position:absolute;
+                    left:24px;
+                    bottom:24px;
+                    z-index:5;
+                    display:flex;
+                    flex-direction:column;
+                    gap:3px;
+                ">
+
+                <h6 class="bus-time"
+                    style="margin:0;">
+                    ${ti}
+                </h6>
+
+                <h5 class="bus-place"
+                    style="margin:0;">
+                    Angamaly
+                </h5>
+
             </div>
 
 
-            <div class="to">
-                <h5>Mookkannoor</h5>
-                <h6>${totime[index]}</h6>
+            <div class="to"
+                 style="
+                    position:absolute;
+                    left:38%;
+                    bottom:24px;
+                    z-index:5;
+                    display:flex;
+                    flex-direction:column;
+                    gap:3px;
+                ">
+
+                <h6 class="bus-time"
+                    style="margin:0;">
+                    ${totime[index]}
+                </h6>
+
+                <h5 class="bus-place"
+                    style="margin:0;">
+                    Mookkannoor
+                </h5>
+
             </div>
 
 
@@ -928,8 +1106,6 @@ const timeToMinutes = (timeString) => {
         match[3].toLowerCase();
 
 
-    /* Convert to 24-hour format */
-
     if (ampm === "am") {
 
         if (hour === 12) {
@@ -950,21 +1126,30 @@ const timeToMinutes = (timeString) => {
 };
 
 
+/* =========================================================
+   FILTER ROUTE BY TIME
+   ========================================================= */
+
 const filterRouteByTime = (containerId) => {
 
     const input = getTime();
 
-    const def = document.getElementById('default');
+    const def =
+        document.getElementById('default');
 
-    const container = document.getElementById(containerId);
+    const container =
+        document.getElementById(containerId);
+
 
     if (!container) {
         return;
     }
 
-    const busLists = Array.from(
-        container.querySelectorAll('.bus-list')
-    );
+
+    const busLists =
+        Array.from(
+            container.querySelectorAll('.bus-list')
+        );
 
 
     /* =====================================================
@@ -973,28 +1158,39 @@ const filterRouteByTime = (containerId) => {
 
     busLists.sort((a, b) => {
 
-        const timeA = a.querySelector('.from h6');
-        const timeB = b.querySelector('.from h6');
+        const timeA =
+            a.querySelector('.from h6');
+
+        const timeB =
+            b.querySelector('.from h6');
+
 
         if (!timeA || !timeB) {
             return 0;
         }
 
+
         const minutesA =
-            timeToMinutes(timeA.textContent.trim());
+            timeToMinutes(
+                timeA.textContent.trim()
+            );
+
 
         const minutesB =
-            timeToMinutes(timeB.textContent.trim());
+            timeToMinutes(
+                timeB.textContent.trim()
+            );
+
 
         return minutesA - minutesB;
 
     });
 
 
-    /* Put sorted buses back into container */
-
     busLists.forEach(bus => {
+
         container.appendChild(bus);
+
     });
 
 
@@ -1005,30 +1201,40 @@ const filterRouteByTime = (containerId) => {
     if (!input) {
 
         busLists.forEach(bus => {
+
             bus.style.display = "grid";
+
         });
 
+
         container.style.display = "flex";
+
 
         if (def) {
             def.style.display = "none";
         }
 
+
         return;
+
     }
 
 
     /* =====================================================
-       CONVERT INPUT TIME TO MINUTES
+       CONVERT INPUT TIME
        ===================================================== */
 
-    const inputParts = input.split(':');
+    const inputParts =
+        input.split(':');
+
 
     const inputHour =
         parseInt(inputParts[0], 10);
 
+
     const inputMinute =
         parseInt(inputParts[1], 10);
+
 
     if (
         isNaN(inputHour) ||
@@ -1045,17 +1251,12 @@ const filterRouteByTime = (containerId) => {
 
 
     /* =====================================================
-       MIXED SEARCH WINDOW
-
-       Start:
-       Beginning of selected hour
-
-       End:
-       One hour after selected time
+       SEARCH WINDOW
        ===================================================== */
 
     const hourStart =
         inputHour * 60;
+
 
     const endTime =
         inputTotalMinutes + 60;
@@ -1073,6 +1274,7 @@ const filterRouteByTime = (containerId) => {
         const timeElement =
             bus.querySelector('.from h6');
 
+
         if (!timeElement) {
 
             bus.style.display = "none";
@@ -1084,6 +1286,7 @@ const filterRouteByTime = (containerId) => {
 
         const timeText =
             timeElement.textContent.trim();
+
 
         const busTotalMinutes =
             timeToMinutes(timeText);
@@ -1124,6 +1327,7 @@ const filterRouteByTime = (containerId) => {
 
         container.style.display = "flex";
 
+
         if (def) {
 
             def.innerHTML =
@@ -1136,6 +1340,7 @@ const filterRouteByTime = (containerId) => {
     } else {
 
         container.style.display = "none";
+
 
         if (def) {
 
