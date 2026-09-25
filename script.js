@@ -1,410 +1,1408 @@
-var currentHour
+var currentHour;
+
+
+/* =========================================================
+   PAGE LOAD
+   ========================================================= */
+
 window.onload = () => {
+
     const busLists = document.querySelectorAll('.Buses');
+
     busLists.forEach((busList) => {
-        busList.style.display = "none"; 
+        busList.style.display = "none";
     });
-    const def=document.getElementById('default');
-    def.style.display='none';
-    const mookkannurSection = document.querySelector('.default');
-    mookkannurSection.style.display = 'none';
+
+    const def = document.getElementById('default');
+
+    if (def) {
+        def.style.display = 'none';
+    }
 };
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
 function toggleMenu() {
+
     const menu = document.getElementById('menu');
-    menu.classList.toggle('active');
+
+    if (menu) {
+        menu.classList.toggle('active');
+    }
+
 }
- const directM=()=>
- {
 
- }
-    const getTime=() =>
-    { 
-        const inputValue = document.getElementById("input-time").value;
-        return inputValue;
-    }
-    const getapm=(hour) =>
-    {
-        if(hour>=12)
-            {
-                return 'pm';
-            }
-        else
+
+/* =========================================================
+   DIRECT MENU
+   ========================================================= */
+
+const directM = () => { };
+
+
+/* =========================================================
+   GET TIME
+   ========================================================= */
+
+const getTime = () => {
+
+    const inputValue =
+        document.getElementById("input-time").value;
+
+    return inputValue;
+
+};
+
+
+/* =========================================================
+   GET AM / PM
+   ========================================================= */
+
+const getapm = (hour) => {
+
+    return hour >= 12 ? 'pm' : 'am';
+
+};
+
+
+/* =========================================================
+   COMMON CARD STYLE
+   ========================================================= */
+
+const setCardPosition = (busList) => {
+
+    busList.classList.add('bus-list');
+
+    busList.style.position = "relative";
+
+};
+
+
+/* =========================================================
+   FISAT -> ANGAMALY
+   ========================================================= */
+
+const addBuses = () => {
+
+    const buses = [
+
         {
-            return 'am';
+            name: "ANNA MOL",
+
+            times: [
+                "6:28 am",
+                "7:30 am",
+                "9:28 am",
+                "11:40 am",
+                "2:03 pm",
+                "3:20 pm",
+                "5:22 pm"
+            ],
+
+            totime: [
+                "6:58 am",
+                "8:00 am",
+                "9:58 am",
+                "12:10 pm",
+                "2:33 pm",
+                "3:50 pm",
+                "5:52 pm"
+            ],
+
+            special: false
+        },
+
+
+        {
+            name: "Pandipilly",
+
+            times: [
+                "3:58 pm"
+            ],
+
+            totime: [
+                "4:28 pm"
+            ],
+
+            special: true
+        },
+
+
+        {
+            name: "FISAT ARCH",
+
+            times: [
+                "4:44 pm"
+            ],
+
+            totime: [
+                "5:14 pm"
+            ],
+
+            special: true
         }
+
+    ];
+
+
+    const busContainer =
+        document.getElementById("Ann1");
+
+
+    if (!busContainer) {
+        return;
     }
 
-        const addBuses = () => {
-            const buses = [
-                {
-                    name: "ST MARYS",
-                    times: ["9:10 am", "12:45 pm", "3:50 pm", "6:55 pm"],
-                    totime: ["9:40 am", "1:15 pm", "4:20 pm", "7:25 pm"],
-                    containerId: "St"
-                },
-                {
-                    name: "ANNA MOL",
-                    times: ["7:12 am", "8:15 am", "10:10 am", "4:08 pm"],
-                    totime: ["7:47 am", "8:50 am", "10:45 am", "4:43 pm"],
-                    containerId: "Ann1"
-                }
-            ];
-        
-            let allSchedules = [];
-        
-            buses.forEach(bus => {
-                bus.times.forEach((ti, index) => {
-                    allSchedules.push({
-                        time: ti,
-                        toTime: bus.totime[index],
-                        name: bus.name,
-                        containerId: bus.containerId
-                    });
-                });
-            });
-        
-            allSchedules.sort((a, b) => new Date(`01/01/2000 ${a.time}`) - new Date(`01/01/2000 ${b.time}`));
-        
-            allSchedules.forEach(schedule => {
-                const busContainer = document.getElementById("Ann1");
-                const busList = document.createElement('div');
-                busList.classList.add('bus-list');
-                
-                busList.innerHTML = `
-                    <img src="img/Frame 35058.png" alt="">
-                    <div class="from">
-                        <h5>Angamaly</h5>
-                        <h6>${schedule.time}</h6>
-                    </div>
-                    <div class="to">
-                        <h5>FISAT</h5>
-                        <h6>${schedule.toTime}</h6>
-                    </div>
-                    <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Stop Direction >></button>
-                    <div class="bus-name">
-                        <h5>Bus :</h5>
-                    </div>
-                    <div class="time">
-                        <p>${schedule.name}</p>
-                    </div>
-                `;
-                
-                busContainer.appendChild(busList);
-            });
-        }
-          
 
-    const addBuses1 = () => {
-        const buses = [
-            {
-                name: "FISAT AVE",
-                times: ["7:00 am", "8:20 am", "9:55 am", "10:25 am", "1:50 pm", "4:45 pm", "5:35 pm", "5:50 pm"],
-                totime: ["7:35 am", "8:55 am", "10:30 am", "11:00 am", "2:25 pm", "5:20 pm", "6:10 pm", "6:25 pm"],
-                containerId: "Ann"
-            },
-            {
-                name: "FISAT",
-                times: ["6:28 am", "7:32 am", "9:32 am", "11:40 am", "2:05 pm", "5:20 pm"],
-                totime: ["6:58 am", "8:02 am", "10:02 am", "12:10 pm", "2:35 pm", "5:50 pm"],
-                containerId: "Ann"
-            },
-            {
-                name: "Pandipally",
-                times: ["7:15 am", "8:30 am", "9:10 am", "10:00 am", "2:20 pm", "3:45 pm", "6:45 pm"],
-                totime: ["7:50 am", "9:05 am", "9:45 am", "10:35 am", "2:55 pm", "4:20 pm", "7:20 pm"],
-                containerId: "Ann"
-            },
-            {
-                name: "Mookkannoor",
-                times: ["5:45 am", "6:25 am", "6:45 am", "7:02 am", "7:18 am", "7:37 am", "7:50 am", "8:00 am", "8:08 am", "8:22 am", "8:35 am", "8:41 am", "8:52 am", "9:10 am", "9:27 am", "9:48 am", "10:00 am", "10:17 am", "10:21 am", "10:40 am", "10:55 am", "11:10 am", "11:35 am", "12:00 PM", "12:15 PM", "12:30 pm", "12:40 pm", "1:00 pm", "1:10 pm", "1:30 pm", "1:44 pm", "2:02 pm", "2:25 pm", "2:30 pm", "2:45 pm", "3:05 pm", "3:20 pm", "3:45 pm", "4:00 pm", "4:15 pm", "4:35 pm", "4:53 pm", "5:10 pm", "5:20 pm", "5:40 pm", "6:00 pm", "6:15 pm", "6:30 pm", "6:40 pm", "6:50 pm", "7:00 pm", "7:15 pm", "7:30 pm"],
-                totime: ["6:15 am", "6:55 am", "7:15 am", "7:32 am", "7:48 am", "8:07 am", "8:20 am", "8:30 am", "8:38 am", "8:52 am", "9:05 am", "9:11 am", "9:22 am", "9:40 am", "9:57 am", "10:18 am", "10:30 am", "10:47 am", "10:51 am", "11:10 am", "11:25 am", "11:40 am", "12:05 pm", "12:30 pm", "12:45 pm", "1:00 pm", "1:10 pm", "1:30 pm", "1:40 pm", "2:00 pm", "2:14 pm", "2:32 pm", "2:55 pm", "3:00 pm", "3:15 pm", "3:35 pm", "3:50 pm", "4:15 pm", "4:30 pm", "4:45 pm", "5:05 pm", "5:23 pm", "5:40 pm", "5:50 pm", "6:10 pm", "6:30 pm", "6:45 pm", "7:00 pm", "7:10 pm", "7:20 pm", "7:30 pm", "7:45 pm", "8:00 pm"],
-                containerId: "Mookkannur"
-            }
-        ];
-    
-        let allSchedules = [];
-    
-        buses.forEach(bus => {
-            bus.times.forEach((ti, index) => {
-                allSchedules.push({
-                    time: ti,
-                    toTime: bus.totime[index],
-                    name: bus.name,
-                    containerId: bus.containerId
-                });
-            });
-        });
-    
-        allSchedules.sort((a, b) => new Date(`01/01/2000 ${a.time}`) - new Date(`01/01/2000 ${b.time}`));
-    
-        allSchedules.forEach(schedule => {
-            const busContainer = document.getElementById("Ann");
-            const busList = document.createElement('div');
-            busList.classList.add('bus-list');
-            
+    buses.forEach(bus => {
+
+        bus.times.forEach((ti, index) => {
+
+            const busList =
+                document.createElement('div');
+
+
+            setCardPosition(busList);
+
+
             busList.innerHTML = `
-                <img src="img/Frame 35058.png" alt="">
+
+                <div class="route-animation">
+
+                    <div class="route-line"></div>
+
+                    <div class="route-dot start-dot"></div>
+
+                    <div class="route-bus">
+                        <i class="fa-solid fa-bus"></i>
+                    </div>
+
+                    <div class="route-dot end-dot"></div>
+
+                </div>
+
+
                 <div class="from">
-                    <h5>${schedule.name}</h5>
-                    <h6>${schedule.time}</h6>
+
+                    <h6 class="bus-time">
+                        ${ti}
+                    </h6>
+
+                    <h5 class="bus-place"
+                        style="margin:0;">
+                        FISAT
+                    </h5>
+
                 </div>
+
+
                 <div class="to">
-                    <h5>Angamaly</h5>
-                    <h6>${schedule.toTime}</h6>
+
+                    <h6 class="bus-time">
+                        ${bus.totime[index]}
+                    </h6>
+
+                    <h5 class="bus-place">
+                        Angamaly
+                    </h5>
+
                 </div>
-                <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>Stop Direction >></button>
+
+
+
+
+                <div class="time">
+
+                    <p>${bus.name}</p>
+
+                    ${bus.special
+                    ? `
+                          
+                        `
+                    : ''
+                }
+
+                </div>
+
             `;
-            
+
+
             busContainer.appendChild(busList);
-        });
-    }
-    
-    let addfisat=false;
-    let addangamaly=false;
-    let addmookanoor=false;
-    const addFisat=()=>
-    {
-        if(addfisat==false)
-        {
-            addBuses();
-            addfisat=true;
-        }
-        addFit();
-        hideAngamaly();
-        hideMookannor();
-    }
-    const hideFisat=()=>
-    {
-        let hide=document.querySelectorAll('.fit')
-        hide.forEach((divs)=>
-        {
-            divs.style.display='none';
-        });
-    }
-    const hideAngamaly=()=>
-    {
-        let hide=document.querySelectorAll('.ang')
-        hide.forEach((divs)=>
-        {
-            divs.style.display='none';
-        });
-    }
-    const hideMookannor=()=>
-    {
-        let hide=document.querySelectorAll('.mok')
-        hide.forEach((divs)=>
-        {
-            divs.style.display='none';
-        });
-    }
-    const Mookannoor=()=>
-    {
-        if(addmookanoor==false)
-        {
-            toMookannor();
-            addmookanoor=true;
-        }
-        hideTime();
-        hideFisat();
-        hideAngamaly();
-    }
-    const addAngamaly=()=>
-    {
-        if(addangamaly==false)
-        {
-            addBuses1();
-            addangamaly=true;
-        }
-        hideTime();
-        hideFisat();
-        hideMookannor();
-    };
-    const toMookannor=()=>
-    {
-        const time=[ "6:35 am", "7:12 am", "7:18 am", "7:29 am", "7:48 am", "8:07 am", "8:11 am",   "8:27 am", "8:47 am", "8:55 am", "9:00 am", "9:22 am", "9:38 am", "9:52 am",   "10:07 am", "10:23 am", "10:42 am", "10:53 am", "11:12 am", "11:32 am",   "11:57 am", "12:13 pm", "12:29 pm", "12:57 pm", "1:19 pm", "1:32 pm",   "1:47 pm", "2:00 pm", "2:20 pm", "2:30 pm", "2:50 pm", "3:10 pm", "3:20 pm",   "3:30 pm", "4:00 pm", "16:20", "4:30 pm", "4:47 pm", "4:54 pm", "5:15 pm",   "5:20 pm", "5:34 pm", "5:40 pm", "6:00 pm", "6:05 pm", "6:20 pm", "6:32 pm",   "6:43 pm", "7:13 pm", "7:32 pm", "8:00 pm", "8:25 pm"];
-        const totime=[ '07:05 am', '07:42 am', '07:48 am', '07:59 am', '08:18 am', '08:37 am', '08:41 am', '08:57 am',  '09:17 am', '09:25 am', '09:30 am', '09:52 am', '10:08 am', '10:22 am', '10:37 am', '10:53 am',  '11:12 am', '11:23 am', '11:42 am', '12:02 pm', '12:27 pm', '12:43 pm', '12:59 pm', '01:27 pm',  '01:49 pm', '02:02 pm', '02:17 pm', '02:30 pm', '02:50 pm', '03:00 pm', '03:20 pm', '03:40 pm',  '03:50 pm', '04:00 pm', '04:30 pm', '16:50', '05:00 pm', '05:17 pm', '05:24 pm', '05:45 pm',  '05:50 pm', '06:04 pm', '06:10 pm', '06:30 pm', '06:35 pm', '06:50 pm', '07:02 pm', '07:13 pm',  '07:43 pm', '08:02 pm', '08:30 pm', '08:55 pm'];
-        const busContainer = document.getElementById('Mok');
-    
-          time.forEach((ti, index) => {
-              const toTime = totime[index]; 
-              const busList = document.createElement('div');
-              busList.classList.add('bus-list');
-              
-              busList.innerHTML = `
-                  <img src="img/Frame 35058.png" alt="">
-                  <div class="from">
-                      <h5>Angamaly</h5>
-                      <h6>${ti}</h6>
-                  </div>
-                  <div class="to">
-                      <h5>Mookanoor</h5>
-                      <h6>${toTime}</h6> <!-- Display the corresponding time -->
-                  </div>
-                  <button onclick= 'window.open("https://maps.app.goo.gl/qn7uvrG3CNs6uC6L9","blank")'>Stop Direction >></button>
-              `;
-              
-              busContainer.appendChild(busList);
-          }); 
-    };
-    const hideTime = () => { 
-       
-        let time = getTime(); // Make sure getTime() returns a valid time string
 
-        const date = new Date('1970-01-01T' + time + ':00'); // Create date object
-        let hour = date.getHours(); // Get the hour from the time
-        if(hour)
-        {
-            console.log("not working")
-        }
-        else
-        {
-            hour=currentHour;
-        }
-        const suf=getapm(hour);
-        if(hour>12)
-        {
-            hour=hour-12;
-        } 
-        console.log(suf);
-        let flag=0;
-        const def=document.getElementById('default');
-        let defaultText="<h1>The  bus timings provided may vary according to the traffic conditions</h1>";
-        def.style.display='block';
-        console.log("Hour: ", hour); // Debugging the hour
-        const buses=document.querySelectorAll('.Buses');
-        // Select corresponding bus-list divs
-        buses.forEach((bus) => {
-            bus.style.display = "none"; 
         });
-        // Check if the number of fromTimeElements and busLists are equal
-        // Hide all bus lists initially
-        buses.forEach((bus, ind) => {
-            // Select all from time h6 elements inside the current bus
-            const fromTimeElements = bus.querySelectorAll('.from h6'); 
-            // Select all bus-list elements inside the current bus
-            const busLists = bus.querySelectorAll('.bus-list');
-            if (fromTimeElements.length !== busLists.length) {
-                console.error("Mismatch between fromTime elements and bus-list elements");
-                return;
-            }
-            fromTimeElements.forEach((element, index) => {
-                const timeText = element.textContent.trim();  // Get time text from h6
-                let firstLetter;
-                if(hour>9)
-                {
-                     firstLetter = timeText.substring(0,2);
-                    console.log(firstLetter);
-                }
-                else
-                {
-                     firstLetter = timeText.charAt(0);  // Get the first letter of time (hour)
-                }
-                const ampm = timeText.slice(-2);  // Get the AM/PM suffix from the end of the string
-        
-                // Debugging to check what is being compared
-                console.log(`Comparing firstLetter: ${firstLetter} with hour: ${hour} and AM/PM: ${ampm} with suffix: ${suf}`);
-        
-                // Show the matching bus-list and hide others
-                if (firstLetter == hour.toString() && ampm === suf) {
-                    console.log(`Showing bus list at index ${index}`); // Debugging
-                    console.log(ind); // Debugging index of bus
-                    buses[ind].style.display = "flex";  // Show the matching bus container
-                    busLists[index].style.display = "grid";  // Show the specific bus-list div
-                    flag=1
-                } else {
-                    // Hide the bus if it doesn't match
-                    busLists[index].style.display = "none"; 
-                    def.style.display='block';
-                     // Hide non-matching bus-list divs
-                }
-            });
-        });
-        if(flag==0)
-            {
-                def.innerHTML="<h1>There are no other busses in given time</h1>"
-            }
-            else
-            {
-                def.innerHTML=defaultText;
-            }
-        // Loop through each .from h6 and find the one that matches the current hour       
-    };
 
-    const addFit = () => { 
-       
-        let time = getTime(); // Make sure getTime() returns a valid time string
+    });
 
-        const date = new Date('1970-01-01T' + time + ':00'); // Create date object
-        let hour = date.getHours(); // Get the hour from the time
-        if(hour)
+};
+
+
+/* =========================================================
+   ANGAMALY -> FISAT
+   ========================================================= */
+
+const addBuses1 = () => {
+
+    const buses = [
+
         {
-            console.log("not working")
-        }
-        else
+            name: "FISAT AVE",
+
+            times: [
+                "7:00 am",
+                "8:20 am",
+                "9:55 am",
+                "10:25 am",
+                "1:50 pm",
+                "4:45 pm",
+                "5:35 pm",
+                "5:50 pm"
+            ],
+
+            totime: [
+                "7:35 am",
+                "8:55 am",
+                "10:30 am",
+                "11:00 am",
+                "2:25 pm",
+                "5:20 pm",
+                "6:10 pm",
+                "6:25 pm"
+            ]
+        },
+
+
         {
-            hour=currentHour;
-        }
-        const suf=getapm(hour);
-        if(hour>12)
+            name: "FISAT",
+
+            times: [
+                "6:28 am",
+                "7:32 am",
+                "9:32 am",
+                "11:40 am",
+                "2:05 pm",
+                "5:20 pm"
+            ],
+
+            totime: [
+                "6:58 am",
+                "8:02 am",
+                "10:02 am",
+                "12:10 pm",
+                "2:35 pm",
+                "5:50 pm"
+            ]
+        },
+
+
         {
-            hour=hour-12;
+            name: "Pandipally",
+
+            times: [
+                "7:15 am",
+                "8:30 am",
+                "9:10 am",
+                "10:00 am",
+                "2:20 pm",
+                "3:45 pm",
+                "6:45 pm"
+            ],
+
+            totime: [
+                "7:50 am",
+                "9:05 am",
+                "9:45 am",
+                "10:35 am",
+                "2:55 pm",
+                "4:20 pm",
+                "7:20 pm"
+            ]
         }
-        
-        console.log(suf);
-        const def=document.getElementById('default');
-        def.style.display='block';
-        console.log("Hour: ", hour); // Debugging the hour
-        const buses=document.querySelectorAll('.Buses');
-        // Select corresponding bus-list divs
-        buses.forEach((bus) => {
-            bus.style.display = "none"; 
+
+    ];
+
+
+    const busContainer =
+        document.getElementById("Ann");
+
+
+    if (!busContainer) {
+        return;
+    }
+
+
+    buses.forEach(bus => {
+
+        bus.times.forEach((ti, index) => {
+
+            const busList =
+                document.createElement('div');
+
+
+            setCardPosition(busList);
+
+
+            busList.innerHTML = `
+
+                <div class="route-animation">
+
+                    <div class="route-line"></div>
+
+                    <div class="route-dot start-dot"></div>
+
+                    <div class="route-bus">
+                        <i class="fa-solid fa-bus"></i>
+                    </div>
+
+                    <div class="route-dot end-dot"></div>
+
+                </div>
+
+
+                <div class="from">
+
+                    <h6 class="bus-time"
+                        style="margin:0;">
+                        ${ti}
+                    </h6>
+
+                    <h5 class="bus-place"
+                        style="margin:0;">
+                        Angamaly
+                    </h5>
+
+                </div>
+
+
+                <div class="to">
+
+                    <h6 class="bus-time"
+                        style="margin:0;">
+                        ${bus.totime[index]}
+                    </h6>
+
+                    <h5 class="bus-place"
+                        style="margin:0;">
+                        FISAT
+                    </h5>
+
+                </div>
+
+
+
+
+                <div class="time">
+
+                    <p>${bus.name}</p>
+
+                </div>
+
+            `;
+
+
+            busContainer.appendChild(busList);
+
         });
-        // Check if the number of fromTimeElements and busLists are equal
-        // Hide all bus lists initially
-        buses.forEach((bus, ind) => {
-            // Select all from time h6 elements inside the current bus
-            const fromTimeElements = bus.querySelectorAll('.from h6'); 
-            // Select all bus-list elements inside the current bus
-            const busLists = bus.querySelectorAll('.bus-list');
-            if (fromTimeElements.length !== busLists.length) {
-                console.error("Mismatch between fromTime elements and bus-list elements");
-                return;
-            }
-            fromTimeElements.forEach((element, index) => {
-                const timeText = element.textContent.trim();  // Get time text from h6
-                let firstLetter;
-                if(hour>9)
-                {
-                     firstLetter = timeText.substring(0,2);
-                    console.log(firstLetter);
-                }
-                else
-                {
-                     firstLetter = timeText.charAt(0);  // Get the first letter of time (hour)
-                }
-                const ampm = timeText.slice(-2);  // Get the AM/PM suffix from the end of the string
-        
-                // Debugging to check what is being compared
-                console.log(`Comparing firstLetter: ${firstLetter} with hour: ${hour} and AM/PM: ${ampm} with suffix: ${suf}`);
-        
-                // Show the matching bus-list and hide others
-                    console.log(`Showing bus list at index ${index}`); // Debugging
-                    console.log(ind); // Debugging index of bus
-                    buses[ind].style.display = "flex";  // Show the matching bus container
-                    busLists[index].style.display = "grid";  // Show the specific bus-list div
-                    // Hide the bus if it doesn't match
-                     // Hide non-matching bus-list divs
-                
-            });
-        });
-        // Loop through each .from h6 and find the one that matches the current hour       
-    };
-        function hideDiv() {
-            // Get all elements with the class "myDiv"
-            const divs = document.getElementsByClassName("bus-list");
-            // Loop through the collection and set display to "none"
-            for (let div of divs) {
-                div.style.display = "none";
-            }
+
+    });
+
+};
+
+
+/* =========================================================
+   MOOKKANOOR -> ANGAMALY
+   ========================================================= */
+
+const addMookkannoorToAngamaly = () => {
+
+    const times = [
+
+        "5:40 am",
+        "6:00 am",
+        "6:35 am",
+        "6:45 am",
+        "7:02 am",
+        "7:21 am",
+        "7:37 am",
+        "7:50 am",
+        "8:00 am",
+        "8:08 am",
+        "8:13 am",
+        "8:25 am",
+        "8:35 am",
+        "8:50 am",
+        "9:08 am",
+        "9:28 am",
+        "9:47 am",
+        "10:00 am",
+        "10:05 am",
+        "10:20 am",
+        "10:25 am",
+        "10:40 am",
+        "10:55 am",
+        "11:10 am",
+        "11:18 am",
+        "11:45 am",
+        "12:00 pm",
+        "12:15 pm",
+        "12:30 pm",
+        "12:45 pm",
+        "1:00 pm",
+        "1:10 pm",
+        "1:28 pm",
+        "1:45 pm",
+        "2:07 pm",
+        "2:25 pm",
+        "2:30 pm",
+        "2:50 pm",
+        "3:05 pm",
+        "3:25 pm",
+        "3:45 pm",
+        "4:05 pm",
+        "4:20 pm",
+        "4:35 pm",
+        "4:52 pm",
+        "5:10 pm",
+        "5:20 pm",
+        "5:42 pm",
+        "6:00 pm",
+        "6:13 pm",
+        "6:20 pm",
+        "6:30 pm"
+
+    ];
+
+
+    /*
+       ARRIVAL TIMES ARE APPROXIMATE.
+
+       Average travel time used:
+       +32 minutes
+
+       This is based on the usual
+       30–35 minute journey.
+    */
+
+    const totime = [
+
+        "6:12 am",
+        "6:32 am",
+        "7:07 am",
+        "7:17 am",
+        "7:34 am",
+        "7:53 am",
+        "8:09 am",
+        "8:22 am",
+        "8:32 am",
+        "8:40 am",
+        "8:45 am",
+        "8:57 am",
+        "9:07 am",
+        "9:22 am",
+        "9:40 am",
+        "10:00 am",
+        "10:19 am",
+        "10:32 am",
+        "10:37 am",
+        "10:52 am",
+        "10:57 am",
+        "11:12 am",
+        "11:27 am",
+        "11:42 am",
+        "11:50 am",
+        "12:17 pm",
+        "12:32 pm",
+        "12:47 pm",
+        "1:02 pm",
+        "1:17 pm",
+        "1:32 pm",
+        "1:42 pm",
+        "2:00 pm",
+        "2:17 pm",
+        "2:39 pm",
+        "2:57 pm",
+        "3:02 pm",
+        "3:22 pm",
+        "3:37 pm",
+        "3:57 pm",
+        "4:17 pm",
+        "4:37 pm",
+        "4:52 pm",
+        "5:07 pm",
+        "5:24 pm",
+        "5:42 pm",
+        "5:52 pm",
+        "6:14 pm",
+        "6:32 pm",
+        "6:45 pm",
+        "6:52 pm",
+        "7:02 pm"
+
+    ];
+
+
+    const busContainer =
+        document.getElementById("MokAng");
+
+
+    if (!busContainer) {
+        return;
+    }
+
+
+    times.forEach((ti, index) => {
+
+        const busList =
+            document.createElement('div');
+
+
+        setCardPosition(busList);
+
+
+        busList.innerHTML = `
+
+            <div class="route-animation">
+
+                <div class="route-line"></div>
+
+                <div class="route-dot start-dot"></div>
+
+                <div class="route-bus">
+                    <i class="fa-solid fa-bus"></i>
+                </div>
+
+                <div class="route-dot end-dot"></div>
+
+            </div>
+
+
+            <div class="from">
+
+                <h6 class="bus-time"
+                    style="margin:0;">
+                    ${ti}
+                </h6>
+
+                <h5 class="bus-place"
+                    style="margin:0;">
+                    Mookkannoor
+                </h5>
+
+            </div>
+
+
+            <div class="to">
+
+                <h6 class="bus-time"
+                    style="margin:0;">
+                    ${totime[index]}
+                </h6>
+
+                <h5 class="bus-place"
+                    style="margin:0;">
+                    Angamaly
+                </h5>
+
+            </div>
+
+
+           
+
+        `;
+
+
+        busContainer.appendChild(busList);
+
+    });
+
+};
+//  <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>
+//                 Stop Direction >>
+//             </button>
+/* =========================================================
+   ANGAMALY -> MOOKKANOOR
+   ========================================================= */
+
+const toMookannor = () => {
+
+    /*
+       THE PREVIOUS ARRIVAL TIMES ARE NOW USED
+       AS DEPARTURE TIMES.
+
+       APPROXIMATE ARRIVAL = DEPARTURE + 30 MINUTES.
+    */
+
+    const time = [
+        "6:44 am",
+        "6:56 am",
+        "6:58 am",
+        "7:11 am",
+        "7:13 am",
+        "7:21 am",
+        "7:31 am",
+        "7:37 am",
+        "7:42 am",
+        "7:49 am",
+        "8:09 am",
+        "8:14 am",
+        "8:29 am",
+        "8:38 am",
+        "8:49 am",
+        "8:57 am",
+        "9:06 am",
+        "9:13 am",
+        "9:29 am",
+        "9:24 am",
+        "9:40 am",
+        "9:56 am",
+        "10:09 am",
+        "10:25 am",
+        "10:42 am",
+        "10:53 am",
+        "11:12 am",
+        "11:32 am",
+        "11:57 am",
+        "12:12 pm",
+        "12:29 pm",
+        "12:47 pm",
+        "12:57 pm",
+        "1:18 pm",
+        "1:32 pm",
+        "1:47 pm",
+        "2:02 pm",
+        "2:20 pm",
+        "2:32 pm",
+        "2:52 pm",
+        "3:12 pm",
+        "3:20 pm",
+        "3:35 pm",
+        "3:49 pm",
+        "4:00 pm",
+        "4:20 pm",
+        "4:32 pm",
+        "4:47 pm",
+        "4:55 pm",
+        "5:15 pm",
+        "5:20 pm",
+        "5:34 pm",
+        "5:44 pm",
+        "6:00 pm",
+        "6:08 pm",
+        "6:20 pm",
+        "6:32 pm",
+        "6:47 pm",
+        "6:51 pm",
+        "7:02 pm",
+        "7:15 pm",
+        "7:35 pm",
+        "8:05 pm",
+        "8:35 pm"
+
+    ];
+
+
+    // Estimated arrival = departure + approximately 30 minutes
+
+    const totime = [
+        "7:14 am",
+        "7:26 am",
+        "7:28 am",
+        "7:41 am",
+        "7:43 am",
+        "7:51 am",
+        "8:01 am",
+        "8:07 am",
+        "8:12 am",
+        "8:19 am",
+        "8:39 am",
+        "8:44 am",
+        "8:59 am",
+        "9:08 am",
+        "9:19 am",
+        "9:27 am",
+        "9:36 am",
+        "9:43 am",
+        "9:59 am",
+        "9:54 am",
+        "10:10 am",
+        "10:26 am",
+        "10:39 am",
+        "10:55 am",
+        "11:12 am",
+        "11:23 am",
+        "11:42 am",
+        "12:02 pm",
+        "12:27 pm",
+        "12:42 pm",
+        "12:59 pm",
+        "1:17 pm",
+        "1:27 pm",
+        "1:48 pm",
+        "2:02 pm",
+        "2:17 pm",
+        "2:32 pm",
+        "2:50 pm",
+        "3:02 pm",
+        "3:22 pm",
+        "3:42 pm",
+        "3:50 pm",
+        "4:05 pm",
+        "4:19 pm",
+        "4:30 pm",
+        "4:50 pm",
+        "5:02 pm",
+        "5:17 pm",
+        "5:25 pm",
+        "5:45 pm",
+        "5:50 pm",
+        "6:04 pm",
+        "6:14 pm",
+        "6:30 pm",
+        "6:38 pm",
+        "6:50 pm",
+        "7:02 pm",
+        "7:17 pm",
+        "7:21 pm",
+        "7:32 pm",
+        "7:45 pm",
+        "8:05 pm",
+        "8:35 pm",
+        "9:05 pm"
+
+    ];
+
+
+    const busContainer =
+        document.getElementById('Mok');
+
+
+    if (!busContainer) {
+        return;
+    }
+
+
+    time.forEach((ti, index) => {
+
+        const busList =
+            document.createElement('div');
+
+
+        setCardPosition(busList);
+
+
+        busList.innerHTML = `
+
+            <div class="route-animation">
+
+                <div class="route-line"></div>
+
+                <div class="route-dot start-dot"></div>
+
+                <div class="route-bus">
+                    <i class="fa-solid fa-bus"></i>
+                </div>
+
+                <div class="route-dot end-dot"></div>
+
+            </div>
+
+
+            <div class="from">
+
+                <h6 class="bus-time"
+                    style="margin:0;">
+                    ${ti}
+                </h6>
+
+                <h5 class="bus-place"
+                    style="margin:0;">
+                    Angamaly
+                </h5>
+
+            </div>
+
+
+            <div class="to">
+
+                <h6 class="bus-time"
+                    style="margin:0;">
+                    ${totime[index]}
+                </h6>
+
+                <h5 class="bus-place"
+                    style="margin:0;">
+                    Mookkannoor
+                </h5>
+
+            </div>
+
+
+           
+
+        `;
+
+
+        busContainer.appendChild(busList);
+
+    });
+
+};
+
+
+/* =========================================================
+   ROUTE VARIABLES
+   ========================================================= */
+
+let addfisat = false;
+let addangamaly = false;
+let addmookanoor = false;
+let addmookangamaly = false;
+
+
+/* =========================================================
+   HIDE ALL ROUTES
+   ========================================================= */
+
+const hideAllRoutes = () => {
+
+    document.querySelectorAll('.Buses').forEach(bus => {
+
+        bus.style.display = "none";
+
+    });
+
+};
+
+
+/* =========================================================
+   SHOW SELECTED ROUTE
+   ========================================================= */
+
+const showRoute = (containerId) => {
+
+    hideAllRoutes();
+
+    const container =
+        document.getElementById(containerId);
+
+
+    if (container) {
+
+        container.style.display = "flex";
+
+    }
+
+};
+
+
+/* =========================================================
+   FISAT -> ANGAMALY
+   ========================================================= */
+
+const fisatToAngamaly = () => {
+
+    if (!addfisat) {
+
+        addBuses();
+
+        addfisat = true;
+
+    }
+
+    showRoute("Ann1");
+
+    filterRouteByTime("Ann1");
+
+};
+
+
+/* =========================================================
+   ANGAMALY -> FISAT
+   ========================================================= */
+
+const angamalyToFisat = () => {
+
+    if (!addangamaly) {
+
+        addBuses1();
+
+        addangamaly = true;
+
+    }
+
+    showRoute("Ann");
+
+    filterRouteByTime("Ann");
+
+};
+
+
+/* =========================================================
+   ANGAMALY -> MOOKKANOOR
+   ========================================================= */
+
+const angamalyToMookannoor = () => {
+
+    if (!addmookanoor) {
+
+        toMookannor();
+
+        addmookanoor = true;
+
+    }
+
+    showRoute("Mok");
+
+    filterRouteByTime("Mok");
+
+};
+
+
+/* =========================================================
+   MOOKKANOOR -> ANGAMALY
+   ========================================================= */
+
+const mookannoorToAngamaly = () => {
+
+    if (!addmookangamaly) {
+
+        addMookkannoorToAngamaly();
+
+        addmookangamaly = true;
+
+    }
+
+    showRoute("MokAng");
+
+    filterRouteByTime("MokAng");
+
+};
+
+
+/* =========================================================
+   GET HOUR FROM INPUT
+   ========================================================= */
+
+const getHourFromInput = () => {
+
+    const input = getTime();
+
+
+    if (!input) {
+        return null;
+    }
+
+
+    const parts =
+        input.split(':');
+
+
+    let hour =
+        parseInt(parts[0], 10);
+
+
+    if (isNaN(hour)) {
+        return null;
+    }
+
+
+    return hour;
+
+};
+
+
+/* =========================================================
+   CONVERT TO 12-HOUR FORMAT
+   ========================================================= */
+
+const get12Hour = (hour) => {
+
+    if (hour === 0) {
+        return 12;
+    }
+
+
+    if (hour > 12) {
+        return hour - 12;
+    }
+
+
+    return hour;
+
+};
+
+
+/* =========================================================
+   CONVERT TIME STRING TO MINUTES
+   ========================================================= */
+
+const timeToMinutes = (timeString) => {
+
+    const match =
+        timeString.match(
+            /^(\d{1,2}):(\d{2})\s*(am|pm)$/i
+        );
+
+
+    if (!match) {
+        return null;
+    }
+
+
+    let hour =
+        parseInt(match[1], 10);
+
+    const minute =
+        parseInt(match[2], 10);
+
+    const ampm =
+        match[3].toLowerCase();
+
+
+    if (ampm === "am") {
+
+        if (hour === 12) {
+            hour = 0;
         }
-        
+
+    } else {
+
+        if (hour !== 12) {
+            hour += 12;
+        }
+
+    }
+
+
+    return (hour * 60) + minute;
+
+};
+
+
+/* =========================================================
+   FILTER ROUTE BY TIME
+   ========================================================= */
+
+const filterRouteByTime = (containerId) => {
+
+    const input = getTime();
+
+    const def =
+        document.getElementById('default');
+
+    const container =
+        document.getElementById(containerId);
+
+
+    if (!container) {
+        return;
+    }
+
+
+    const busLists =
+        Array.from(
+            container.querySelectorAll('.bus-list')
+        );
+
+
+    /* =====================================================
+       SORT ALL BUSES BY DEPARTURE TIME
+       ===================================================== */
+
+    busLists.sort((a, b) => {
+
+        const timeA =
+            a.querySelector('.from h6');
+
+        const timeB =
+            b.querySelector('.from h6');
+
+
+        if (!timeA || !timeB) {
+            return 0;
+        }
+
+
+        const minutesA =
+            timeToMinutes(
+                timeA.textContent.trim()
+            );
+
+
+        const minutesB =
+            timeToMinutes(
+                timeB.textContent.trim()
+            );
+
+
+        return minutesA - minutesB;
+
+    });
+
+
+    busLists.forEach(bus => {
+
+        container.appendChild(bus);
+
+    });
+
+
+    /* =====================================================
+       NO TIME SELECTED
+       ===================================================== */
+
+    if (!input) {
+
+        busLists.forEach(bus => {
+
+            bus.style.display = "grid";
+
+        });
+
+
+        container.style.display = "flex";
+
+
+        if (def) {
+            def.style.display = "none";
+        }
+
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       CONVERT INPUT TIME
+       ===================================================== */
+
+    const inputParts =
+        input.split(':');
+
+
+    const inputHour =
+        parseInt(inputParts[0], 10);
+
+
+    const inputMinute =
+        parseInt(inputParts[1], 10);
+
+
+    if (
+        isNaN(inputHour) ||
+        isNaN(inputMinute)
+    ) {
+
+        return;
+
+    }
+
+
+    const inputTotalMinutes =
+        (inputHour * 60) + inputMinute;
+
+
+    /* =====================================================
+       SEARCH WINDOW
+       ===================================================== */
+
+    const hourStart =
+        inputHour * 60;
+
+
+    const endTime =
+        inputTotalMinutes + 60;
+
+
+    let found = false;
+
+
+    /* =====================================================
+       FILTER BUSES
+       ===================================================== */
+
+    busLists.forEach(bus => {
+
+        const timeElement =
+            bus.querySelector('.from h6');
+
+
+        if (!timeElement) {
+
+            bus.style.display = "none";
+
+            return;
+
+        }
+
+
+        const timeText =
+            timeElement.textContent.trim();
+
+
+        const busTotalMinutes =
+            timeToMinutes(timeText);
+
+
+        if (busTotalMinutes === null) {
+
+            bus.style.display = "none";
+
+            return;
+
+        }
+
+
+        if (
+            busTotalMinutes >= hourStart &&
+            busTotalMinutes <= endTime
+        ) {
+
+            bus.style.display = "grid";
+
+            found = true;
+
+        } else {
+
+            bus.style.display = "none";
+
+        }
+
+    });
+
+
+    /* =====================================================
+       DISPLAY RESULTS
+       ===================================================== */
+
+    if (found) {
+
+        container.style.display = "flex";
+
+
+        if (def) {
+
+            def.innerHTML =
+                "<h1>The bus timings provided may vary according to the traffic conditions</h1>";
+
+            def.style.display = "block";
+
+        }
+
+    } else {
+
+        container.style.display = "none";
+
+
+        if (def) {
+
+            def.innerHTML =
+                "<h1>There are no buses available within the selected time range</h1>";
+
+            def.style.display = "block";
+
+        }
+
+    }
+
+};
+
+
+/* =========================================================
+   ORIGINAL FUNCTION
+   ========================================================= */
+
+const addFit = () => {
+
+    filterRouteByTime("Ann1");
+
+};
+
+
+/* =========================================================
+   TIME SEARCH
+   ========================================================= */
+
+const hideTime = () => {
+
+    const activeRoute =
+        document.querySelector(
+            '.Buses[style*="flex"]'
+        );
+
+
+    if (activeRoute) {
+
+        filterRouteByTime(
+            activeRoute.id
+        );
+
+    }
+
+};
+
+
+/* =========================================================
+   HIDE INDIVIDUAL ROUTES
+   ========================================================= */
+
+const hideFisat = () => {
+
+    document.querySelectorAll('.fit').forEach(div => {
+
+        div.style.display = 'none';
+
+    });
+
+};
+
+
+const hideAngamaly = () => {
+
+    document.querySelectorAll('.ang').forEach(div => {
+
+        div.style.display = 'none';
+
+    });
+
+};
+
+
+const hideMookannor = () => {
+
+    document.querySelectorAll('.mok').forEach(div => {
+
+        div.style.display = 'none';
+
+    });
+
+};
+
+
+const hideMookAngamaly = () => {
+
+    document.querySelectorAll('.mokAng').forEach(div => {
+
+        div.style.display = 'none';
+
+    });
+
+};
+
+
+/* =========================================================
+   HIDE ALL BUS CARDS
+   ========================================================= */
+
+const hideDiv = () => {
+
+    document.querySelectorAll(".bus-list").forEach(div => {
+
+        div.style.display = "none";
+
+    });
+
+};

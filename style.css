@@ -1,404 +1,2705 @@
-body
-{
+/* =========================================================
+   CONNECT
+   Modern Blue + White Glass UI
+   Desktop + Tablet + Mobile
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     margin: 0;
+
+    min-height: 100vh;
+
+    font-family: "Inter", sans-serif;
+
+    color: #142653;
+
+    /*
+       If you have a scenic background image,
+       put it here:
+
+       img/background.png
+
+       If the image does not exist, the gradient
+       below will still work.
+    */
+
+    background:
+        linear-gradient(rgba(56, 117, 230, 0.18),
+            rgba(56, 117, 230, 0.18)),
+        url("img/background.png"),
+        linear-gradient(135deg,
+            #dcecff 0%,
+            #eef6ff 48%,
+            #f9fcff 100%);
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    overflow-x: hidden;
 }
-section
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-    margin: 30px;
+
+
+/* =========================================================
+   BACKGROUND GLOW
+   ========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 520px;
+    height: 520px;
+
+    top: 100px;
+    right: -180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(92, 151, 255, 0.18);
+
+    filter: blur(90px);
+
+    pointer-events: none;
+
+    z-index: -1;
 }
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 400px;
+    height: 400px;
+
+    left: -160px;
+    bottom: -160px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(87, 143, 255, 0.14);
+
+    filter: blur(80px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
 .navbar {
-    display: flex;
+
     width: 100%;
-    justify-content: space-between;
+
+    min-height: 78px;
+
+    display: flex;
+
     align-items: center;
-    background-color:#3E61DC ;
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    justify-content: space-between;
+
+    padding: 12px 42px;
+
+    position: relative;
+
+    z-index: 100;
+
+    background:
+        rgba(255, 255, 255, 0.78);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 8px 30px rgba(38, 83, 170, 0.12);
 }
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.navbar .logo {
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 5px 15px;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    border-radius: 50px;
+
+    box-shadow:
+        0 5px 20px rgba(44, 89, 180, 0.13);
+
+    transition: 0.3s ease;
+}
+
+
+.navbar .logo:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
 
 .navbar .logo img {
-    height: 40px;
-}
-.navbar .logo {
-    background-color: white;
-    height: 100%;
-    padding: 5px 10px 0 10px;
-    border-radius: 3rem;
-}
-.navbar .menu-icon {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    cursor: pointer;
+
+    display: block;
+
+    width: auto;
+
+    height: 48px;
 }
 
-.navbar .menu-icon .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #ecf0f1;
-    margin: 4px 0;
-    transition: 0.4s;
-}
+
+/* =========================================================
+   NAVIGATION LINKS
+   ========================================================= */
 
 .navbar .nav-links {
-    list-style: none;
-    margin: 0px;
-    padding: 0;
+
     display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
 }
+
 
 .navbar .nav-links li {
-    margin-left: 20px;
-    margin-right: 40px;
+
+    margin: 0;
 }
+
 
 .navbar .nav-links li a {
+
+    display: block;
+
+    padding: 11px 19px;
+
+    border-radius: 30px;
+
+    color: #26365f;
+
     text-decoration: none;
-    color: #ecf0f1;
-    font-weight: bold;
-    transition: color 0.3s ease;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
 }
+
 
 .navbar .nav-links li a:hover {
-    color: #3498db;
+
+    color: #3568ed;
+
+    background:
+        rgba(61, 111, 236, 0.10);
+
+    transform:
+        translateY(-1px);
 }
 
-.heading img
-{
-    width: 200px;
-}
-.search
-{
-    width: 70%;
-    background: #F8F8F8;
-    display: flex;
+
+/* =========================================================
+   HAMBURGER MENU
+   ========================================================= */
+
+.navbar .menu-icon {
+
+    display: none;
+
+    width: 44px;
+
+    height: 44px;
+
+    padding: 9px;
+
     flex-direction: column;
-    align-items: flex-start 10px;
-    padding: 20px 0 20px 100px;
-    justify-content:space-evenly ;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.85);
+
+    box-shadow:
+        0 5px 18px rgba(45, 87, 170, 0.12);
 }
-.auto
-{
+
+
+.navbar .menu-icon .bar {
+
+    width: 24px;
+
+    height: 3px;
+
+    margin: 3px auto;
+
+    border-radius: 20px;
+
+    background: #315fd7;
+
+    transition: 0.3s ease;
+}
+
+
+/* Hamburger animation */
+
+.menu-icon.open .bar:nth-child(1) {
+
+    transform:
+        rotate(45deg) translate(5px, 5px);
+}
+
+
+.menu-icon.open .bar:nth-child(2) {
+
+    opacity: 0;
+}
+
+
+.menu-icon.open .bar:nth-child(3) {
+
+    transform:
+        rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* =========================================================
+   MAIN SECTION
+   ========================================================= */
+
+section {
+
+    width: 100%;
+
+    min-height:
+        calc(100vh - 78px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding:
+        65px 25px 90px;
+
     position: relative;
-    font-family: "Inter", sans-serif;
-    text-decoration: none;
-    background-color: #3E61DC;
-    color: white;
-    padding: 10px 20px;
-    width: fit-content;
-    font-size: 2rem;
-    border-radius: 2rem;
-    text-align: center;
 }
-.search h4
-{
-    font-size: 20px;
+
+
+/* =========================================================
+   EMPTY HEADING
+   ========================================================= */
+
+.heading {
+
+    width: 100%;
+
+    max-width: 1050px;
+
+    min-height: 1px;
+}
+
+
+/* =========================================================
+   SEARCH CARD
+   ========================================================= */
+
+.search {
+
+    width:
+        min(1050px, 94%);
+
+    padding:
+        38px 48px 42px;
+
+    position: relative;
+
+    z-index: 2;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.91),
+            rgba(239, 247, 255, 0.73));
+
+    backdrop-filter: blur(24px);
+
+    -webkit-backdrop-filter: blur(24px);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 25px 70px rgba(41, 84, 170, 0.18),
+
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+
+/* Top shine */
+
+.search::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 12%;
+
+    width: 35%;
+
+    height: 2px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(75, 133, 245, 0.8),
+            transparent);
+}
+
+
+/* =========================================================
+   SEARCH HEADER
+   ========================================================= */
+
+.search-top {
+
+    margin-bottom: 28px;
+}
+
+
+.search-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        7px 12px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(65, 117, 231, 0.10);
+
+    color: #3568df;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.search h4 {
+
+    margin:
+        13px 0 5px;
+
+    color: #142653;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+    letter-spacing:
+        -0.7px;
+}
+
+
+.search-description {
+
+    margin: 0;
+
+    color: #70809e;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.search .buss {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
     margin: 0;
 }
-.search .buss
-{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.search input
-{
-    border: solid black 2px;
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+.in-time {
+
+    width: 100%;
 }
 
 
-.buss input
-{
-    width: 200px;
-    padding: 10px 30px;
+.in-time p,
+.destination-label {
+
+    margin:
+        0 0 9px;
+
+    color: #43577f;
+
+    font-size: 14px;
+
+    font-weight: 650;
 }
-.buss button
-{
-    background-color: white;
-    color: #3E61DC;
-    border: #3E61DC solid 1px;
-    width: 200px;
-    height: 40px;
-    border-radius: 3px;
+
+
+.in-time p i {
+
+    margin-right: 6px;
+
+    color: #4778e7;
 }
-.search button:hover
-{
-  transition: 0.5s;
-  color: white;
-  background-color: #3E61DC;
+
+
+/* =========================================================
+   TIME INPUT
+   ========================================================= */
+
+.time-input-wrap {
+
+    width: 100%;
 }
-.Buses
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    gap: 20px;
-    padding: 20px;
-    background-color: #F8F8F8;
+
+
+.search input {
+
+    outline: none;
 }
-.bus-list
-{
+
+
+.buss input {
+
+    width: 280px;
+
+    max-width: 100%;
+
+    height: 52px;
+
+    padding:
+        0 17px;
+
+    border:
+        1px solid rgba(73, 119, 220, 0.20);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.92);
+
+    color: #1c315e;
+
+    font-family:
+        "Inter", sans-serif;
+
+    font-size: 15px;
+
+    box-shadow:
+        0 5px 18px rgba(50, 92, 173, 0.07);
+
+    transition: 0.25s ease;
+}
+
+
+.buss input:hover {
+
+    border-color:
+        rgba(61, 108, 225, 0.45);
+}
+
+
+.buss input:focus {
+
+    border-color:
+        #4777ef;
+
+    box-shadow:
+        0 0 0 4px rgba(71, 119, 239, 0.10);
+}
+
+
+/* =========================================================
+   DESTINATION BUTTONS
+   ========================================================= */
+
+.search .buttons {
+
+    width: 100%;
+
     display: grid;
-    grid-template-rows: repeat(4,50px);
-    grid-template-columns: repeat(8,100px);
-    width: 70%;
-}
-.bus-list img
-{
-    grid-row: 1/4;
-    grid-column: 1/6;
-    margin-right: 10px;
-    width: 340px;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 13px;
 }
 
-.bus-list .from
-{
-    font-size: 1.5rem;
-    grid-row: 2/2;
-    grid-column: 1/4;
+
+.buss button {
+
+    width: 100%;
+
+    min-height: 58px;
+
+    padding:
+        10px 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    border:
+        1px solid rgba(60, 105, 221, 0.25);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.80);
+
+    color: #3262d5;
+
+    font-family:
+        "Inter", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 18px rgba(44, 85, 167, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
 }
-.bus-list .to
-{
-    font-size: 1.5rem;
-    grid-row: 2/2;
-    grid-column: 4/8;
+
+
+.buss button i {
+
+    flex-shrink: 0;
+
+    transition:
+        transform 0.25s ease;
 }
-.from h5
-{
-    margin-bottom: 0;
+
+
+.buss button:hover {
+
+    color: white;
+
+    background:
+        linear-gradient(135deg,
+            #3e6ee8,
+            #527df1);
+
+    border-color:
+        transparent;
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 28px rgba(58, 105, 225, 0.28);
 }
-.from h6
-{
-    color: grey;
-    margin: 10px;
-} 
-.to h5
-{
-    margin-bottom: 0;
+
+
+.buss button:hover i {
+
+    transform:
+        translateX(3px);
+}
+
+
+/* =========================================================
+   BUS RESULT CONTAINER
+   ========================================================= */
+
+.Buses {
+
+    width:
+        min(1050px, 94%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding: 22px;
+
+    position: relative;
+
+    z-index: 2;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.74);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.88);
+
+    box-shadow:
+        0 15px 45px rgba(43, 82, 160, 0.10);
+}
+
+
+/* =========================================================
+   BUS LIST
+   ========================================================= */
+
+.bus-list {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(8, minmax(0, 1fr));
+
+    grid-template-rows:
+        repeat(4, 50px);
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(246, 250, 255, 0.96),
+            rgba(232, 241, 255, 0.84));
+
+    border:
+        1px solid rgba(68, 113, 220, 0.12);
+
+    box-shadow:
+        0 8px 25px rgba(45, 85, 160, 0.07);
+}
+
+
+/* Bus image */
+
+.bus-list img {
+
+    grid-row:
+        1 / 4;
+
+    grid-column:
+        1 / 6;
+
+    width: 340px;
+
+    max-width: 100%;
+
+    height: 100%;
+
+    margin-right: 10px;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+}
+
+
+/* FROM */
+
+.bus-list .from {
+
+    grid-row: 2;
+
+    grid-column: 1 / 4;
+
+    font-size: 1.4rem;
+}
+
+
+/* TO */
+
+.bus-list .to {
+
+    grid-row: 2;
+
+    grid-column: 4 / 8;
+
+    font-size: 1.4rem;
+}
+
+
+.from h5,
+.to h5 {
+
+    margin:
+        0 0 4px;
+
+    color: #182d59;
+}
+
+
+.from h6,
+.to h6 {
+
+    margin: 8px;
+
+    color: #7c8ba8;
+
+    font-weight: 500;
+}
+
+
+.to h5 {
+
     width: 90px;
 }
-.to h6
-{
+
+
+.to h6 {
+
     width: 80px;
-    color: grey;
-    margin: 10px;
 }
-.bus-list button
-{
-    background-color: #3E61DC;
-    color: white;
-    font-size: 1.2rem;
+
+
+/* BUS BUTTON */
+
+.bus-list button {
+
+    grid-row:
+        2 / 3;
+
+    grid-column:
+        6 / 8;
+
     border: none;
-    border-radius: 2rem;
-    grid-row: 2/3;
-    grid-column: 6/8;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(135deg,
+            #3e6ee8,
+            #557df2);
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(58, 105, 225, 0.25);
+
+    transition:
+        0.25s ease;
 }
-.bus-list .bus-name
-{
-    grid-row: 3/3;
-    grid-column: 1/4;
+
+
+.bus-list button:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* BUS NAME */
+
+.bus-list .bus-name {
+
+    grid-row: 3;
+
+    grid-column: 1 / 4;
+
     margin: 20px;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 1.5rem;
-    color: grey;
+
+    color: #7182a1;
+
+    font-size: 1.1rem;
 }
-.bus-list .time
-{
-    grid-row: 4/4;
+
+
+/* TIME */
+
+.bus-list .time {
+
+    grid-row: 4;
+
+    grid-column: 3 / 4;
+
+    width: 140px;
+
     height: 2rem;
-    grid-column: 2/4;
-    width: fit-content;
-    border-radius: 1rem;
-    padding: 5px 1rem 0 1rem;
-    font-size: 1.2rem;
+
+    padding:
+        5px 1rem 0;
+
+    border-radius: 50px;
+
+    background:
+        rgba(68, 113, 220, 0.10);
+
+    color: #3c64c9;
+
+    font-size: 1rem;
 }
-.time p
-{
+
+
+.time p {
+
     margin: 0;
+
     text-align: center;
 }
-#Mookkannur
-{
-    align-items: flex-start;
-}
-.default
-{
-    background-color: #F8F8F8;
-    color: grey;
-    width: 100%;
-    padding: 20px;
-}
-#default
-{
-    background-color: #F8F8F8;
-    color: grey;
-    width: 100%;
-    padding: 20px;
+
+
+/* =========================================================
+   DEFAULT MESSAGE
+   ========================================================= */
+
+#default {
+
+    width:
+        min(1050px, 94%);
+
+    padding:
+        17px 25px;
+
+    position: relative;
+
+    z-index: 2;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.65);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.8);
+
+    color: #71809d;
+
     text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(40, 80, 150, 0.06);
 }
-@media (max-width:900px)
-{
+
+
+#default h1 {
+
+    margin: 0;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   AUTO BUTTON
+   ========================================================= */
+
+.auto-wrapper {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.auto-wrapper .auto {
+
+    min-width: 250px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    padding:
+        15px 28px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(135deg,
+            #3769e5,
+            #596ff1);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family:
+        "Inter", sans-serif;
+
+    font-size: 1.25rem;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 15px 35px rgba(52, 101, 226, 0.30);
+
+    transition:
+        0.3s ease;
+}
+
+
+.auto-wrapper .auto i {
+
+    transition:
+        0.3s ease;
+}
+
+
+.auto-wrapper .auto:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 20px 45px rgba(52, 101, 226, 0.40);
+}
+
+
+.auto-wrapper .auto:hover i {
+
+    transform:
+        translateX(6px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+
+        padding:
+            11px 25px;
+    }
+
+
+    section {
+
+        padding:
+            50px 18px 70px;
+    }
+
+
+    .search {
+
+        width: 96%;
+
+        padding: 32px;
+    }
+
+
+    .search .buttons {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .Buses,
+    #default {
+
+        width: 96%;
+    }
+
+
     .bus-list {
-        grid-template-columns: repeat( 8,50px);
-        grid-template-rows: repeat(5,60px);
-    }
-    .default
-    {
-        width: 70%;
-    }
-    .bus-list .time
-    {
-        grid-column: 4/8;
-    }
-    .bus-list .bus-name h5
-    {
-        margin: 1px;
-    }
-    .bus-list .bus-name
-    {
-        margin: 2px;
-        grid-row: 4/4;
-        grid-column: 3/4;
-    }
-    .bus-list button
-    {
-        grid-row: 5/5;
-        grid-column: 2/8;
-    }
-    .bus-list .from
-    {
-        grid-column: 1/3;
-    }
-    .bus-list .to
-    {
-        margin-left: 20px;
-        grid-column: 6/8;
+
+        overflow-x: auto;
     }
 
 }
-@media (max-width: 768px)
-{
-    .navbar .menu-icon {
-        display: flex; /* Show hamburger menu */
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Prevent fixed background issues on phones */
+
+    body {
+
+        background-attachment:
+            scroll;
     }
+
+
+    /* NAVBAR */
+
+    .navbar {
+
+        min-height: 68px;
+
+        padding:
+            9px 15px;
+    }
+
+
+    .navbar .logo {
+
+        padding:
+            4px 12px;
+    }
+
+
+    .navbar .logo img {
+
+        height: 39px;
+    }
+
+
+    /* Show hamburger */
+
+    .navbar .menu-icon {
+
+        display: flex;
+    }
+
+
+    /* Mobile navigation */
 
     .navbar .nav-links {
-        display: none; /* Hide nav links by default */
-        flex-direction: column;
-        width: 100%;
-        background-color: #3E61DC;
+
+        display: none;
+
         position: absolute;
-        top: 90px; /* Adjust based on navbar height */
-        padding: 10px 0;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        top: 77px;
+
+        left: 12px;
+
+        right: 12px;
+
+        width: auto;
+
+        padding: 10px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 3px;
+
+        background:
+            rgba(255, 255, 255, 0.95);
+
+        backdrop-filter:
+            blur(20px);
+
+        -webkit-backdrop-filter:
+            blur(20px);
+
+        border:
+            1px solid rgba(255, 255, 255, 0.9);
+
+        border-radius: 20px;
+
+        box-shadow:
+            0 18px 45px rgba(35, 75, 150, 0.18);
     }
+
 
     .navbar .nav-links.active {
-        display: flex; /* Show nav links when active */
+
+        display: flex;
     }
+
 
     .navbar .nav-links li {
-        margin: 10px 0;
-        text-align: center;
-    }
-    .Head {
-        flex-direction: column;
-        text-align: center;
-    }
 
-    .Head img {
-        margin-top: 20px;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar ul li {
-        margin: 10px 0;
-    }
-
-    .Body .feature {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .Body .feature img {
-        margin-bottom: 10px;
-    }
-}
-@media (max-width:656px)
-{
-    .default
-    {
-        text-align: center;
-        width: fit-content;
-    }
-    .search
-    {
-        padding: 20px;
         width: 100%;
-        align-items: center;
     }
-    .search div
-    {
-        align-self: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .search p
-    {
+
+
+    .navbar .nav-links li a {
+
+        width: 100%;
+
+        padding: 14px;
+
         text-align: center;
     }
-    .search .buttons
-    {
+
+
+    /* MAIN */
+
+    section {
+
+        min-height:
+            calc(100vh - 68px);
+
+        gap: 22px;
+
+        padding:
+            35px 12px 55px;
+    }
+
+
+    .heading {
+
+        display: none;
+    }
+
+
+    /* SEARCH */
+
+    .search {
+
+        width: 100%;
+
+        padding:
+            26px 19px;
+
+        border-radius: 23px;
+    }
+
+
+    .search-top {
+
+        width: 100%;
+
+        text-align: center;
+
+        margin-bottom: 23px;
+    }
+
+
+    .search h4 {
+
+        font-size: 21px;
+    }
+
+
+    .search-description {
+
+        font-size: 12px;
+    }
+
+
+    .search-badge {
+
+        font-size: 11px;
+    }
+
+
+    .search .buss {
+
+        gap: 17px;
+    }
+
+
+    .in-time p,
+    .destination-label {
+
+        font-size: 13px;
+    }
+
+
+    /* FULL WIDTH TIME INPUT */
+
+    .buss input {
+
+        width: 100%;
+
+        height: 50px;
+    }
+
+
+    /* ONE BUTTON PER ROW */
+
+    .search .buttons {
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
         gap: 10px;
     }
-}
-@media (max-width:460px)
-{
-    .search
-    {
-        padding: 20px;
+
+
+    .buss button {
+
+        min-height: 54px;
+
+        font-size: 13px;
+    }
+
+
+    /* BUS RESULTS */
+
+    .Buses {
+
         width: 100%;
-        align-items: center;
+
+        padding: 10px;
+
+        border-radius: 20px;
+
+        overflow-x: auto;
     }
-    .search div
-    {
-        align-self: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .search p
-    {
-        text-align: center;
-    }
-    .search .buttons
-    {
-        gap: 10px;
-    }
+
+
+    /*
+       The original bus result layout uses
+       a grid. Instead of allowing it to
+       break the phone width, we allow the
+       result card to scroll horizontally.
+    */
+    /* 
     .bus-list {
-        grid-template-columns: repeat( 8,40px);
-        grid-template-rows: repeat(5,60px);
+
+        min-width: 600px;
+    } */
+
+
+    /* DEFAULT MESSAGE */
+
+    #default {
+
+        width: 100%;
+
+        padding: 15px;
     }
-    .bus-list .bus-name h5
-    {
-        width: 50px;
+
+
+    #default h1 {
+
+        font-size: 11px;
     }
-    .bus-list .time
-    {
-        padding: 0;
+
+
+    /* AUTO */
+
+    .auto {
+
+        min-width: 0;
+
+        width:
+            min(270px, 90vw);
+
+        padding:
+            14px 22px;
+
+        font-size:
+            1.05rem;
     }
-    .bus-list .time p
-    {
-        margin-left: 15px;
-        margin-top: 4px;
+
+
+    /*
+       Remove floating animation on mobile.
+       This makes the page feel more stable.
+    */
+
+    .search {
+        animation:
+            searchCardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .navbar {
+
+        padding:
+            8px 11px;
+    }
+
+
+    .navbar .logo {
+
+        padding:
+            4px 10px;
+    }
+
+
+    .navbar .logo img {
+
+        height: 34px;
+    }
+
+
+    .navbar .menu-icon {
+
+        width: 42px;
+
+        height: 42px;
+    }
+
+
+    .navbar .menu-icon .bar {
+
+        width: 22px;
+    }
+
+
+    section {
+
+        padding:
+            25px 8px 50px;
+    }
+
+
+    .search {
+
+        padding:
+            23px 15px;
+
+        border-radius: 20px;
+    }
+
+
+    .search h4 {
+
+        font-size: 19px;
+    }
+
+
+    .search-description {
+
+        font-size: 11px;
+    }
+
+
+    .buss button {
+
+        min-height: 52px;
+
+        padding:
+            9px 10px;
+
+        font-size: 12px;
+    }
+
+
+    #default {
+
+        padding:
+            13px 10px;
+    }
+
+
+    #default h1 {
+
+        font-size: 10px;
+    }
+
+
+    .auto {
+
+        width: 230px;
+
+        font-size: 1rem;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .search {
+
+        padding:
+            20px 13px;
+    }
+
+
+    .search h4 {
+
+        font-size: 18px;
+    }
+
+
+    .search-badge {
+
+        padding:
+            6px 10px;
+    }
+
+
+    .buss button {
+
+        min-height: 50px;
+
+        font-size: 11px;
+    }
+
+
+    .auto {
+
+        width: 215px;
+
+        padding:
+            13px 18px;
+
+        font-size:
+            0.95rem;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        scroll-behavior:
+            auto !important;
+
+        animation:
+            none !important;
+
+        transition:
+            none !important;
+    }
+
+}
+
+/* =========================================================
+   SIMPLE BUS ROUTE
+   ========================================================= */
+
+.route-animation {
+    grid-row: 1 / 4;
+    grid-column: 2 / 8;
+    width: 100%;
+    height: 120px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Straight route */
+
+.route-line {
+    position: absolute;
+
+    left: 8%;
+    right: 7%;
+
+    top: 50%;
+
+    height: 3px;
+
+    border-radius: 10px;
+
+    background: #dce6f7;
+}
+
+/* Small blue progress line */
+
+.route-line::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 50%;
+    height: 100%;
+
+    border-radius: 10px;
+
+    background: #3e61dc;
+
+    opacity: 0.7;
+
+    animation: slowRoute 6s ease-in-out infinite alternate;
+}
+
+/* Starting and ending points */
+
+.route-dot {
+    position: absolute;
+
+    top: calc(50% - 6px);
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border: 3px solid #3e61dc;
+
+    z-index: 3;
+}
+
+.start-dot {
+    left: 5%;
+}
+
+.end-dot {
+    right: 5%;
+}
+
+/* Bus */
+
+.route-bus {
+    position: absolute;
+
+    left: 5%;
+
+    top: calc(50% - 17px);
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #3e61dc;
+
+    color: white;
+
+    z-index: 4;
+
+    box-shadow: 0 4px 12px rgba(62, 97, 220, 0.20);
+
+    /*
+       Very slow movement.
+       Remove this line if you want it completely static.
+    */
+    animation: none !important;
+}
+
+.route-bus i {
+    font-size: 15px;
+}
+
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .route-animation {
+        height: 90px;
+    }
+
+    .route-bus {
+        width: 30px;
+        height: 30px;
+
+        top: calc(50% - 15px);
+    }
+
+    .route-bus i {
+        font-size: 13px;
+    }
+
+    .route-dot {
+        width: 10px;
+        height: 10px;
+
+        top: calc(50% - 5px);
+
+        border-width: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .route-animation {
+        height: 80px;
+    }
+
+    .route-line {
+        height: 2px;
+    }
+
+    .route-bus {
+        width: 28px;
+        height: 28px;
+
+        top: calc(50% - 14px);
+    }
+
+    .route-bus i {
+        font-size: 12px;
+    }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .route-line::after,
+    .route-bus {
+        animation: none;
+    }
+}
+
+/* =========================================================
+   CONNECT LIVE PAGE EFFECTS
+   MAIN BUS SEARCH PAGE
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE ENTRANCE
+   ========================================================= */
+
+@keyframes connectPageIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: connectPageIn 0.6s ease-out both;
+}
+
+
+/* =========================================================
+   SEARCH CARD ENTRANCE
+   ========================================================= */
+
+@keyframes searchCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.search {
+    opacity: 0;
+    animation:
+        searchCardIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+
+
+/* =========================================================
+   SEARCH BADGE
+   ========================================================= */
+
+@keyframes badgeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.search-badge {
+    opacity: 0;
+    animation:
+        badgeIn 0.5s ease-out 0.65s forwards;
+}
+
+
+/* =========================================================
+   SEARCH TITLE
+   ========================================================= */
+
+@keyframes searchTitleIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search h4 {
+    opacity: 0;
+    animation:
+        searchTitleIn 0.6s ease-out 0.8s forwards;
+}
+
+.search-description {
+    opacity: 0;
+    animation:
+        searchTitleIn 0.6s ease-out 0.95s forwards;
+}
+
+
+/* =========================================================
+   TIME INPUT
+   ========================================================= */
+
+@keyframes inputIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.in-time {
+    opacity: 0;
+    animation:
+        inputIn 0.6s ease-out 1.1s forwards;
+}
+
+
+/* =========================================================
+   DESTINATION LABEL
+   ========================================================= */
+
+.destination-label {
+    opacity: 0;
+    animation:
+        inputIn 0.6s ease-out 1.25s forwards;
+}
+
+
+/* =========================================================
+   DESTINATION BUTTONS
+   ========================================================= */
+
+@keyframes destinationIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.buss .buttons button {
+    opacity: 0;
+    animation:
+        destinationIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.buss .buttons button:nth-child(1) {
+    animation-delay: 1.35s;
+}
+
+.buss .buttons button:nth-child(2) {
+    animation-delay: 1.47s;
+}
+
+.buss .buttons button:nth-child(3) {
+    animation-delay: 1.59s;
+}
+
+.buss .buttons button:nth-child(4) {
+    animation-delay: 1.71s;
+}
+
+
+/* =========================================================
+   DESTINATION BUTTON HOVER
+   ========================================================= */
+
+.buss button {
+    position: relative;
+    overflow: hidden;
+}
+
+.buss button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.28),
+            transparent);
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.55s ease;
+
+    pointer-events: none;
+}
+
+.buss button:hover::before {
+    left: 130%;
+}
+
+
+/* =========================================================
+   TIME INPUT FOCUS
+   ========================================================= */
+
+.buss input {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.buss input:hover {
+    transform: translateY(-1px);
+}
+
+.buss input:focus {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BUS RESULTS
+   ========================================================= */
+
+@keyframes busResultsIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*
+   JS creates the bus result dynamically.
+   This animation automatically applies when
+   a result card is created.
+*/
+
+.Buses .bus-list {
+    animation:
+        busResultsIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+/* =========================================================
+   BUS RESULT HOVER
+   ========================================================= */
+
+.Buses .bus-list {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.Buses .bus-list:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 35px rgba(45, 85, 160, 0.12);
+}
+
+
+/* =========================================================
+   BUS NAME
+   ========================================================= */
+
+.bus-list .bus-name {
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.bus-list:hover .bus-name {
+    color: #3568ed;
+    transform: translateX(2px);
+}
+
+
+/* =========================================================
+   FROM / TO LOCATIONS
+   ========================================================= */
+
+.bus-list .from h5,
+.bus-list .to h5 {
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.bus-list:hover .from h5,
+.bus-list:hover .to h5 {
+    color: #3568ed;
+}
+
+
+/* =========================================================
+   BUS TIME BADGE
+   ========================================================= */
+
+.bus-list .time {
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.bus-list:hover .time {
+    transform: translateY(-2px);
+
+    background:
+        rgba(68, 113, 220, 0.15);
+}
+
+
+/* =========================================================
+   BUS BUTTON
+   ========================================================= */
+
+.bus-list button {
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.bus-list button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.25),
+            transparent);
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.55s ease;
+
+    pointer-events: none;
+}
+
+.bus-list button:hover::before {
+    left: 130%;
+}
+
+.bus-list button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(58, 105, 225, 0.32);
+}
+
+.bus-list button:active {
+    transform: translateY(0) scale(0.97);
+}
+
+
+/* =========================================================
+   DEFAULT MESSAGE
+   ========================================================= */
+
+@keyframes defaultMessageIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#default {
+    animation:
+        defaultMessageIn 0.7s ease-out 2s both;
+}
+
+
+/* =========================================================
+   CALL AN AUTO BUTTON
+   ========================================================= */
+
+@keyframes autoButtonIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.auto-wrapper {
+    opacity: 0;
+
+    animation:
+        autoButtonIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 2.25s forwards;
+}
+
+
+/* =========================================================
+   AUTO BUTTON SHINE
+   ========================================================= */
+
+.auto-wrapper .auto {
+    position: relative;
+    overflow: hidden;
+}
+
+.auto-wrapper .auto::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.25),
+            transparent);
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.6s ease;
+
+    pointer-events: none;
+}
+
+.auto-wrapper .auto:hover::before {
+    left: 130%;
+}
+
+.auto-wrapper .auto:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.auto-wrapper .auto:active {
+    transform: translateY(0) scale(0.98);
+}
+
+
+/* =========================================================
+   AUTO BUTTON ARROW
+   ========================================================= */
+
+.auto-wrapper .auto i {
+    transition:
+        transform 0.3s ease;
+}
+
+.auto-wrapper .auto:hover i {
+    transform:
+        translateX(7px);
+}
+
+
+/* =========================================================
+   SEARCH CARD TOP SHINE
+   ========================================================= */
+
+@keyframes searchShine {
+    0% {
+        transform: translateX(-120%);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(300%);
+        opacity: 0;
+    }
+}
+
+.search::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -20%;
+
+    width: 18%;
+    height: 2px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.9),
+            transparent);
+
+    animation:
+        searchShine 5s ease-in-out 2s infinite;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   NAVBAR LIVE EFFECT
+   ========================================================= */
+
+.navbar {
+    animation:
+        navbarIn 0.65s ease-out both;
+}
+
+@keyframes navbarIn {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.navbar .logo {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.navbar .logo:hover {
+    transform:
+        translateY(-2px) scale(1.02);
+
+    box-shadow:
+        0 8px 25px rgba(44, 89, 180, 0.18);
+}
+
+
+/* =========================================================
+   NAV LINK UNDERLINE EFFECT
+   ========================================================= */
+
+.navbar .nav-links li a {
+    position: relative;
+}
+
+.navbar .nav-links li a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 5px;
+
+    width: 0;
+    height: 2px;
+
+    border-radius: 5px;
+
+    background: #3568ed;
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        width 0.25s ease;
+}
+
+.navbar .nav-links li a:hover::after {
+    width: 45%;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /*
+       Keep mobile stable.
+       Animations remain, but movement is smaller.
+    */
+
+    .search {
+        animation-duration: 0.65s;
+    }
+
+    .buss .buttons button {
+        animation-duration: 0.45s;
+    }
+
+    .Buses .bus-list:hover {
+        transform: none;
+    }
+
+    .bus-list button:hover {
+        transform: translateY(-2px);
+    }
+
+    .auto-wrapper .auto:hover {
+        transform: translateY(-3px);
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================================
+   BUS CARD - CLEAN LOCATION/TIME POSITIONING
+   ========================================================= */
+
+.bus-list .from,
+.bus-list .to {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+/* Time first */
+.bus-list .bus-time {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* Place name below the time */
+.bus-list .bus-place {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* ==========================================
+   BUS MOBILE FIX
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .Buses .bus-list {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+
+        padding: 12px;
+
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        grid-template-rows: repeat(4, 42px);
+
+        overflow: hidden;
+        position: relative;
+    }
+
+
+    /* ==========================================
+       SOURCE LOCATION
+       ========================================== */
+
+    .Buses .bus-list .from {
+        position: absolute !important;
+
+        left: 6% !important;
+        right: auto !important;
+        bottom: 18px !important;
+
+        width: 90px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        gap: 3px !important;
+
+        transform: none !important;
+
+        text-align: center !important;
+        z-index: 10 !important;
+    }
+
+
+    /* ==========================================
+       DESTINATION LOCATION
+       ========================================== */
+
+    .Buses .bus-list .to {
+        position: absolute !important;
+
+        right: 6% !important;
+        left: auto !important;
+        bottom: 18px !important;
+
+        width: 90px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        gap: 3px !important;
+
+        transform: none !important;
+
+        text-align: center !important;
+        z-index: 10 !important;
+    }
+
+
+    /* ==========================================
+       LOCATION NAME
+       ========================================== */
+
+    .Buses .bus-list .from h5,
+    .Buses .bus-list .to h5 {
+
+        width: 100% !important;
+
+        font-size: 15px !important;
+        line-height: 18px !important;
+
+        margin: 0 !important;
+
+        text-align: center !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* ==========================================
+       TIME
+       ========================================== */
+
+    .Buses .bus-list .from h6,
+    .Buses .bus-list .to h6 {
+
+        width: 100% !important;
+
+        font-size: 12px !important;
+        line-height: 16px !important;
+
+        margin: 0 !important;
+
+        text-align: center !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* ==========================================
+       BUS NAME
+       ========================================== */
+
+    .Buses .bus-list .time {
+
+        position: absolute !important;
+
+        left: 115% !important;
+        bottom: 15px !important;
+
+        transform: translateX(-50%) !important;
+
+        width: 105px !important;
+
+        text-align: center !important;
+        height: 25px;
+        z-index: 8 !important;
+    }
+
+
+    .Buses .bus-list .time p {
+
+        margin: 0 !important;
+
+        font-size: 11px !important;
+        line-height: 14px !important;
+
+        text-align: center !important;
+    }
+
+
+    /* ==========================================
+       ROUTE GRAPHIC
+       ========================================== */
+
+    .Buses .bus-list .route-animation {
+
+        width: 150% !important;
+
+        margin: 0 auto !important;
+    }
+
+
+    /* ==========================================
+       STOP DIRECTION BUTTON
+       ========================================== */
+
+    .Buses .bus-list button {
+
+        width: 68px !important;
+        height: 48px !important;
+
+        min-width: 68px !important;
+        max-width: 68px !important;
+
+        min-height: 48px !important;
+        max-height: 48px !important;
+
+        padding: 3px 5px !important;
+
+        font-size: 14px !important;
+        line-height: 15px !important;
+
+        border-radius: 13px !important;
+
+        box-sizing: border-box;
+    }
+}
+
+
+/* ==========================================
+   VERY SMALL PHONES
+   ========================================== */
+
+@media (max-width: 480px) {
+
+    .Buses .bus-list {
+
+        padding: 10px;
+
+        grid-template-rows: repeat(4, 40px);
+    }
+
+
+    .Buses .bus-list .from,
+    .Buses .bus-list .to {
+
+        width: 82px !important;
+        bottom: 17px !important;
+    }
+
+
+    .Buses .bus-list .from {
+        left: 5% !important;
+    }
+
+
+    .Buses .bus-list .to {
+        right: 5% !important;
+    }
+
+
+    .Buses .bus-list .from h5,
+    .Buses .bus-list .to h5 {
+
+        font-size: 14px !important;
+        line-height: 17px !important;
+    }
+
+
+    .Buses .bus-list .from h6,
+    .Buses .bus-list .to h6 {
+
+        font-size: 11px !important;
+        line-height: 15px !important;
+    }
+
+
+    .Buses .bus-list button {
+
+        width: 64px !important;
+        height: 46px !important;
+
+        min-width: 64px !important;
+        max-width: 64px !important;
+
+        min-height: 46px !important;
+        max-height: 46px !important;
+
+        font-size: 13px !important;
+        line-height: 14px !important;
     }
 }

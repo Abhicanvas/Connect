@@ -1,105 +1,653 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofadi+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <script src="script.js"></script>
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MSD8W5SV0C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-MSD8W5SV0C');
-</script>
-<body>
-    <nav class="navbar">
-        <nav class="navbar">
-            <div class="logo"> <a href="index.html"><img src="img/Frame 3.svg" alt=""></a></div>
-            <div class="menu-icon" id="menu-icon">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="about.html" onclick="navigateTo('about')">About</a></li>
-                <li><a href="#contact" onclick="navigateTo('contact')">Contact</a></li>
-                <li><a href="#about.htmlfeedback" onclick="navigateTo('feedback')">Feedback</a></li>
-            </ul>
-        </nav>
-    </nav>
-    <section>
-        <div class="heading">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Connect</title>
+
+
+    <!-- ==========================================
+         MAIN CSS
+         ========================================== -->
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- ==========================================
+         GOOGLE FONTS
+         ========================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofadi+One&display=swap"
+        rel="stylesheet">
+
+
+    <!-- ==========================================
+         FONT AWESOME
+         ========================================== -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+    <!-- ==========================================
+         EXISTING JAVASCRIPT
+         ========================================== -->
+
+    <script src="script.js"></script>
+
+
+    <!-- ==========================================
+         BUS RESULT POSITION FIX
+         
+         This fixes the problem where FISAT,
+         Angamaly etc. overlap the route image.
+         ========================================== -->
+
+    <style>
+        /* ------------------------------------------
+           BUS RESULT CARD
+           ------------------------------------------ */
+
+        .Buses .bus-list {
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        /* ------------------------------------------
+           ROUTE IMAGE
+           ------------------------------------------ */
+
+        .Buses .bus-list img {
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+
+        /* ------------------------------------------
+           FROM LOCATION
            
+           Move the place name slightly ABOVE
+           the route graphic.
+           ------------------------------------------ */
+
+        .Buses .bus-list .from,
+        .Buses .bus-list .to {
+            position: absolute !important;
+            bottom: 24px;
+            width: 180px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            gap: 4px;
+            z-index: 5;
+        }
+
+        .Buses .bus-list .from {
+            left: 10% !important;
+        }
+
+        .Buses .bus-list .to {
+            right: -10% !important;
+            left: auto !important;
+        }
+
+        /* Place name */
+        .Buses .bus-list .from h5,
+        .Buses .bus-list .to h5 {
+            width: 100% !important;
+            margin: 0 0 5px 0 !important;
+            text-align: center !important;
+            z-index: 6;
+        }
+
+        /* Time */
+        .Buses .bus-list .from h6,
+        .Buses .bus-list .to h6 {
+            width: 100% !important;
+            margin: 0 !important;
+            text-align: center !important;
+            z-index: 6;
+        }
+
+        /* ------------------------------------------
+           BUS NAME
+           ------------------------------------------ */
+
+        .Buses .bus-list .bus-name {
+
+            position: relative;
+
+            z-index: 5;
+
+        }
+
+
+        /* ------------------------------------------
+           BUTTON
+           ------------------------------------------ */
+
+        .Buses .bus-list button {
+
+            position: relative;
+
+            z-index: 7;
+
+        }
+    </style>
+
+</head>
+
+
+<!-- ==========================================
+     GOOGLE ANALYTICS
+     ========================================== -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MSD8W5SV0C">
+</script>
+
+<script>
+
+    window.dataLayer = window.dataLayer || [];
+
+
+    function gtag() {
+
+        dataLayer.push(arguments);
+
+    }
+
+
+    gtag('js', new Date());
+
+
+    gtag('config', 'G-MSD8W5SV0C');
+
+</script>
+
+
+
+<body>
+
+
+    <!-- ==========================================
+         NAVIGATION BAR
+         ========================================== -->
+
+    <nav class="navbar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <a href="index.html">
+
+                <img src="img/Frame 3.svg" alt="Connect">
+
+            </a>
+
         </div>
+
+
+
+        <!-- MOBILE MENU -->
+
+        <div class="menu-icon" id="menu-icon" aria-label="Open navigation menu">
+
+            <div class="bar"></div>
+
+            <div class="bar"></div>
+
+            <div class="bar"></div>
+
+        </div>
+
+
+
+        <!-- NAVIGATION LINKS -->
+
+        <ul class="nav-links" id="nav-links">
+
+
+            <li>
+
+                <a href="about.html" onclick="navigateTo('about')">
+
+                    About
+
+                </a>
+
+            </li>
+
+            <!-- 
+            <li>
+
+                <a
+                    href="#contact"
+                    onclick="navigateTo('contact')">
+
+                    Contact
+
+                </a>
+
+            </li> -->
+
+
+            <li>
+
+                <a href="#about.htmlfeedback" onclick="navigateTo('feedback')">
+
+                    Feedback
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ==========================================
+         MAIN SECTION
+         ========================================== -->
+
+    <section>
+
+
+        <!-- Empty heading
+             Kept for compatibility -->
+
+        <div class="heading"></div>
+
+
+
+        <!-- ==========================================
+             SEARCH CARD
+             ========================================== -->
+
         <div class="search">
-            <h4>Search for buses</h4>
-                <form class="buss">
-                    <div class="in-time">
-                        <p>Time</p>
-                        <input type="time" id="input-time" class="input-time" placeholder ="9:00 am">
+
+
+            <!-- SEARCH HEADER -->
+
+            <div class="search-top">
+
+
+                <span class="search-badge">
+
+                    <i class="fa-solid fa-bus"></i>
+
+                    IEEE CONNECT
+
+                </span>
+
+
+
+                <h4>
+
+                    Search for buses
+
+                </h4>
+
+
+
+                <p class="search-description">
+
+                    Choose a time and your destination
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- ==========================================
+                 BUS FORM
+                 ========================================== -->
+
+            <form class="buss">
+
+
+                <!-- TIME -->
+
+                <div class="in-time">
+
+
+                    <p>
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        Time
+
+                    </p>
+
+
+
+                    <div class="time-input-wrap">
+
+
+                        <input type="time" id="input-time" class="input-time" placeholder="9:00 am">
+
+
                     </div>
-                    <p>Choose your destination</p>
-                    <div class="buttons">
-                        <button type="button" onclick="addAngamaly()">Fisat <i class="fa-solid fa-arrow-right"></i> Angamaly</button>
-                        <button type="button" onclick="addFisat()">Angamaly <i class="fa-solid fa-arrow-right"></i> FISAT</button>
-                        <button type="button" onclick="Mookannoor()">Angamaly <i class="fa-solid fa-arrow-right"></i> Mookkannoor</button>
-                    </div>
-                    
-                </form>
+
+
+                </div>
+
+
+
+                <!-- DESTINATION -->
+
+                <p class="destination-label">
+
+                    Choose your destination
+
+                </p>
+
+
+
+                <!-- ==========================================
+                     DESTINATION BUTTONS
+                     ========================================== -->
+
+                <div class="buttons">
+
+
+                    <!-- FISAT → ANGAMALY -->
+
+                    <button type="button" onclick="fisatToAngamaly()">
+
+
+                        <span>
+
+                            Fisat
+
+                        </span>
+
+
+                        <i class="fa-solid fa-arrow-right">
+                        </i>
+
+
+                        <span>
+
+                            Angamaly
+
+                        </span>
+
+
+                    </button>
+
+
+
+                    <!-- ANGAMALY → FISAT -->
+
+                    <button type="button" onclick="angamalyToFisat()">
+
+
+                        <span>
+
+                            Angamaly
+
+                        </span>
+
+
+                        <i class="fa-solid fa-arrow-right">
+                        </i>
+
+
+                        <span>
+
+                            FISAT
+
+                        </span>
+
+
+                    </button>
+
+
+
+                    <!-- ANGAMALY → MOOKKANNOOR -->
+
+                    <button type="button" onclick="angamalyToMookannoor()">
+
+
+                        <span>
+
+                            Angamaly
+
+                        </span>
+
+
+                        <i class="fa-solid fa-arrow-right">
+                        </i>
+
+
+                        <span>
+
+                            Mookkannoor
+
+                        </span>
+
+
+                    </button>
+
+
+
+                    <!-- MOOKKANNOOR → ANGAMALY -->
+
+                    <button type="button" onclick="mookannoorToAngamaly()">
+
+
+                        <span>
+
+                            Mookkannoor
+
+                        </span>
+
+
+                        <i class="fa-solid fa-arrow-right">
+                        </i>
+
+
+                        <span>
+
+                            Angamaly
+
+                        </span>
+
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
         </div>
-        <!-- <div class="search">
-            <h4>Search for buses</h4>
-                <form class="buss">
-                    <div>
-                        <p>From</p>
-                        <input type="text" placeholder="Aluva Metro-station">
-                    </div>
-                    <div>
-                        <p>To</p>
-                        <input type="text" placeholder="choose destination">
-                    </div>
-                    <button>Search</button>
-                </form>
-        </div> -->
-     <div id="Ann1" class="Buses fit"></div>
-     <div id="Ann" class="Buses ang"></div>
-     <div id="Mok" class="Buses mok"></div>
-    <div id="default">
-        <h1>The  bus timings provided may vary according to the traffic conditions</h1>
-    </div>
-    <div>
-        <a href="auto.html" class="auto">Call an Auto <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-    </section> 
+
+
+
+        <!-- ==========================================
+             BUS RESULTS
+             
+             DO NOT CHANGE THESE IDs.
+             script.js uses them.
+             ========================================== -->
+
+
+        <!-- FISAT → ANGAMALY -->
+
+        <div id="Ann1" class="Buses fit">
+
+        </div>
+
+
+
+        <!-- ANGAMALY → FISAT -->
+
+        <div id="Ann" class="Buses ang">
+
+        </div>
+
+
+
+        <!-- ANGAMALY → MOOKKANNOOR -->
+
+        <div id="Mok" class="Buses mok">
+
+        </div>
+
+
+
+        <!-- MOOKKANNOOR → ANGAMALY -->
+
+        <div id="MokAng" class="Buses mokAng">
+
+        </div>
+
+
+
+        <!-- ==========================================
+             DEFAULT MESSAGE
+             ========================================== -->
+
+        <div id="default">
+
+
+            <h1>
+
+                The bus timings provided may vary
+                according to the traffic conditions
+
+            </h1>
+
+
+        </div>
+
+
+
+        <!-- ==========================================
+             CALL AN AUTO
+             ========================================== -->
+
+        <div class="auto-wrapper">
+
+
+            <a href="auto.html" class="auto">
+
+
+                <span>
+
+                    Call an Auto
+
+                </span>
+
+
+                <i class="fa-solid fa-arrow-right">
+                </i>
+
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         MOBILE MENU
+         ========================================== -->
+
     <script>
-        // JavaScript to toggle the dropdown menu
-        const menuIcon = document.getElementById('menu-icon');
-        const navLinks = document.getElementById('nav-links');
-    
-        menuIcon.addEventListener('click', () => {
-            // Toggle the 'active' class on the nav-links
-            navLinks.classList.toggle('active');
-    
-            // Optional: Toggle a class on the menu icon for animation
-            menuIcon.classList.toggle('open');
-        });
-    
-        // Close the dropdown menu when clicking outside of it
-        document.addEventListener('click', (event) => {
-            if (!menuIcon.contains(event.target) && !navLinks.contains(event.target)) {
-                navLinks.classList.remove('active');
-                menuIcon.classList.remove('open');
+
+
+        const menuIcon =
+            document.getElementById('menu-icon');
+
+
+        const navLinks =
+            document.getElementById('nav-links');
+
+
+
+        /* ------------------------------------------
+           OPEN / CLOSE MOBILE MENU
+           ------------------------------------------ */
+
+        menuIcon.addEventListener(
+            'click',
+            () => {
+
+                navLinks.classList.toggle('active');
+
+                menuIcon.classList.toggle('open');
+
             }
-        });
+        );
+
+
+
+        /* ------------------------------------------
+           CLOSE MENU WHEN CLICKING OUTSIDE
+           ------------------------------------------ */
+
+        document.addEventListener(
+            'click',
+            (event) => {
+
+
+                if (
+
+                    !menuIcon.contains(event.target) &&
+
+                    !navLinks.contains(event.target)
+
+                ) {
+
+
+                    navLinks.classList.remove('active');
+
+                    menuIcon.classList.remove('open');
+
+
+                }
+
+            }
+        );
+
+
     </script>
+
+
 </body>
+
 </html>

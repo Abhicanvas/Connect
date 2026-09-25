@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="auto.css">
     <script src="auto.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,25 +17,80 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  gtag('js', new Date());   
 
   gtag('config', 'G-MSD8W5SV0C');
 </script>
 <body>
+
     <nav class="navbar">
-        <nav class="navbar">
-            <div class="logo"> <a href="index.html"><img src="img/Frame 3.svg" alt=""></a></div>
-            <div class="menu-icon" id="menu-icon">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="about.html" onclick="navigateTo('about')">About</a></li>
-                <li><a href="#contact" onclick="navigateTo('contact')">Contact</a></li>
-                <li><a href="about.html#feedback" onclick="navigateTo('feedback')">Feedback</a></li>
-            </ul>
-        </nav>
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <a href="index.html">
+
+                <img
+                    src="img/Frame 3.svg"
+                    alt="Connect">
+
+            </a>
+
+        </div>
+
+
+
+        <!-- MOBILE MENU -->
+
+        <div
+            class="menu-icon"
+            id="menu-icon"
+            aria-label="Open navigation menu">
+
+            <div class="bar"></div>
+
+            <div class="bar"></div>
+
+            <div class="bar"></div>
+
+        </div>
+
+
+
+        <!-- NAVIGATION LINKS -->
+
+        <ul
+            class="nav-links"
+            id="nav-links">
+
+
+            <li>
+
+                <a
+                    href="about.html"
+                    onclick="navigateTo('about')">
+
+                    About
+
+                </a>
+
+            </li>
+
+
+
+            <li>
+
+               <li>
+                    <a href="about.html#feedback">Feedback</a>
+                </li>
+
+            </li>
+
+
+        </ul>
+
     </nav>
     <section>
         <div class="heading">
@@ -118,9 +174,33 @@
                 <a href="tel:+919846243502"><button>Call <i class="fa-solid fa-phone"></i></button></a>
             </div>
         </div>
-        <div>
-            <a href="main.html" class="next" >Search for Buses <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="auto-wrapper">
+
+
+            <a
+                href="main.html"
+                class="auto">
+
+
+                <span>
+
+                    Search for Buses
+
+                </span>
+
+
+                <i
+                    class="fa-solid fa-arrow-right">
+                </i>
+
+
+            </a>
+
+
         </div>
+
+
+    </section>
     </section>
     <script>
         // JavaScript to toggle the dropdown menu
