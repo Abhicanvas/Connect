@@ -5,8 +5,7 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Connect</title>
 
@@ -15,20 +14,16 @@
          MAIN CSS
          ========================================== -->
 
-    <link rel="stylesheet"
-          href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 
     <!-- ==========================================
          GOOGLE FONTS
          ========================================== -->
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofadi+One&display=swap"
@@ -39,9 +34,7 @@
          FONT AWESOME
          ========================================== -->
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 
     <!-- ==========================================
@@ -59,7 +52,6 @@
          ========================================== -->
 
     <style>
-
         /* ------------------------------------------
            BUS RESULT CARD
            ------------------------------------------ */
@@ -93,66 +85,48 @@
            the route graphic.
            ------------------------------------------ */
 
-        .Buses .bus-list .from {
+        .Buses .bus-list .from,
+        .Buses .bus-list .to {
+            position: absolute !important;
+            bottom: 24px;
+            width: 180px;
 
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
+            text-align: center;
+            gap: 4px;
             z-index: 5;
-
-            transform: translateY(-14px);
-
         }
 
-
-        /* ------------------------------------------
-           TO LOCATION
-           
-           Move destination slightly ABOVE
-           the route graphic.
-           ------------------------------------------ */
+        .Buses .bus-list .from {
+            left: 10% !important;
+        }
 
         .Buses .bus-list .to {
-
-            position: relative;
-
-            z-index: 5;
-
-            transform: translateY(-14px);
-
+            right: -10% !important;
+            left: auto !important;
         }
 
-
-        /* ------------------------------------------
-           PLACE NAME
-           ------------------------------------------ */
-
+        /* Place name */
         .Buses .bus-list .from h5,
         .Buses .bus-list .to h5 {
-
-            position: relative;
-
+            width: 100% !important;
+            margin: 0 0 5px 0 !important;
+            text-align: center !important;
             z-index: 6;
-
-            margin-top: 0;
-
-            margin-bottom: 5px;
-
         }
 
-
-        /* ------------------------------------------
-           TIME
-           ------------------------------------------ */
-
+        /* Time */
         .Buses .bus-list .from h6,
         .Buses .bus-list .to h6 {
-
-            position: relative;
-
+            width: 100% !important;
+            margin: 0 !important;
+            text-align: center !important;
             z-index: 6;
-
         }
-
 
         /* ------------------------------------------
            BUS NAME
@@ -178,62 +152,6 @@
             z-index: 7;
 
         }
-
-
-        /* ==========================================
-           TABLET
-           ========================================== */
-
-        @media (max-width: 900px) {
-
-            .Buses .bus-list .from,
-            .Buses .bus-list .to {
-
-                transform: translateY(-10px);
-
-            }
-
-        }
-
-
-        /* ==========================================
-           MOBILE
-           ========================================== */
-
-        @media (max-width: 768px) {
-
-            .Buses .bus-list {
-
-                min-width: 600px;
-
-            }
-
-
-            .Buses .bus-list .from,
-            .Buses .bus-list .to {
-
-                transform: translateY(-12px);
-
-            }
-
-        }
-
-
-        /* ==========================================
-           SMALL MOBILE
-           ========================================== */
-
-        @media (max-width: 480px) {
-
-            .Buses .bus-list .from,
-            .Buses .bus-list .to {
-
-                transform: translateY(-8px);
-
-            }
-
-        }
-
     </style>
 
 </head>
@@ -243,8 +161,7 @@
      GOOGLE ANALYTICS
      ========================================== -->
 
-<script async
-        src="https://www.googletagmanager.com/gtag/js?id=G-MSD8W5SV0C">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MSD8W5SV0C">
 </script>
 
 <script>
@@ -284,9 +201,7 @@
 
             <a href="index.html">
 
-                <img
-                    src="img/Frame 3.svg"
-                    alt="Connect">
+                <img src="img/Frame 3.svg" alt="Connect">
 
             </a>
 
@@ -296,10 +211,7 @@
 
         <!-- MOBILE MENU -->
 
-        <div
-            class="menu-icon"
-            id="menu-icon"
-            aria-label="Open navigation menu">
+        <div class="menu-icon" id="menu-icon" aria-label="Open navigation menu">
 
             <div class="bar"></div>
 
@@ -313,16 +225,12 @@
 
         <!-- NAVIGATION LINKS -->
 
-        <ul
-            class="nav-links"
-            id="nav-links">
+        <ul class="nav-links" id="nav-links">
 
 
             <li>
 
-                <a
-                    href="about.html"
-                    onclick="navigateTo('about')">
+                <a href="about.html" onclick="navigateTo('about')">
 
                     About
 
@@ -330,7 +238,7 @@
 
             </li>
 
-<!-- 
+            <!-- 
             <li>
 
                 <a
@@ -346,9 +254,7 @@
 
             <li>
 
-                <a
-                    href="#about.htmlfeedback"
-                    onclick="navigateTo('feedback')">
+                <a href="#about.htmlfeedback" onclick="navigateTo('feedback')">
 
                     Feedback
 
@@ -443,11 +349,7 @@
                     <div class="time-input-wrap">
 
 
-                        <input
-                            type="time"
-                            id="input-time"
-                            class="input-time"
-                            placeholder="9:00 am">
+                        <input type="time" id="input-time" class="input-time" placeholder="9:00 am">
 
 
                     </div>
@@ -476,9 +378,7 @@
 
                     <!-- FISAT → ANGAMALY -->
 
-                    <button
-                        type="button"
-                        onclick="fisatToAngamaly()">
+                    <button type="button" onclick="fisatToAngamaly()">
 
 
                         <span>
@@ -488,8 +388,7 @@
                         </span>
 
 
-                        <i
-                            class="fa-solid fa-arrow-right">
+                        <i class="fa-solid fa-arrow-right">
                         </i>
 
 
@@ -506,9 +405,7 @@
 
                     <!-- ANGAMALY → FISAT -->
 
-                    <button
-                        type="button"
-                        onclick="angamalyToFisat()">
+                    <button type="button" onclick="angamalyToFisat()">
 
 
                         <span>
@@ -518,8 +415,7 @@
                         </span>
 
 
-                        <i
-                            class="fa-solid fa-arrow-right">
+                        <i class="fa-solid fa-arrow-right">
                         </i>
 
 
@@ -536,9 +432,7 @@
 
                     <!-- ANGAMALY → MOOKKANNOOR -->
 
-                    <button
-                        type="button"
-                        onclick="angamalyToMookannoor()">
+                    <button type="button" onclick="angamalyToMookannoor()">
 
 
                         <span>
@@ -548,8 +442,7 @@
                         </span>
 
 
-                        <i
-                            class="fa-solid fa-arrow-right">
+                        <i class="fa-solid fa-arrow-right">
                         </i>
 
 
@@ -566,9 +459,7 @@
 
                     <!-- MOOKKANNOOR → ANGAMALY -->
 
-                    <button
-                        type="button"
-                        onclick="mookannoorToAngamaly()">
+                    <button type="button" onclick="mookannoorToAngamaly()">
 
 
                         <span>
@@ -578,8 +469,7 @@
                         </span>
 
 
-                        <i
-                            class="fa-solid fa-arrow-right">
+                        <i class="fa-solid fa-arrow-right">
                         </i>
 
 
@@ -613,9 +503,7 @@
 
         <!-- FISAT → ANGAMALY -->
 
-        <div
-            id="Ann1"
-            class="Buses fit">
+        <div id="Ann1" class="Buses fit">
 
         </div>
 
@@ -623,9 +511,7 @@
 
         <!-- ANGAMALY → FISAT -->
 
-        <div
-            id="Ann"
-            class="Buses ang">
+        <div id="Ann" class="Buses ang">
 
         </div>
 
@@ -633,9 +519,7 @@
 
         <!-- ANGAMALY → MOOKKANNOOR -->
 
-        <div
-            id="Mok"
-            class="Buses mok">
+        <div id="Mok" class="Buses mok">
 
         </div>
 
@@ -643,9 +527,7 @@
 
         <!-- MOOKKANNOOR → ANGAMALY -->
 
-        <div
-            id="MokAng"
-            class="Buses mokAng">
+        <div id="MokAng" class="Buses mokAng">
 
         </div>
 
@@ -677,9 +559,7 @@
         <div class="auto-wrapper">
 
 
-            <a
-                href="auto.html"
-                class="auto">
+            <a href="auto.html" class="auto">
 
 
                 <span>
@@ -689,8 +569,7 @@
                 </span>
 
 
-                <i
-                    class="fa-solid fa-arrow-right">
+                <i class="fa-solid fa-arrow-right">
                 </i>
 
 

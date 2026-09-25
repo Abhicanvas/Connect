@@ -37,17 +37,13 @@ body {
     */
 
     background:
-        linear-gradient(
-            rgba(56, 117, 230, 0.18),
-            rgba(56, 117, 230, 0.18)
-        ),
+        linear-gradient(rgba(56, 117, 230, 0.18),
+            rgba(56, 117, 230, 0.18)),
         url("img/background.png"),
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             #dcecff 0%,
             #eef6ff 48%,
-            #f9fcff 100%
-        );
+            #f9fcff 100%);
 
     background-size: cover;
 
@@ -148,8 +144,7 @@ body::after {
         1px solid rgba(255, 255, 255, 0.9);
 
     box-shadow:
-        0 8px 30px
-        rgba(38, 83, 170, 0.12);
+        0 8px 30px rgba(38, 83, 170, 0.12);
 }
 
 
@@ -171,8 +166,7 @@ body::after {
     border-radius: 50px;
 
     box-shadow:
-        0 5px 20px
-        rgba(44, 89, 180, 0.13);
+        0 5px 20px rgba(44, 89, 180, 0.13);
 
     transition: 0.3s ease;
 }
@@ -280,8 +274,7 @@ body::after {
         rgba(255, 255, 255, 0.85);
 
     box-shadow:
-        0 5px 18px
-        rgba(45, 87, 170, 0.12);
+        0 5px 18px rgba(45, 87, 170, 0.12);
 }
 
 
@@ -306,8 +299,7 @@ body::after {
 .menu-icon.open .bar:nth-child(1) {
 
     transform:
-        rotate(45deg)
-        translate(5px, 5px);
+        rotate(45deg) translate(5px, 5px);
 }
 
 
@@ -320,8 +312,7 @@ body::after {
 .menu-icon.open .bar:nth-child(3) {
 
     transform:
-        rotate(-45deg)
-        translate(5px, -5px);
+        rotate(-45deg) translate(5px, -5px);
 }
 
 
@@ -345,8 +336,7 @@ section {
     gap: 30px;
 
     padding:
-        65px 25px
-        90px;
+        65px 25px 90px;
 
     position: relative;
 }
@@ -385,26 +375,21 @@ section {
     border-radius: 30px;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             rgba(255, 255, 255, 0.91),
-            rgba(239, 247, 255, 0.73)
-        );
+            rgba(239, 247, 255, 0.73));
 
     backdrop-filter: blur(24px);
 
     -webkit-backdrop-filter: blur(24px);
 
     border:
-        1px solid
-        rgba(255, 255, 255, 0.9);
+        1px solid rgba(255, 255, 255, 0.9);
 
     box-shadow:
-        0 25px 70px
-        rgba(41, 84, 170, 0.18),
+        0 25px 70px rgba(41, 84, 170, 0.18),
 
-        inset 0 1px 0
-        rgba(255, 255, 255, 0.95);
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 
@@ -427,12 +412,10 @@ section {
     border-radius: 20px;
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             transparent,
             rgba(75, 133, 245, 0.8),
-            transparent
-        );
+            transparent);
 }
 
 
@@ -574,8 +557,7 @@ section {
         0 17px;
 
     border:
-        1px solid
-        rgba(73, 119, 220, 0.20);
+        1px solid rgba(73, 119, 220, 0.20);
 
     border-radius: 15px;
 
@@ -590,8 +572,7 @@ section {
     font-size: 15px;
 
     box-shadow:
-        0 5px 18px
-        rgba(50, 92, 173, 0.07);
+        0 5px 18px rgba(50, 92, 173, 0.07);
 
     transition: 0.25s ease;
 }
@@ -610,8 +591,7 @@ section {
         #4777ef;
 
     box-shadow:
-        0 0 0 4px
-        rgba(71, 119, 239, 0.10);
+        0 0 0 4px rgba(71, 119, 239, 0.10);
 }
 
 
@@ -650,8 +630,7 @@ section {
     gap: 6px;
 
     border:
-        1px solid
-        rgba(60, 105, 221, 0.25);
+        1px solid rgba(60, 105, 221, 0.25);
 
     border-radius: 15px;
 
@@ -670,8 +649,7 @@ section {
     cursor: pointer;
 
     box-shadow:
-        0 5px 18px
-        rgba(44, 85, 167, 0.06);
+        0 5px 18px rgba(44, 85, 167, 0.06);
 
     transition:
         transform 0.25s ease,
@@ -695,11 +673,9 @@ section {
     color: white;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             #3e6ee8,
-            #527df1
-        );
+            #527df1);
 
     border-color:
         transparent;
@@ -708,8 +684,7 @@ section {
         translateY(-4px);
 
     box-shadow:
-        0 12px 28px
-        rgba(58, 105, 225, 0.28);
+        0 12px 28px rgba(58, 105, 225, 0.28);
 }
 
 
@@ -751,12 +726,10 @@ section {
     -webkit-backdrop-filter: blur(18px);
 
     border:
-        1px solid
-        rgba(255, 255, 255, 0.88);
+        1px solid rgba(255, 255, 255, 0.88);
 
     box-shadow:
-        0 15px 45px
-        rgba(43, 82, 160, 0.10);
+        0 15px 45px rgba(43, 82, 160, 0.10);
 }
 
 
@@ -781,19 +754,15 @@ section {
     border-radius: 20px;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             rgba(246, 250, 255, 0.96),
-            rgba(232, 241, 255, 0.84)
-        );
+            rgba(232, 241, 255, 0.84));
 
     border:
-        1px solid
-        rgba(68, 113, 220, 0.12);
+        1px solid rgba(68, 113, 220, 0.12);
 
     box-shadow:
-        0 8px 25px
-        rgba(45, 85, 160, 0.07);
+        0 8px 25px rgba(45, 85, 160, 0.07);
 }
 
 
@@ -893,11 +862,9 @@ section {
     border-radius: 15px;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             #3e6ee8,
-            #557df2
-        );
+            #557df2);
 
     color: white;
 
@@ -908,8 +875,7 @@ section {
     cursor: pointer;
 
     box-shadow:
-        0 8px 20px
-        rgba(58, 105, 225, 0.25);
+        0 8px 20px rgba(58, 105, 225, 0.25);
 
     transition:
         0.25s ease;
@@ -945,9 +911,9 @@ section {
 
     grid-row: 4;
 
-    grid-column: 2 / 4;
+    grid-column: 3 / 4;
 
-    width: fit-content;
+    width: 140px;
 
     height: 2rem;
 
@@ -999,16 +965,14 @@ section {
     -webkit-backdrop-filter: blur(14px);
 
     border:
-        1px solid
-        rgba(255, 255, 255, 0.8);
+        1px solid rgba(255, 255, 255, 0.8);
 
     color: #71809d;
 
     text-align: center;
 
     box-shadow:
-        0 8px 25px
-        rgba(40, 80, 150, 0.06);
+        0 8px 25px rgba(40, 80, 150, 0.06);
 }
 
 
@@ -1054,11 +1018,9 @@ section {
     border-radius: 50px;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             #3769e5,
-            #596ff1
-        );
+            #596ff1);
 
     color: white;
 
@@ -1072,8 +1034,7 @@ section {
     font-weight: 700;
 
     box-shadow:
-        0 15px 35px
-        rgba(52, 101, 226, 0.30);
+        0 15px 35px rgba(52, 101, 226, 0.30);
 
     transition:
         0.3s ease;
@@ -1093,8 +1054,7 @@ section {
         translateY(-5px);
 
     box-shadow:
-        0 20px 45px
-        rgba(52, 101, 226, 0.40);
+        0 20px 45px rgba(52, 101, 226, 0.40);
 }
 
 
@@ -1121,8 +1081,7 @@ section {
     section {
 
         padding:
-            50px 18px
-            70px;
+            50px 18px 70px;
     }
 
 
@@ -1237,14 +1196,12 @@ section {
             blur(20px);
 
         border:
-            1px solid
-            rgba(255, 255, 255, 0.9);
+            1px solid rgba(255, 255, 255, 0.9);
 
         border-radius: 20px;
 
         box-shadow:
-            0 18px 45px
-            rgba(35, 75, 150, 0.18);
+            0 18px 45px rgba(35, 75, 150, 0.18);
     }
 
 
@@ -1280,8 +1237,7 @@ section {
         gap: 22px;
 
         padding:
-            35px 12px
-            55px;
+            35px 12px 55px;
     }
 
 
@@ -1397,11 +1353,11 @@ section {
        break the phone width, we allow the
        result card to scroll horizontally.
     */
-
+    /* 
     .bus-list {
 
         min-width: 600px;
-    }
+    } */
 
 
     /* DEFAULT MESSAGE */
@@ -1443,13 +1399,9 @@ section {
     */
 
     .search {
-    animation:
-        searchCardIn
-        0.5s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        0.05s
-        forwards;
-}
+        animation:
+            searchCardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+    }
 }
 
 
@@ -1496,8 +1448,7 @@ section {
     section {
 
         padding:
-            25px 8px
-            50px;
+            25px 8px 50px;
     }
 
 
@@ -1624,22 +1575,20 @@ section {
             none !important;
     }
 
-}/* =========================================================
+}
+
+/* =========================================================
    SIMPLE BUS ROUTE
    ========================================================= */
 
 .route-animation {
     grid-row: 1 / 4;
-    grid-column: 1 / 6;
-
+    grid-column: 2 / 8;
     width: 100%;
     height: 120px;
-
     position: relative;
-
     display: flex;
     align-items: center;
-
     overflow: hidden;
 }
 
@@ -1649,7 +1598,7 @@ section {
     position: absolute;
 
     left: 8%;
-    right: 8%;
+    right: 7%;
 
     top: 50%;
 
@@ -1670,7 +1619,7 @@ section {
     left: 0;
     top: 0;
 
-    width: 35%;
+    width: 50%;
     height: 100%;
 
     border-radius: 10px;
@@ -1739,38 +1688,14 @@ section {
        Very slow movement.
        Remove this line if you want it completely static.
     */
-    animation: slowBus 8s ease-in-out infinite alternate;
+    animation: none !important;
 }
 
 .route-bus i {
     font-size: 15px;
 }
 
-/* =========================================================
-   VERY SLOW ANIMATION
-   ========================================================= */
 
-@keyframes slowBus {
-
-    0% {
-        left: 5%;
-    }
-
-    100% {
-        left: 8%;
-    }
-}
-
-@keyframes slowRoute {
-
-    0% {
-        width: 25%;
-    }
-
-    100% {
-        width: 45%;
-    }
-}
 
 /* =========================================================
    MOBILE
@@ -1836,6 +1761,7 @@ section {
         animation: none;
     }
 }
+
 /* =========================================================
    CONNECT LIVE PAGE EFFECTS
    MAIN BUS SEARCH PAGE
@@ -1880,11 +1806,7 @@ body {
 .search {
     opacity: 0;
     animation:
-        searchCardIn
-        0.8s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        0.15s
-        forwards;
+        searchCardIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
 }
 
 
@@ -1907,11 +1829,7 @@ body {
 .search-badge {
     opacity: 0;
     animation:
-        badgeIn
-        0.5s
-        ease-out
-        0.65s
-        forwards;
+        badgeIn 0.5s ease-out 0.65s forwards;
 }
 
 
@@ -1934,21 +1852,13 @@ body {
 .search h4 {
     opacity: 0;
     animation:
-        searchTitleIn
-        0.6s
-        ease-out
-        0.8s
-        forwards;
+        searchTitleIn 0.6s ease-out 0.8s forwards;
 }
 
 .search-description {
     opacity: 0;
     animation:
-        searchTitleIn
-        0.6s
-        ease-out
-        0.95s
-        forwards;
+        searchTitleIn 0.6s ease-out 0.95s forwards;
 }
 
 
@@ -1971,11 +1881,7 @@ body {
 .in-time {
     opacity: 0;
     animation:
-        inputIn
-        0.6s
-        ease-out
-        1.1s
-        forwards;
+        inputIn 0.6s ease-out 1.1s forwards;
 }
 
 
@@ -1986,11 +1892,7 @@ body {
 .destination-label {
     opacity: 0;
     animation:
-        inputIn
-        0.6s
-        ease-out
-        1.25s
-        forwards;
+        inputIn 0.6s ease-out 1.25s forwards;
 }
 
 
@@ -2013,10 +1915,7 @@ body {
 .buss .buttons button {
     opacity: 0;
     animation:
-        destinationIn
-        0.55s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
+        destinationIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .buss .buttons button:nth-child(1) {
@@ -2057,12 +1956,10 @@ body {
     height: 100%;
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             transparent,
             rgba(255, 255, 255, 0.28),
-            transparent
-        );
+            transparent);
 
     transform: skewX(-20deg);
 
@@ -2122,10 +2019,7 @@ body {
 
 .Buses .bus-list {
     animation:
-        busResultsIn
-        0.65s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        both;
+        busResultsIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 
@@ -2144,8 +2038,7 @@ body {
     transform: translateY(-3px);
 
     box-shadow:
-        0 14px 35px
-        rgba(45, 85, 160, 0.12);
+        0 14px 35px rgba(45, 85, 160, 0.12);
 }
 
 
@@ -2225,12 +2118,10 @@ body {
     height: 100%;
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             transparent,
             rgba(255, 255, 255, 0.25),
-            transparent
-        );
+            transparent);
 
     transform: skewX(-20deg);
 
@@ -2248,8 +2139,7 @@ body {
     transform: translateY(-4px);
 
     box-shadow:
-        0 12px 25px
-        rgba(58, 105, 225, 0.32);
+        0 12px 25px rgba(58, 105, 225, 0.32);
 }
 
 .bus-list button:active {
@@ -2275,11 +2165,7 @@ body {
 
 #default {
     animation:
-        defaultMessageIn
-        0.7s
-        ease-out
-        2s
-        both;
+        defaultMessageIn 0.7s ease-out 2s both;
 }
 
 
@@ -2303,11 +2189,7 @@ body {
     opacity: 0;
 
     animation:
-        autoButtonIn
-        0.7s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        2.25s
-        forwards;
+        autoButtonIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 2.25s forwards;
 }
 
 
@@ -2332,12 +2214,10 @@ body {
     height: 100%;
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             transparent,
             rgba(255, 255, 255, 0.25),
-            transparent
-        );
+            transparent);
 
     transform: skewX(-20deg);
 
@@ -2413,19 +2293,13 @@ body {
     border-radius: 20px;
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             transparent,
             rgba(255, 255, 255, 0.9),
-            transparent
-        );
+            transparent);
 
     animation:
-        searchShine
-        5s
-        ease-in-out
-        2s
-        infinite;
+        searchShine 5s ease-in-out 2s infinite;
 
     pointer-events: none;
 }
@@ -2437,10 +2311,7 @@ body {
 
 .navbar {
     animation:
-        navbarIn
-        0.65s
-        ease-out
-        both;
+        navbarIn 0.65s ease-out both;
 }
 
 @keyframes navbarIn {
@@ -2464,12 +2335,10 @@ body {
 
 .navbar .logo:hover {
     transform:
-        translateY(-2px)
-        scale(1.02);
+        translateY(-2px) scale(1.02);
 
     box-shadow:
-        0 8px 25px
-        rgba(44, 89, 180, 0.18);
+        0 8px 25px rgba(44, 89, 180, 0.18);
 }
 
 
@@ -2555,6 +2424,7 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
 /* =========================================================
    BUS CARD - CLEAN LOCATION/TIME POSITIONING
    ========================================================= */
@@ -2581,4 +2451,255 @@ body {
     font-size: 22px;
     font-weight: 700;
     line-height: 1.2;
+}
+
+/* ==========================================
+   BUS MOBILE FIX
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .Buses .bus-list {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+
+        padding: 12px;
+
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        grid-template-rows: repeat(4, 42px);
+
+        overflow: hidden;
+        position: relative;
+    }
+
+
+    /* ==========================================
+       SOURCE LOCATION
+       ========================================== */
+
+    .Buses .bus-list .from {
+        position: absolute !important;
+
+        left: 6% !important;
+        right: auto !important;
+        bottom: 18px !important;
+
+        width: 90px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        gap: 3px !important;
+
+        transform: none !important;
+
+        text-align: center !important;
+        z-index: 10 !important;
+    }
+
+
+    /* ==========================================
+       DESTINATION LOCATION
+       ========================================== */
+
+    .Buses .bus-list .to {
+        position: absolute !important;
+
+        right: 6% !important;
+        left: auto !important;
+        bottom: 18px !important;
+
+        width: 90px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        gap: 3px !important;
+
+        transform: none !important;
+
+        text-align: center !important;
+        z-index: 10 !important;
+    }
+
+
+    /* ==========================================
+       LOCATION NAME
+       ========================================== */
+
+    .Buses .bus-list .from h5,
+    .Buses .bus-list .to h5 {
+
+        width: 100% !important;
+
+        font-size: 15px !important;
+        line-height: 18px !important;
+
+        margin: 0 !important;
+
+        text-align: center !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* ==========================================
+       TIME
+       ========================================== */
+
+    .Buses .bus-list .from h6,
+    .Buses .bus-list .to h6 {
+
+        width: 100% !important;
+
+        font-size: 12px !important;
+        line-height: 16px !important;
+
+        margin: 0 !important;
+
+        text-align: center !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* ==========================================
+       BUS NAME
+       ========================================== */
+
+    .Buses .bus-list .time {
+
+        position: absolute !important;
+
+        left: 115% !important;
+        bottom: 15px !important;
+
+        transform: translateX(-50%) !important;
+
+        width: 105px !important;
+
+        text-align: center !important;
+        height: 25px;
+        z-index: 8 !important;
+    }
+
+
+    .Buses .bus-list .time p {
+
+        margin: 0 !important;
+
+        font-size: 11px !important;
+        line-height: 14px !important;
+
+        text-align: center !important;
+    }
+
+
+    /* ==========================================
+       ROUTE GRAPHIC
+       ========================================== */
+
+    .Buses .bus-list .route-animation {
+
+        width: 150% !important;
+
+        margin: 0 auto !important;
+    }
+
+
+    /* ==========================================
+       STOP DIRECTION BUTTON
+       ========================================== */
+
+    .Buses .bus-list button {
+
+        width: 68px !important;
+        height: 48px !important;
+
+        min-width: 68px !important;
+        max-width: 68px !important;
+
+        min-height: 48px !important;
+        max-height: 48px !important;
+
+        padding: 3px 5px !important;
+
+        font-size: 14px !important;
+        line-height: 15px !important;
+
+        border-radius: 13px !important;
+
+        box-sizing: border-box;
+    }
+}
+
+
+/* ==========================================
+   VERY SMALL PHONES
+   ========================================== */
+
+@media (max-width: 480px) {
+
+    .Buses .bus-list {
+
+        padding: 10px;
+
+        grid-template-rows: repeat(4, 40px);
+    }
+
+
+    .Buses .bus-list .from,
+    .Buses .bus-list .to {
+
+        width: 82px !important;
+        bottom: 17px !important;
+    }
+
+
+    .Buses .bus-list .from {
+        left: 5% !important;
+    }
+
+
+    .Buses .bus-list .to {
+        right: 5% !important;
+    }
+
+
+    .Buses .bus-list .from h5,
+    .Buses .bus-list .to h5 {
+
+        font-size: 14px !important;
+        line-height: 17px !important;
+    }
+
+
+    .Buses .bus-list .from h6,
+    .Buses .bus-list .to h6 {
+
+        font-size: 11px !important;
+        line-height: 15px !important;
+    }
+
+
+    .Buses .bus-list button {
+
+        width: 64px !important;
+        height: 46px !important;
+
+        min-width: 64px !important;
+        max-width: 64px !important;
+
+        min-height: 46px !important;
+        max-height: 46px !important;
+
+        font-size: 13px !important;
+        line-height: 14px !important;
+    }
 }

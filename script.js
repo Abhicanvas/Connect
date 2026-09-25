@@ -40,7 +40,7 @@ function toggleMenu() {
    DIRECT MENU
    ========================================================= */
 
-const directM = () => {};
+const directM = () => { };
 
 
 /* =========================================================
@@ -117,7 +117,7 @@ const addBuses = () => {
 
 
         {
-            name: "Pandikappilly-Moonnamparambu-Karukutty",
+            name: "Pandipilly",
 
             times: [
                 "3:58 pm"
@@ -132,7 +132,7 @@ const addBuses = () => {
 
 
         {
-            name: "Waiting shead-Azhakam-Karukutty",
+            name: "FISAT ARCH",
 
             times: [
                 "4:44 pm"
@@ -185,19 +185,9 @@ const addBuses = () => {
                 </div>
 
 
-                <div class="from"
-                     style="
-                        position:absolute;
-                        left:24px;
-                        bottom:24px;
-                        z-index:5;
-                        display:flex;
-                        flex-direction:column;
-                        gap:3px;
-                    ">
+                <div class="from">
 
-                    <h6 class="bus-time"
-                        style="margin:0;">
+                    <h6 class="bus-time">
                         ${ti}
                     </h6>
 
@@ -209,50 +199,31 @@ const addBuses = () => {
                 </div>
 
 
-                <div class="to"
-                     style="
-                        position:absolute;
-                        left:38%;
-                        bottom:24px;
-                        z-index:5;
-                        display:flex;
-                        flex-direction:column;
-                        gap:3px;
-                    ">
+                <div class="to">
 
-                    <h6 class="bus-time"
-                        style="margin:0;">
+                    <h6 class="bus-time">
                         ${bus.totime[index]}
                     </h6>
 
-                    <h5 class="bus-place"
-                        style="margin:0;">
+                    <h5 class="bus-place">
                         Angamaly
                     </h5>
 
                 </div>
 
 
-                <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>
-                    Stop Direction >>
-                </button>
 
 
                 <div class="time">
 
                     <p>${bus.name}</p>
 
-                    ${
-                        bus.special
-                        ? `
-                            <small class="special-route">
-                                📍 Arrives at FISAT College Gate
-                                <br>
-                                <strong>Different route</strong>
-                            </small>
+                    ${bus.special
+                    ? `
+                          
                         `
-                        : ''
-                    }
+                    : ''
+                }
 
                 </div>
 
@@ -390,16 +361,7 @@ const addBuses1 = () => {
                 </div>
 
 
-                <div class="from"
-                     style="
-                        position:absolute;
-                        left:24px;
-                        bottom:24px;
-                        z-index:5;
-                        display:flex;
-                        flex-direction:column;
-                        gap:3px;
-                    ">
+                <div class="from">
 
                     <h6 class="bus-time"
                         style="margin:0;">
@@ -414,16 +376,7 @@ const addBuses1 = () => {
                 </div>
 
 
-                <div class="to"
-                     style="
-                        position:absolute;
-                        left:38%;
-                        bottom:24px;
-                        z-index:5;
-                        display:flex;
-                        flex-direction:column;
-                        gap:3px;
-                    ">
+                <div class="to">
 
                     <h6 class="bus-time"
                         style="margin:0;">
@@ -438,9 +391,6 @@ const addBuses1 = () => {
                 </div>
 
 
-                <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>
-                    Stop Direction >>
-                </button>
 
 
                 <div class="time">
@@ -628,16 +578,7 @@ const addMookkannoorToAngamaly = () => {
             </div>
 
 
-            <div class="from"
-                 style="
-                    position:absolute;
-                    left:24px;
-                    bottom:24px;
-                    z-index:5;
-                    display:flex;
-                    flex-direction:column;
-                    gap:3px;
-                ">
+            <div class="from">
 
                 <h6 class="bus-time"
                     style="margin:0;">
@@ -652,16 +593,7 @@ const addMookkannoorToAngamaly = () => {
             </div>
 
 
-            <div class="to"
-                 style="
-                    position:absolute;
-                    left:38%;
-                    bottom:24px;
-                    z-index:5;
-                    display:flex;
-                    flex-direction:column;
-                    gap:3px;
-                ">
+            <div class="to">
 
                 <h6 class="bus-time"
                     style="margin:0;">
@@ -676,9 +608,7 @@ const addMookkannoorToAngamaly = () => {
             </div>
 
 
-            <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>
-                Stop Direction >>
-            </button>
+           
 
         `;
 
@@ -688,8 +618,9 @@ const addMookkannoorToAngamaly = () => {
     });
 
 };
-
-
+//  <button onclick='window.location.href="https://maps.app.goo.gl/y6qQhxeokHwmD8Wq8"'>
+//                 Stop Direction >>
+//             </button>
 /* =========================================================
    ANGAMALY -> MOOKKANOOR
    ========================================================= */
@@ -834,16 +765,7 @@ const toMookannor = () => {
             </div>
 
 
-            <div class="from"
-                 style="
-                    position:absolute;
-                    left:24px;
-                    bottom:24px;
-                    z-index:5;
-                    display:flex;
-                    flex-direction:column;
-                    gap:3px;
-                ">
+            <div class="from">
 
                 <h6 class="bus-time"
                     style="margin:0;">
@@ -858,16 +780,7 @@ const toMookannor = () => {
             </div>
 
 
-            <div class="to"
-                 style="
-                    position:absolute;
-                    left:38%;
-                    bottom:24px;
-                    z-index:5;
-                    display:flex;
-                    flex-direction:column;
-                    gap:3px;
-                ">
+            <div class="to">
 
                 <h6 class="bus-time"
                     style="margin:0;">
@@ -882,9 +795,7 @@ const toMookannor = () => {
             </div>
 
 
-            <button onclick='window.open("https://maps.app.goo.gl/qn7uvrG3CNs6uC6L9","blank")'>
-                Stop Direction >>
-            </button>
+           
 
         `;
 
